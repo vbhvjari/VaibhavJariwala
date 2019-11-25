@@ -1,0 +1,8 @@
+In RHEL 6
+1. mount -oremount,rw /
+2. chroot /
+----------------------------------
+In RHEL 7
+1. mount -oremount,rw /sysroot
+2. chroot /sysroot 
+----------------------------------

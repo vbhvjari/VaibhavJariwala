@@ -1,0 +1,69 @@
+Configuration at server side,
+
+1. Install stunnel and openssl, 
+   yum install stunnel openssl -y
+
+2. Make your own certificate,
+   cd /etc/pki/tls/certs
+   make stunnel.pem
+
+3. Verify certificate,
+   openssl verify /etc/pki/tls/certs/stunnel.pem
+
+4. Configuration file: /etc/stunnel/stunnel.conf ;	If it doesn’t exist, create by own 
+
+   cert = /etc/pki/tls/certs/stunnel.pem
+   chroot = /var/run/stunnel
+   setuid = nobody
+   setgid = nobody
+   pid = /stunnel.pid
+   output = /var/log/stunnel.log
+   debug 7
+    
+   [https]
+   accept = 20003
+   connect = 127.0.0.1:80
+   TIMEOUTclose = 3
+
+5. Create chroot directory if doesn’t exist and give it ownership to nobody user,
+   mkdir -p /var/run/stunnel
+   chown nobody:nobody /var/run/stunnel
+
+6. If firewall/iptables are enabled then allow ports to enable stunnel. 
+
+7. Start stunnel,
+   stunnel /etc/stunnel/stunnel.conf
+--------------------------------------------------------------------------------------------------------------------------
+
+Configuration at client side,
+
+1. Install stunnel,
+   yum install stunnel -y
+
+2. Configuration file: /etc/stunnel/stunnel.conf ;	If it doesn’t exist, create by own
+
+   chroot = /var/run/stunnel
+   setuid = nobody
+   setgid = nobody
+   pid = /stunnel.pid
+   output = /var/log/stunnel.log
+   debug 7
+   client = yes
+    
+   [for www]
+   accept = 80
+   connect = <server's IP>:20003
+   TIMEOUTclose = 3
+
+3. Create chroot directory if doesn’t exist and give it ownership to nobody user,
+   mkdir -p /var/run/stunnel
+   chown nobody:nobody /var/run/stunnel
+   
+4. If firewall/iptables are enabled then allow ports to enable stunnel. 
+
+5. Start stunnel,
+   stunnel /etc/stunnel/stunnel.conf
+
+6. Verify from client,
+   telnet localhost 80
+--------------------------------------------------------------------------------------------------------------------------

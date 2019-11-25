@@ -1,0 +1,12 @@
+Problem: Particular user isn't able to login through putty (directly) but able to login through root user (su - username)
+Error: server unexpectedly closed network connection
+
+Troubleshooting:
+1. Make sure account is not expired 
+2. Make sure user is not locked
+3. If not then try,
+   ssh unixl1@localhost  
+     Error:Your account has expired; please contact your system administrator
+     Connection closed by 127.0.0.1
+
+   chage -e <DD-MM-YYYY> unixl1

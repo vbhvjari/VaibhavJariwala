@@ -1,0 +1,11 @@
+1. check with e2fsck 
+   Command: e2fsck -f <partition>
+
+2. check alternate/backup superblovk
+   Command: dumpe2fs <partition> | grep -i superblock
+
+3. Recover superblock
+   Command: e2fsck -f -b <backup superblock> <partition>
+
+Here, -f : forcefully check file system even if it is clean
+      -b : user alternate superblock if primary one is corrupted

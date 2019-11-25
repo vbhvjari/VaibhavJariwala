@@ -1,0 +1,12 @@
+Command not found: error
+
+>Make sure program is installed.
+
+>If program is installed then, OS isn’t able to find its executable file in PATH variable.
+	To find executable file location,
+	Command: whereis <command name>
+	Command: which <command name>
+	Add executable file location in PATH variable permanently.
+
+>Reference:
+http://www.golinuxhub.com/2012/09/bash-command-not-found.html

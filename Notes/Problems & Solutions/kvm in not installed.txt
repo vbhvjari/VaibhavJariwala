@@ -1,0 +1,13 @@
+1. Make sure kvm package is installed
+   yum install kvm
+
+2. Make sure virtualization in bios is enabled
+   1. To check,
+      grep -i vmx /proc/cpuinfo
+
+   2. To enable virtualization in vmware,
+      > shutdown guest machine
+      > Edit virtual machine settings
+      > Processors
+      > Virtualization engine
+      > select "Virtualize Intel VT-x/EPT or AMD-V/RVI"

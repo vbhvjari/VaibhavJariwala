@@ -1,0 +1,27 @@
+Issue: Server refused to allocate pty
+
+Method-1: vi /etc/fstab
+
+none	/dev/pts	devpts	gid=5,mode=620	0	0
+OR
+devpts	/dev/pts	devpts	gid=5,mode=620	0	0
+
+mount -a
+------------------------------------------------------------------------------------------------------------------
+Method-2: 
+mount -t devpts -o uid=0,gid=5,,mode=620	devpts	/dev/pts
+------------------------------------------------------------------------------------------------------------------
+uid=0	  root
+gid=5	  tty group
+mode=620  permissions	
+------------------------------------------------------------------------------------------------------------------
+
+devpts: virtual filesystem; mounted at /dev/pts; 
+	contains only device files which represent slaves to the multiplexing master located at /dev/ptmx
+
+/dev/pts: PTY slaves
+
+PTY: pseudoterminal
+     pair of pseudo-devices – a slave and a master; provide a special sort of communication channel
+
+/dev/pts/0 is a file that is associated with one of your open terminal emulators(PTY)

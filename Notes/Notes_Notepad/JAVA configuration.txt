@@ -1,0 +1,13 @@
+1. Install java using rpm/script
+2. Configure java
+   /usr/sbin/alternatives --config java
+   Here, +: current selection; *: best selection
+
+3. Verify java
+   java -version
+
+4. Set environment variable
+   1. export JAVA_HOME=/usr/java/jre1.8.0_151/bin/java
+   2. Add following line in particular user's bash_profile OR to make changes for user then in /etc/environment or /etc/profile
+      export JAVA_HOME=/usr/java/jre1.8.0_151/bin/java
+      export PATH=$PATH: /usr/java/jre1.8.0_151/bin/java

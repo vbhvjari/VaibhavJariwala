@@ -1,0 +1,22 @@
+Increase session timeout/ timeout policy for shell
+
+export TMOUT=<seconds>
+
+------------------------------------------------------------------------------------------------
+To make permanent changes
+edit in bashrc or bash_profile 
+
+TMOUT=<seconds>
+readonly TMOUT
+export TMOUT
+
+readonly command: readonly; user cannot change the value of TMOUT
+
+------------------------------------------------------------------------------------------------
+Disable timeout
+
+export TMOUT=0
+OR
+unset TMOUT
+
+readonly variable can only be disabled by root user

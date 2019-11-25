@@ -1,0 +1,23 @@
+Issue: Network issue_unit network service entered failed state
+       Failed to start LSB Bring updown networking
+       Unable to restart network service
+
+Solution:
+
+Method-1:
+1. Make sure right MAC is mentioned in configuration file: /etc/sysconfig/network-scripts/ifcfg-
+   To check MAC, ifconfig -a
+   In configuration file, HOWADDR=<MAC address>
+
+Method-2:
+
+1. Stop and start NetworkManager
+   systemctl stop NetworkManager
+   systemctl start NetworkManager
+
+2. systemctl stop NetworkManager
+   systemctl disable NetworkManager
+   reboot
+   Check
+   systemctl start NetworkManager
+   systemctl enable NetworkManager

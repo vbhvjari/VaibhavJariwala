@@ -1,0 +1,23 @@
+NFSv4.1 (NFS mount option: minorversion=1)
+
+By default, NFS version: 4
+
+***********************************************************************************
+minor versioning: NFS protocol version number; 
+
+Before kernel 2.6.38, minorversion=0;	option not recognized
+After kernel 2.6.38,    minorversion=1;	enables no of advance features
+
+***********************************************************************************
+Determine current nfs version
+nfsstat
+
+For NFS server:	nfsstat –s
+For NFS Client:	nfsstat –c
+***********************************************************************************
+Manually mount
+mount -o minorversion=1 172.19.1.43:/SFTP /sftp
+
+Automatic mount (in /etc/fstab)
+172.19.1.43:/SFTP	/sftp	nfs	defaults,minorversion=1		0	0		
+***********************************************************************************

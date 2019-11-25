@@ -1,0 +1,6 @@
+Create LV with max size available in VG
+lvcreate -l 100%FREE -n <LV_name> <VG_name>
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+Extend LV upto max size available
+lvextend -l 100%FREE /dev/VG_name/LV_name
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=

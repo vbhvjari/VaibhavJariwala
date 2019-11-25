@@ -1,0 +1,21 @@
+Check current entropy,
+cat /proc/sys/kernel/random/entropy_avail
+----------------------------------------------------------------------------------------------
+To increase entropy,
+
+1. Check current value,
+   cat /proc/sys/kernel/random/entropy_avail
+
+2. Take backup of /etc/sysctl.conf 
+   cp -p /etc/sysctl.conf /etc/sysctl.conf-$(date '+%Y.%m.%d.%H%M%S')
+
+3. Add following lines to configuration files by running following commands,
+   echo "# Add support for intel rdrand to provide hardware entropy." >> /etc/sysctl.conf
+   echo "kernel.random.read_wakeup_threshold = 2048" >> /etc/sysctl.conf
+   echo "kernel.random.write_wakeup_threshold = 3072" >> /etc/sysctl.conf
+   
+4. Make changes permanent,
+   sysctl -p
+
+5. Check increased value,
+   cat /proc/sys/kernel/random/entropy_avail 

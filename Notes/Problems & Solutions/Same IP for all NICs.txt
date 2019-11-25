@@ -1,0 +1,6 @@
+Issue: Even if different IPs configured on diffeent NICs, same IP appears on all NICs
+
+In configuration file, mention hardware address/MAC address
+
+Command to check MAC address
+ethtool -P etho

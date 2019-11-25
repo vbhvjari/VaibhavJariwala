@@ -1,0 +1,2 @@
+ls /dev/sr0
+mount /dev/sr0 /media

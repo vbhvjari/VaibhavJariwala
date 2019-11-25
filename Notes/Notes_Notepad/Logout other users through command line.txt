@@ -1,0 +1,12 @@
+Logout other users through command line
+(root user is must)
+
+1. Check currently login users using following command,
+   w
+
+2. Kill user,
+   pkill -KILL -u <username>
+
+Example: pkill -KILL -u unixl1
+
+3. Verify with w command 

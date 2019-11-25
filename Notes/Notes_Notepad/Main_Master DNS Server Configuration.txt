@@ -1,0 +1,98 @@
+Server machine
+Hostname: vclient2
+IP address: 192.168.5.7/24
+
+Client machine
+Hostname: vclient3
+IP address: 192.168.5.6/24
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+At Server Side
+
+1. Install bind package
+   yum install bind -y
+------------------------------------------------------------------------------------------------------------------------
+2. Configure file /etc/named.conf
+   Line-11: listen-on port 53 { 192.168.5.7; };		#Here, 192.168.5.7 is server's IP
+   Line-17: allow-query     { 192.168.5.6/24; };	#Here, 192.168.5.6 is server's IP
+------------------------------------------------------------------------------------------------------------------------
+3. Start and enable named service
+   systemctl start named				
+   systemctl enable named				
+   #In RHEL 6: service named start
+   #In RHEL 6: chkconfig named on
+------------------------------------------------------------------------------------------------------------------------
+4. Configure file /etc/named.rfc1912.zones
+   Line-19: zone "jariwala.com" IN { 			#Forward zone; jariwala.com is domain name choosen
+   Line-31: zone "5.168.192.in-addr.arpa" IN {		#Reverse zone; as prefix is 24; there will be 3 dots
+------------------------------------------------------------------------------------------------------------------------
+5. Restart named service
+   systemctl restart named
+   #In RHEL 6: service named restart				
+------------------------------------------------------------------------------------------------------------------------
+6. Configure file /var/named/named.localhost					#Forward zone file
+   
+   $TTL 1D
+   @       IN SOA vclient2.jariwala.com. root.vclient2.jariwala.com.(
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      vclient2.jariwala.com.						#NS: NameServer is DNS server
+vclient2        IN      A       192.168.5.7					#DNS server
+vclient3        IN      A       192.168.5.6					#DNS client
+main_server     IN      CNAME   vclient2.jariwala.com.				#CNAME: main_server is alias
+------------------------------------------------------------------------------------------------------------------------
+7. Restart named service
+   systemctl restart named				
+   #In RHEL 6: service named restart
+------------------------------------------------------------------------------------------------------------------------
+8. Configure file /var/named/named.loopback					#Reverse zone file
+   
+   $TTL 1D
+   @       IN SOA vclient2.jariwala.com. root.vclient2.jariwala.com.(
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+        NS      vclient2.jariwala.com.						#NS: NameServer is DNS server
+7       PTR     192.168.5.7							#DNS server; As prefix is /24, only 1 dot value
+6       PTR     192.168.5.6							#DNS client; As prefix is /24, only 1 dot value
+------------------------------------------------------------------------------------------------------------------------
+9. Restart named service
+   systemctl restart named
+   #In RHEL 6: service named restart
+------------------------------------------------------------------------------------------------------------------------
+10. Configure /etc/resolv.conf
+    domain jariwala.com
+    search jariwala.com
+    nameserver 192.168.5.7							#NameServer is DNS server
+------------------------------------------------------------------------------------------------------------------------
+11. Allow DNS service in firewall
+    firewall-cmd --permanent --add-service=dns
+    #In RHEL 6: iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 53 -j ACCEPT
+------------------------------------------------------------------------------------------------------------------------
+12. Reload firewall service
+    firewall-cmd --reload
+    #In RHEL 6: service iptables save
+------------------------------------------------------------------------------------------------------------------------
+13. Verify
+    nslookup 192.168.5.7
+    nslookup vclient3.jariwala.com 
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+At Client Side
+
+1. Configure /etc/resolv.conf
+   domain jariwala.com
+   search jariwala.com
+   nameserver 192.168.5.7							#NameServer is DNS server 
+------------------------------------------------------------------------------------------------------------------------
+2. Verify
+   nslookup vclient3.jariwala.com
+   nslookup 192.168.5.7
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+   

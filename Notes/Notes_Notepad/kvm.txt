@@ -1,0 +1,28 @@
+Install kvm
+
+1. yum install kvm
+2. yum install python-virtinst -y
+3. yum install libvirt libvirt-python -y
+4. yum install virt-manager
+
+5. Start/enable libvirtd service
+   service libvirtd start
+   chkconfig libvirtd on
+
+6. Make sure, "Virtualize Intel VT-x/EPT or AMD-V/RVI" is enabled
+   Edit Virtual Machine Settings>Processors>Virtualization engine    
+
+******************************************************************************************************************
+Create secondary storage
+
+Command: virt-manager
+Virtual Machine Manager>Connection Details>Storage
+
+******************************************************************************************************************
+
+Create virtual networks
+
+Command: virt-manager
+Virtual Machine Manager>Connection Details>Virtual Network
+
+******************************************************************************************************************

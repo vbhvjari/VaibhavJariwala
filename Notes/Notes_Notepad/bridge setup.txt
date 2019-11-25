@@ -1,0 +1,118 @@
+Example: bridging between eth0 and bridge0
+
+Physical interface: eth0
+Virtual/bridge interface: bridge0
+
+IP: 192.168.5.2
+NETMASK:255.255.255.0
+GATEWAY: 192.168.5.1
+
+IP address is assigned to bridge interface and MAC address is assigned to physical interface.
+---------------------------------------------------------------------------------------------------------------------------------------------
+1. Stop and disable NetworkManager at boot
+   service NetworkManager stop
+   chkconfig NetworkManager off
+
+2. stop iptables or add rules 
+   service iptables stop
+   chkconfig iptables off
+
+3. Set SELinux to either permissive or disable mode
+   getenforce
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Configure physical interface (eth0)
+
+1. take backup of configuration file
+   cp -p /etc/sysconfig/network-scripts/ifcfg-eth0 /tmp/
+
+2. Make eth0 down
+   ifdown eth0
+
+3. Modify 
+   vi /etc/sysconfig/network-scripts/ifcfg-eth0
+   
+	DEVICE="eth0"
+	BOOTPROTO=none
+	HWADDR="00:0C:29:A6:43:C7"
+	#IPV6INIT="yes"
+	NM_CONTROLLED="no"
+	ONBOOT="yes"
+	TYPE="Ethernet"
+	UUID="4e2fbd27-eac3-410f-bf53-837eb4629ce3"
+	#IPADDR=192.168.5.2
+	#NETMASK=255.255.255.0
+	BRIDGE="bridge0"
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Configure bridge interface (bridge0)
+
+1. vi /etc/sysconfig/network-scripts/ifcfg-bridge0
+
+	DEVICE="bridge0"
+	TYPE="Bridge"
+	BOOTPROTO="none"
+	IPADDR=192.168.5.2
+	NETMASK=255.255.255.0
+	ONBOOT="yes"
+	DELAY=0
+	STP=on
+	NM_CONTROLLED="no"
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Make interfaces up (bridge interface first)
+
+1. ifup bridge0
+2. ifup eth0
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+Check bridge interface
+
+1. brctl show bridge0
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+In virtual machine manager
+Edit > Connection details > Virtual networks > 
+Make defaults inactive (select X; do not delete; might be useful in future)
+---------------------------------------------------------------------------------------------------------------------------------------------
+Attach bridge interface to VMs
+
+1. virsh attach-interface --domain Test --type bridge --source bridge0 --model virtio --config
+
+   Here, Test is the name of VM seen in virtual machine manager home window
+         bridge0 is bridge interface
+
+2. verify
+   virsh domiflist Test
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+In VM,
+
+1. make eth0 down if it is up 
+   ifdown rth0
+
+2. make changes in configuration file
+   vi /etc/sysconfig/network-scripts/ifcfg-eth0
+
+	DEVICE=eth0
+	HWADDR=52:54:00:6b:28:90
+	TYPE=Ethernet
+	ONBOOT=yes
+	NM_CONTROLLED=no
+	BOOTPROTO=none
+	IPADDR=192.168.5.3
+	NETMASK=255.255.255.0
+	UUID=d67c66d2-1d24-4d08-977c-8ff63eda61df
+
+3. Make eth0 up
+   ifup eth0
+---------------------------------------------------------------------------------------------------------------------------------------------
+Verify
+
+1. From vm, try to ping host machine
+   ping 192.168.5.2
+
+2. From host machine, 
+   ping 192.168.5.3
+   ssh 192.168.5.3
+--------------------------------------------------------------------------------------------------------------------------------------------- 

@@ -1,0 +1,5 @@
+1. Open WINSCP
+2. Options > Preferences
+3. Tranfer
+4. Default > Edit
+5. Transfer mode > Text

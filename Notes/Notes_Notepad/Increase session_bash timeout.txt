@@ -1,0 +1,9 @@
+1. Add following line in /etc/bashrc (for all users) or ~/.bashrc (for particular user)
+   export TMOUT=<time in seconds>
+
+2. source /etc/bashrc (for all users)
+   OR
+   source ~/.bashrc (for particular user)
+ 
+3. To check
+   echo $TMOUT

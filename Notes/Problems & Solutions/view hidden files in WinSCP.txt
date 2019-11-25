@@ -1,0 +1,3 @@
+Options
+Preferences
+select "Show hidden files"

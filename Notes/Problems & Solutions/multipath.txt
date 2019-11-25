@@ -1,0 +1,22 @@
+Problems: DM multipath kernel driver not loaded
+	  /etc/multipath.conf does not exist, blacklisting all devices
+	  multipath -ll shows no output but multipath -d shows output
+
+Solutions:
+
+1. To check whether multipath is installed or not,
+   Command: rpm -qa *multipath*
+
+   If not, install 
+   Command: yum install device-mapper-multipath
+
+2. Check if modules are loaded,
+   Command: lsmod | grep dm_multipath
+ 
+   If not, start/restart multipath service
+   Command: service multipathd restart
+
+3. Enable/update multipathd daemon
+   Command: mpathconf --enable --with_multipathd y --with_chkconfig y
+   Command: service multipathd restart
+   Command: chkconfig multipathd on

@@ -1,0 +1,64 @@
+Increase ssh server/client timeout
+
+By sending null packet between client and server at a specified interval that is smaller than the timeout value, SSH timeout can be avoided.
+
+
+TCPKeepAlive
+
+System sends TCP alive message (not encrypted) to connecting clients to test connection issues.
+
+If they are sent, death of the connection or
+             crash of one of the machines will be properly noticed.  However,
+             this means that connections will die if the route is down tem-
+             porarily, and some people find it annoying.  On the other hand,
+             if TCP keepalives are not sent, sessions may hang indefinitely on
+             the server, leaving “ghost” users and consuming server resources.
+
+             The default is “yes” (to send TCP keepalive messages), and the
+             server will notice if the network goes down or the client host
+             crashes.  This avoids infinitely hanging sessions.
+
+             To disable TCP keepalive messages, the value should be set to
+             “no”.
+
+Default value:yes
+
+
+At server end
+
+ClientAliveInterval 
+Server sends null packets (encrypted) to client every <> seconds if no data has been received from client
+until client have ween active for <> intervals
+Default value:0
+number of seconds that the server will wait before sending a null packet to the client (to keep the connection alive).
+
+
+ClientAliveCountMax
+Number of times, server sends null packets (encrypted) to client if no communication between client and server.
+Default value:3
+
+
+
+
+Example: 
+ClientAliveInterval 120
+ClientAliveCountMax 720
+
+Server will send null packets to client every 120 seconds and not disconnect them until client have been inactive for 720 intervals (120 seconds * 720 = 24 hours). It means that if there is no communication between client and server, connection will be disconnected after 2 hours.
+
+
+At client end [do not have server access]
+
+
+ServerAliveInterval	(encrypted)
+number of seconds that the client will wait before sending a null packet to the server (to keep the connection alive).
+
+
+ServerAliveCountMax	(encrypted)
+
+
+
+
+
+
+Restart ssh service after making changes

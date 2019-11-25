@@ -1,0 +1,3 @@
+semanage fcontext -a -t httpd_sys_content_t '/VG_Image/repo(/.*)?'
+
+restorecon -Rv /VG_Image/repo/

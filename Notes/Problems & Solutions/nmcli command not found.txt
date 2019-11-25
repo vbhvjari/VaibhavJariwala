@@ -1,0 +1,11 @@
+Issue:nmcli command not found
+
+Solution:
+1. Check status of service nmcli NetworkManager and if not running start the service.
+   service NetworkManager status
+   systemctl status NetworkManager
+
+2. If still not able to start/restart above service, install NetworkManager package.
+   yum install NetworkManager
+
+  

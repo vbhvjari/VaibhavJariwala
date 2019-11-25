@@ -1,0 +1,24 @@
+Required packages:
+telnet
+telnet-server
+	
+1. Make sure telnet packages are installed
+   rpm -qa | grep telnet
+   
+   yum install telnet*
+
+2. Make changes in configuration file /etc/xinetd.d/telnet
+   Make following changes:
+   disabled = no
+   
+   service xinetd restart
+
+3. Make sure route entries are added if source and destination IPs are of different VLAN
+----------------------------------------------------------------------------------------------
+
+Command: telnet <IP> <port>
+
+Example: telnet localhost
+Example: telnet 127.0.0.1
+Example: telnet 172.27.64.21 4444
+----------------------------------------------------------------------------------------------

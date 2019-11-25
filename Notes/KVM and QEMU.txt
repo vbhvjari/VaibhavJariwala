@@ -1,0 +1,77 @@
+
+Hypervisor- piece of code/software/agent that creates and run virtual machines, allocate host machine's resources to virtual mahines.
+
+****************************************************************************************************************************************************
+
+Hardware Virtulization
+
+> In real hardware, OS translates program/software into instructions and these instructions are executed by physical CPU.
+
+> In Virtual Machine- instructions need to be executed by virtual CPU.
+		      Vitual CPU is emulated/virtulized by hypervisor.
+  		      Hypervisor translates instructions meant for virtual CPU and convert it into physical CPU. 
+                      This translation is big performace overhead.
+
+> To minimize performance overhead, Processors support vitulization extensions.
+  Intel processors- VT-x virtulization technology
+  AMD processors- AMD-v virtulization technology
+
+> With the help of these technologies, a slice of physical CPU can directly mapped to virtual CPU.
+  Hence, hypervisor directly excecutes instructions meant for Virual CPU (Physical CPU slice).NO need to convert instructions into physical CPUs. 
+
+> If physical CPU doesn't support virtulization extension, then hypervisor has to translate instructions meant by Virtual CPU and then convert them 
+  to Physical CPu and again results to performance overhead.
+
+> QEMU uses TCG(Tiny Code Generator) that translate and execute virtual CPU instructions on the physical CPU.  
+
+****************************************************************************************************************************************************
+
+Libvirt- Virtulization management library. It manages both hypervisors QEMU and KVM
+       - 3 utilities > API library
+		     > daemon: libvirtd 
+		     > command line tool: virsh
+****************************************************************************************************************************************************
+
+KVM and QEMU- both hypervisor
+
+****************************************************************************************************************************************************
+
+While creating VM using KVM,
+Virt Type:qemu or kvm
+
+Check through command
+Command: ps -ef | grep qemu 
+
+KVM> accel=kvm
+QEMU> accel=tcg
+
+****************************************************************************************************************************************************
+
+QEMU-Quick EMUlator
+> type-2 hypervisor
+> run upon a host OS
+> QEMU runs independtly and run within user space.Do not use virtulization extensions. slow performace.
+> Hardware Virtulization (disk, NIC card, FC card, VGA, PCI, USB, Serial/Parallel Ports,etc..)
+> Performance: slow
+> Architecture of Phyiscal CPU/host and VM- can be same or different
+
+****************************************************************************************************************************************************
+
+KVM-Kernel based Virtual Machine
+> type-1 hypervisor
+> run in kernel space, Use virtulization extensions.
+> Full Virtulization
+> Architecture of Phyiscal CPU/host and VM- must same
+
+****************************************************************************************************************************************************
+
+When both KVM and QEMU are together, QEMU acts as hypervisor/emulator and KVM as accelerating agent.Here hypervisor becomes type-1 hypervisor.
+
+****************************************************************************************************************************************************
+
+Refenece:
+> http://cloudbuilder.in/blogs/2014/03/09/kvm-and-qemu/
+> http://thegeekyway.com/kvm-vs-qemu-vs-libvirt/
+> https://www.fir3net.com/UNIX/Linux/what-is-the-difference-between-qemu-and-kvm.html
+
+****************************************************************************************************************************************************

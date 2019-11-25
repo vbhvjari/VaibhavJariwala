@@ -1,0 +1,12 @@
+1. check entry in /etc/fstab
+
+2. mount file system again and make necessary changes in /etc/fstab file.
+   Command: mount <LV full path> <mount point>
+
+3. IF still doesn't appear, deactivate and then reactivate LV.
+   To deactivate LV, Command: lvchange -an <LV full path>
+   To activate LV,     Command: lvchange -ay <LV full path>
+
+4. If stil not, deactive VG and then reactivate VG. After that same for LV.
+   To deactivate VG, Command: vgchange -an <VG full path>
+   To activate VG,     Command: vgchange -ay <VG full path>

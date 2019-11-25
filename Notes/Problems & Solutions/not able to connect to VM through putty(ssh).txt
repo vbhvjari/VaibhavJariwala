@@ -1,0 +1,2 @@
+Check firewall on base machine
+firewall should be off

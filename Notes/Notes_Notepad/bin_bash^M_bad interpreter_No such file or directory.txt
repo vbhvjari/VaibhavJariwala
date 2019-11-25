@@ -1,0 +1,14 @@
+Error: /bin/bash^M: bad interpreter: No such file or directory
+
+Cause: file was edited/prepared in DOS (windows) format, file was DOS ending file.
+
+Solution:
+vi <affected file/script>
+(In Read mode)
+:set fileformat=unix
+Enter
+:wq
+
+Reference:
+https://access.redhat.com/solutions/2533381
+

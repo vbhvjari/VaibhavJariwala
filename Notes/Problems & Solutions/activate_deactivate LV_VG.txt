@@ -1,0 +1,9 @@
+Activate
+
+vgchange -ay <vg_name>
+lvchange -ay <lv_name>
+------------------------------------------------------------------
+Deactivate
+
+vgchange -an <vg_name>
+lvchange -an <lv_name>

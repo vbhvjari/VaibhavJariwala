@@ -1,0 +1,5 @@
+1. On boot, type F2
+2. select line containing "vmlinuz...."
+3. "e" to edit
+4. type "single" at the end of line
+5. "b" to boot

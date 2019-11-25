@@ -1,0 +1,45 @@
+Server Side configuration
+
+1. Copy packages to local path
+
+2. Follow same procedure to configure yum
+   createrepo command in local path
+
+3. Install httpd using yum configured locally
+
+4. Create symbolic link to /var/www/html path
+
+5. Start httpd; make it on at boot
+
+6. In httpd configuration file (/etc/httpd/conf/httpd.conf),add folloing line:
+   ServerName <IP>
+
+7. Disable iptables/add rules to allow http ports
+   
+Method-1: Disable iptables
+   
+   service iptables stop
+   service iptables save
+
+Method-2: Add rules to allow http ports
+
+------------------------------------------------------------------
+Client Side configuration
+
+1. Create client.repo file
+2. yum clean all
+3. yum repolist
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Allow ports in RHEL7
+
+1. firewall-cmd --permanent --add-service=http
+2. firewall-cmd --reload
+---------------------------------------------------------------------
+
+SElinux context set 
+
+1. semanage fcontext -a -t httpd_sys_content_t '/VG_Image/repo(/.*)?'
+2. restorecon -Rv /VG_Image/repo
+---------------------------------------------------------------------

@@ -1,0 +1,4 @@
+1. Run as normal user
+   service rsyslog status
+
+2.  

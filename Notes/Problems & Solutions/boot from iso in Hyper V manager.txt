@@ -1,0 +1,3 @@
+1. Right click > Settings
+2. IDE Controller1 > DVD Drive > Media > Image File: give location
+3. BIOS/Firmware > change the order and move IDE at 1st place	

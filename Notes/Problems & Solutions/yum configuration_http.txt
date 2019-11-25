@@ -1,0 +1,49 @@
+Server Side configuration
+
+1. Copy packages to local path
+
+2. Follow same procedure to configure yum
+   createrepo command in local path
+
+3. Install httpd using yum configured locally
+
+4. Create symbolic link to /var/www/html path
+
+5. Start httpd; make it on at boot
+   service httpd start
+   chkconfig httpd on
+   chkconfig --list httpd
+
+6. In httpd configuration file,add folloing line:
+   ServerName <IP>
+
+7. Disable iptables/add rules to allow http ports
+   
+Method-1: Disable iptables
+   
+   service iptables stop
+   service iptables save
+
+Method-2: Add rules to allow http ports
+
+   service iptables start
+   chkconfig iptables on
+   
+   iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT   
+   iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 8080 -j ACCEPT
+   
+   service iptables save
+   service iptables restart
+
+8. Restart http
+   service http restart
+
+------------------------------------------------------------------
+Client Side configuration
+
+1. Create client.repo file
+2. yum clean all
+3. yum repolist
+
+
+Also it is recommended to disable other repo files at client machine.

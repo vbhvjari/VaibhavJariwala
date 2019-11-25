@@ -1,0 +1,6 @@
+1. Check firewall rules
+2. Check SELinux; It should be disabled/permissive
+   If it is in enforcing mode, add rules
+
+   semanage fcontext -a -t httpd_sys_content_t '/path/to/repo(/.*)?'
+   restorecon -Rv /path/to/repo
