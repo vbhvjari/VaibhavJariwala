@@ -1,0 +1,4 @@
+AWS regions and AZ codes
+
+https://github.com/jsonmaur/aws-regions
+---------------------------------------------------------

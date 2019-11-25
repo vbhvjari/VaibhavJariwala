@@ -1,0 +1,18 @@
+> Check
+  aws --version
+
+> Configure programatic user
+  aws configure
+	AWS Access Key ID
+	Secret Access Key
+	Default region name
+	
+[ https://github.com/jsonmaur/aws-regions ]
+
+Location: C:\Users\vbhvjari\.aws
+
+2 files: > crendentials: users name, aws_access_key_id, aws_secret_access_key
+	 > config: user name(profile), region
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

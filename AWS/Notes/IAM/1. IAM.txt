@@ -1,0 +1,13 @@
+IAM- Identity and Access Management
+
+Identity - who can use AWS resources-authentication
+Access - what resources they can use-authorization
+
+> Global service; PaaS
+
+> allows to manage users at aws account level; not EC2 instance level
+> Security, Identity, & Compliance > IAM
+
+> when editing permiision/policy, "Owner" refers to identity and email address used to create the AWS account
+ 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

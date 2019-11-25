@@ -1,0 +1,9 @@
+AWS CloudHSM: Hardware Security Module
+
+> Physical hardware device that generate and manage encryption keys
+> This hardware is dedicated to single customer and deployed in AWS infra
+> It gives complete control to user over encryption of AWS services
+> User can generate encryption keys and assign to aws services
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Note: SSE and KMS encryption methods are managed entirely by AWS and customer has no control over it.

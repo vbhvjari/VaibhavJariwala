@@ -1,0 +1,69 @@
+VPC Peering
+
+> establish connectivity between 2 VPCs
+> VPCs can be of same account or can span across AWS accounts
+> VPCs can be in same regions or can span across regions.
+> peering can be done from subnet to subnet OR IP to IP
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPC Requestor : VPC must be of same account/region
+VPC Acceptor: VPC can be of same region/diff region, can be of same account/diff account
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Say, we have 2 VPCs
+
+VPC		Subnets		CIDREC2 	private IP	
+linux_vpc1	linux_pub1a	10.0.1.0/24	10.0.1.15
+surat_vpc2	surat_pub1a	172.16.1.0/24	172.16.1.31
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Try to ping between above two
+It won't work
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Create VPC Peering
+
+VPC > Peering Connections 
+
+VPC > Select vpc connection > Actions > Accept Request
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Say, VPC peering between IP to IP
+
+Peering between 10.0.1.15/32(linux_vpc1) and 172.16.1.31/32(surat_vpc2)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Make entries in route tables
+
+> In public route table of linux_vpc1
+  Destination: private IP of EC2 of surat_vpc2
+  Target: Peering connection
+
+  e.g., Destination: 172.16.1.31/32
+        Target: peering connection
+
+> In public route table of surat_vpc2
+  Destination: private IP of EC2 of linux_vpc1
+  Target: Peering connection
+
+  e.g., Destination: 10.0.1.15/32
+        Target: peering connection
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Make entries in Security Groups
+
+> In pub1a SG of linux_vpc1
+  Add Inbount rules
+  Type: All traffic
+  Source: private IP of EC2 of surat_vpc2; e.g.,172.16.1.31/32
+
+> In pub1a SG of surat_vpc2
+  Add Inbount rules
+  Type: All traffic
+  Source: private IP of EC2 of linux_vpc1; e.g.,10.0.1.15/32
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Now try to communicate between above two instances.
+  It will work.       
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------

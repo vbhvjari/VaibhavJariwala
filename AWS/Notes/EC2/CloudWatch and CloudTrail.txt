@@ -1,0 +1,31 @@
+CloudWatch
+
+CloudWatch logs
+> check web servers logs from EC2 instances
+  404 erorr
+-------------------------------------------------------
+Alarm
+> Alarm can be created to automatically stop/terminate/reboot/recover EC2 isntances based on CLouWatch metrices
+-------------------------------------------------------
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CloudTrail
+> CloudTrail encryption - using SSE-S3
+
+
+CloudTrail logs
+> by default, logs are encrypted using SSE-S3
+> can also be used AWS KMS
+> logs can be stored in S3, and can define lifecycle rules; SNS can be configured with S3
+
+
+> learn about cloudtrail
+  -default
+  -manually created
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

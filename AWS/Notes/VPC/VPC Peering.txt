@@ -1,0 +1,38 @@
+VPC Peering
+
+> establish connectivity between 2 VPCs
+> VPCs can be of same account or can span across AWS accounts
+> VPCs can be in same regions or can span across regions.
+> peering can be done from subnet to subnet OR IP to IP
+> communication happens through private IP
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPC Requestor : VPC must be of same account/region
+VPC Acceptor: VPC can be of same region/diff region, can be of same account/diff account
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPC Peering limitations
+
+> Peering cannot be created between VPCs having same CIDR
+  Say, VPC-A : 10.0.0.0/16 ; VPC-B: 10.0.0.0/16
+  Peering between VPC-A and VPC-B cannot be created
+
+> No transitive peering
+  Say, VPC-A have peering with VPC-B and VPC-C.
+  VPC-A can communicate with both VPC-B and VPC-C.
+  But VPC-B and VPC-C cannot communicate. In order to establish communication, have to setup peering between VPC-B and VPC-C
+
+> In peering, peer VPC connections include
+  - VPN connection
+  - AWS Direct Connect Connection to a corporate network
+  - Internet connection through internet gateway
+  - Internet connection in a private subnet through NAT Gateway 
+  - VPC Endpoint 
+  - ClassicLink connection to EC2-Classic Instance
+
+> only 1 VPC peering between same two VPCs
+
+> Instance’s public DNS hostname does not resolve to its private IP address across peered VPCs
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  

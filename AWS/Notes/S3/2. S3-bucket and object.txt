@@ -1,0 +1,54 @@
+Bucket- logical container with unique name space
+
+> Logical container
+
+> bucket name: globally unique
+  S3 storage(buckets/objects) is accessed by web URL
+
+> object size : 0 B to 5 TB
+  Min file size, we can upload on S3: 0 byte
+> Max buckets per aws account: 100
+
+> By default, bucket is private
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Object
+
+> data
+> no limit of number of objects in a bucket
+> Parameters:
+  1. Key : name of data including file extention (e.g., elephant.jpeg)
+  2. Value : actual data (e.g., actual image file)
+  3. Version ID : versioning(same data); useful to save data in accidential delete
+     first version ID of an object in a bucket: null
+
+  4. Metadata : data(info) of data (e.g., size, author, creation time, modified time of image file)
+
+> Object URL
+  
+  https://s3.amazonaws.com/<bucket name>/<object/file name with extension of any>
+  
+  e.g., https://s3.amazonaws.com/test-vaibhav/Ticket_UAN.PNG
+
+> When you upload file, by default it is private
+
+> S3 objects are immutable
+  only way to change a single byte is to replace the object
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use cases of metadata
+> dropbox
+  when you upload file on dropbox, dropbox will fetch metadata of file(extension) and accordingly it will show thumbnails
+  say, for MP3 file, for jpeg file, for PDF file,etc..
+> Tinder- name based search
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ACLs- regulatiing access to individual objects
+Bucket Policy- regulating access to all objects in a bucket
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+S3 object encryption
+1. default encryption for S3 bucket
+2. SSE-S3
+3. SSE-KMS
+4. SSE-C
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,10 @@
+> Logs can be stored either through CloudWatch or S3 bucket
+
+> can be created at 3 levels
+  - VPC
+  - Subnet
+  - Network Interface level
+
+
+> e.g., EC2 instance, needs to monitor list of IP addresses for all sources that are making request to EC2 instance
+> e.g,, IP traffic going to and from network interfaces in VPC

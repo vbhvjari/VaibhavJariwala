@@ -1,0 +1,40 @@
+> Coupling is a measure of how closely connected two functions/modules/components/applications
+
+> Based on degree of coupling between components, two types:
+  1. Tightly coupled - coupling
+  2. Loosely coupled - decoupling
+
+> main advantage: reduce inter-dependencies so failures do not impact other components
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Differences:
+
+> In coupling/tightly coupled,
+  - components are dependent on each other
+  - components are aware of each other
+
+> In decoupling/loosely coupled, 
+  - components are not dependent on each other
+  - components are unware of each other 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Decoupling:
+
+> Two types:
+  1. Synchronous
+  2. Asynchronous
+
+1. Synchronous 
+
+> both sender and receiver components must be available in order to function properly
+> e.g., ELB
+  ELB distributes traffic between EC2 instances that are hosted in multiple AZs
+  Here, in order to function ELB properly, there must be at least one EC2 instance otherwise there will be no load balancing
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Asynchronous
+
+> communication is achieved even if the receiver is not available
+> e.g., SQS
+  Even if any receiver component gets failed/go offline, the message can be properly queued until the component is back online
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+EC2 > Actions > Create Image
+
+
+> When AMI is created from an instance, instance will be rebooted (if "No reboot" option is not selected)
+> while creating AMI, snapshot will be created of attached EBS volume(to EC2)
+> By default created AMI is private
+> can be shared to other AWS account
+
+

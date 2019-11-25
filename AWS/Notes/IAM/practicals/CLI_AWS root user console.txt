@@ -1,0 +1,4 @@
+IAM> Security Status > Delete your root access keys > Manage Security Credentials
+> Access keys (access key ID and secret access key)
+
+Follow the same procedure using "aws configure" command.

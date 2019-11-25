@@ -1,0 +1,11 @@
+Pre-Signed URLs
+
+> all buckets/objects: private by default
+> Pre-sgined URL allows user to be able to download/upload a specific object without requiring AWS security credentials or permissions
+> Pre-signed URL allows anyone access to the object identified in the URL, provided the creator of the URL has permissions to access that object
+> Creation of the pre-signed urls requires the creator to provide his security credentials, 
+  specify a bucket name, an object key, an HTTP method (GET for download object & PUT of uploading objects), and expiration date and time
+> Pre-signed urls are valid only till the expiration date & time
+
+> Configure Pre-signed URL
+  https://www.youtube.com/watch?v=h1jP1D-GeBM

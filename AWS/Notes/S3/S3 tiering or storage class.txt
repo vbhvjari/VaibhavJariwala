@@ -1,0 +1,54 @@
+1. Standard S3
+
+> Frequently accessed data; critical data
+> immediate data access
+> immediate data retrieval
+> durability: 99.999999999
+> Availability: 99.99%
+
+--------------------------------------------------------------------------------------------
+2. Standard Infrequent Access S3 (Standard IA )
+
+> Long-lived, infrequently accessed data 
+> immediate data access
+> retrieval cost is more
+> durability: same : 99.999999999
+> Availability: same : 99.99%
+> min duration : 30 days
+--------------------------------------------------------------------------------------------
+3. Reduced Redundancy Storage S3 (RRS S3)- not recommended
+
+> Frequently accessed, non-critical data
+> durability : 99.99
+> availability : 99.99%
+> data can be stored only for one year
+
+--------------------------------------------------------------------------------------------
+4. Infrequent Access S3 zone(one zone-IA)
+
+> Long-lived, infrequently accessed, non-critical data
+> same as IA S3
+> But 6 copies of data is stored in same AZ
+> Durability is less: 99.99
+> Availability: 99.99%
+
+--------------------------------------------------------------------------------------------
+5. Glacier
+
+> Data archiving with retrieval times ranging from minutes to hours; lowest cost
+> for archival of data
+> very very cheaper
+> durability : 99.999999999
+> retrieval time: 2-3 hours(extra charge)
+> 3 types:
+  1. Expedited: higher fee, retrieval within minutes
+  2. Standard: retrieval time: 3 to 5 hours
+  3. Bulk: retrieval time: 5 to 12 hours
+--------------------------------------------------------------------------------------------
+6. Intelligent tiering
+
+> Long-lived data with changing or unknown access patterns
+> data is first stored in standard S3 and then will be stored in diff tier automatically
+> AWS will decide based on last 10-15 days of data usage
+
+--------------------------------------------------------------------------------------------

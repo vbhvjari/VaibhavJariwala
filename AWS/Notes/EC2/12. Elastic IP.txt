@@ -1,0 +1,7 @@
+> Public reservered IP
+> If associated with runnnig instance, no charge
+> If not associated with any instance, does cost charge
+> EIP not supported IPv6
+
+> 5 EIP per region
+> When EIP is associated, it is replaced by public IP.

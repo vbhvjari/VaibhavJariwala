@@ -1,0 +1,7 @@
+Bastion host/Jump Box
+
+> launched in public subnet
+> act as a primary access point from the Internet and acts as a proxy to other instances
+> allows you to login to instances in the Private subnet 
+  securely without having to store the private keys on the Bastion host (using ssh-agent forwarding or RDP gateways)
+> Security for all the Instances in the private subnet should be hardened to accept SSH/RDP connections only from the Bastion host

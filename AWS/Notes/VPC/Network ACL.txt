@@ -1,0 +1,26 @@
+Network ACLs
+
+> Stateless firewall
+> Firewall for Subnets
+> supports both Allow and Deny rules
+  e.g, deny specific IP to EC2 instance
+
+> Rules are applied in their order; rule with lower number gets processed first
+  
+  Rule(Order number)	Type	 		Protocol	Port Range	Source			Allow/Deny
+  ----------------------------------------------------------------------------------------------------------------
+  100			HTTP (80)		TCP (6)	 	80		0.0.0.0/0		ALLOW
+  200			HTTPS (443)		TCP (6)	  	443		0.0.0.0/0		ALLOW  
+  
+> 2nd layer of defence
+
+> Default NACL: By default, allow everything for inbound, allow everything for outbound
+  custom NACL: By default, deny everything for inbound, deny everything for outbound
+
+> changes applies immediately
+> Higher precedence than security groups
+> each and every subnet must associate with NACL
+  if subnet is not associated with NACL explicitely, it gets automatically associated with default NACL
+
+> Same NACL can be associated with multiple subnets
+  But same subnet can be associated with only one NACL

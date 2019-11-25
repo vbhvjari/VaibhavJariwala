@@ -1,0 +1,12 @@
+Follow the same kind of procedure except below changes
+
+> To configure user,
+  aws configure --profile <profile/user name>
+  Example: aws configure --profile cli
+
+> To execute command,
+  <command> --profile <profile/user name>
+  Example: aws s3 ls --profile cli
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+

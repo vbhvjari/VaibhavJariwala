@@ -1,0 +1,74 @@
+ECS : Elastic Container Service
+ECR : Elastic Container Registry 
+EKS : Elastic Kubernetes Service
+
+
+
+ECS: Elastic Container Service
+
+> AWS container management service
+> regional service
+
+> Docker Images are stored in 
+  - Registry
+  - Docker Hub
+  - AWS ECR(Elastic Container Registry)
+
+
+ECS launch type:
+1. FARGATE : minimal/no need to manage underlying infra
+2. EC2 : needs to manage underlying infra
+
+Task
+JSON files that describe containers information which forms your application
+- which docker images to use with containers
+- How much CPU/Memory to use with each container
+- whether containers are linked together in task
+- the command the container should run when it is started
+- launch type: EC2 or FARGATE
+> docker networking mode
+
+
+ECS Clusters
+
+> Logical group of container instances  
+> By default, in ECS, cluster is created automatically
+> cluster can contain multiple different container instances type
+> clusters are region specific
+> Container instances can only be part of one cluster at a time
+> IAM policies can be created to allow/restrict users access to specific clusters
+
+
+ECS Scheduling
+
+1. Service Scheduler
+> ensures that specified number of tasks are constantly running and reschedules task when task fails
+> can ensure tasks are registered against an ELB
+
+2. Custom Scheduler
+> custom scheduler can be created to meet business needs
+
+
+
+ECS Container Agent
+
+> allows container instances to connect to cluster
+> not works with windows
+> To set ECS container agent, set configuration in user data patameter of ECS instance
+
+
+ECS Features
+- Task Definition
+- Tasks
+- Cluster
+
+
+> Customers have control over AWS ECS instances
+
+> container instances need external network access to communicate with AWS ECS service endpoints
+  - through public IP 
+  - through NAT Gateway  
+  - VPC endpoints
+
+> if container instance does not have public IP, then it must have NAT gateway
+> audit purpose: use CloudTrail logs

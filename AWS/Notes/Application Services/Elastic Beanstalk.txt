@@ -1,0 +1,17 @@
+Elastic Beanstalk
+
+> easy devops
+> Say, we want to deploy java application, Elastic Beanstalk will configure EC2,ELB,ASG and all necessary backend process and deploy java application.
+   User do not need to build underlying infra setup manually. AWS will do it automatically.
+
+> It provides diff deplyment stratergies:
+    1. Rolling updates
+    > code wil be tested only in 1 server and then will be deployed in all other servers
+
+     2. Green-Blue Deployment
+     > testing is done on separate infra and then will be deployed in prod
+ 
+     3. immutable
+     > keeping existing infra as it is, build new infra and scapping existing infra step by step  
+
+> mainly used for creating web servers and workers environments quickly     

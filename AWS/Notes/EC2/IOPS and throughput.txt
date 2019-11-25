@@ -1,0 +1,6 @@
+IOPS: number of input/output operations per second
+Throughput: rate of data trasffered from/to disk per second.
+
+
+Say, disk has capability to accomodate 50 input/output requests per second and able to accomodate transfer from/to 20 MB data per second.
+Then in this case, IOPS is 50 and throughput is 20 mbps 

@@ -1,0 +1,38 @@
+> Say, we have registered domain: jariwala.ml
+> setup webserver in EC2
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Create public host zone
+
+> Name: jariwla,ml
+  Set TTL value to 1 min
+
+> Note down NS 
+e.g., 	ns-868.awsdns-44.net 
+	ns-1342.awsdns-39.org 
+	ns-1868.awsdns-41.co.uk 
+	ns-211.awsdns-26.com
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Create A Record
+
+> Create Record Set
+  Name: leave it blank if you do not want to setup sub domain
+  Type: IPV4 Address
+  TTL : 1 min
+  Value: IP address of EC2; Elastic IP is preferable 
+  Routing Policy: select suitable policy
+
+> Make entries in Freenom
+  we have purchased domain from freenom. Make entries of NS in freenom 
+  When user hits URL, freenom redirects request to NS
+  
+  Freenom > My Domains > Management Tools > NameServers > Use custom nameservers
+  Add Nameservers entries
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+In your browser, hit domain name
+e.g., jariwala.ml
+you will get output of index.html
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+  

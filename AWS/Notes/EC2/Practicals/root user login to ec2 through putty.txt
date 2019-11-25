@@ -1,0 +1,24 @@
+Allow root user to login to linux ec2 instance directly instead of ec2-user
+
+> Make sure, you are aware of root password; set root password if not
+> Backup sshd config file
+  cp -p /etc/ssh/sshd_config /tmp/sshd_config
+
+> Make some changes
+  vi /etc/ssh/sshd_config
+
+  PasswordAuthentication yes
+  #PasswordAuthentication no
+
+  PermitRootLogin yes
+  #PermitRootLogin yes
+
+[ Optional
+  # Only allow root to run commands over ssh, no shell
+  #PermitRootLogin forced-commands-only
+]
+
+> Verify
+  type IP in putty
+  do not link ppk file 
+  directly login ; username and password

@@ -1,0 +1,6 @@
+AWS trusted advisor
+
+> online tool that provides real time guidance to help you provision your resources following AWS best practices
+> helps to reduce cost 
+> increase performance 
+> improve security by optimizing your AWS environment

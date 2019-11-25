@@ -1,0 +1,26 @@
+> Fully managed service
+> Data warehouse service
+> Data in PB
+> Data analytics
+> indexing: column
+  primary key/unique key: unique column
+
+> Redshift only supports Single-AZ deployments
+> Across AZs, across regions
+> block size: 1 MB
+
+> Redshift : anaylysis  : OLAP : Online Analytics Processing
+> can be integrated with existing business intelligence tools 
+
+Enhanced VPC Routing
+
+> If not enabled, Redshift routes traffic through internet, including traffic to other services within AWS network  
+> To enable use of S3 VPC Endpoints with Redshift, we must enable Enhanced VPC Routing
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+DR for RedShift
+> cross-region snapshots for underlying RedShift cluster
+---------------------------------------------------------------------------------------------------------------------------------------------
+For Encryption, KMS-C can be used with default master key
+---------------------------------------------------------------------------------------------------------------------------------------------
+ 

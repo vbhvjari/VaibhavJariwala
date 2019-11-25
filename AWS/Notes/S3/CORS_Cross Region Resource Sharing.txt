@@ -1,0 +1,16 @@
+CORS: Cross Origin Resource Sharing
+
+
+> CORS defines a way for client web applications that are loaded in one domain to interact with resources in a different domain. 
+> All browsers implement the Same-Origin policy, for security reasons, where the web page from an domain can only request resources from the same domain
+> CORS allow client web applications loaded in one domain access to the restricted resources to be requested from another domain
+> With CORS support in S3 allows cross-origin access to S3 resources
+> CORS configuration rules identify the origins allowed to access the bucket, 
+  the operations (HTTP methods) that would be supported for each origin, and other operation-specific information
+
+> To configure CORS in S3,
+  https://www.youtube.com/watch?v=q6fzbMYs_-s
+
+> supported methods
+  - GET , PUT, POST, DELETE, HEAD
+  

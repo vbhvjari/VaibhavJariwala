@@ -1,0 +1,38 @@
+AMI- Amazon Machine Image
+
+> preconfigured template
+> AMI: regional
+> custom AMI can be prepared. 
+
+> three types:
+  1. Community
+  2. MarketPlace
+  3. My AMI
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Community
+
+> OS: windows,redhat,ubuntu,amazon,fedora,etc
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+2. MarketPlace
+
+> Software- wordpress,cisco,NetApp backup,Open VPN,etc. 
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+3. My AMI
+
+> custom made image
+> custom image stored as snapshot in S3
+> can be transferred from one region to another
+> can be created from 
+  - instance
+  - snapshot
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Copy image from one region to another possible
+Here, AWS only copies image from one region to another
+      But does not copy launch permissions, user-defined tags, S3 bucket permissions from source AMI to new AMI
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+> AS AMI is regional, AMI ID is different in each region
+--------------------------------------------------------------------------------------------------------------------------------------------------------

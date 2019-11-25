@@ -1,0 +1,88 @@
+EC2 pricing
+
+> pay only for you use
+> pricing per hour or per seconds(minimum 60 seconds)
+> billing only for "running" instance
+> no charge for "stop" , "hibernate" , "terminate" instance
+
+> Here,even if EC2 instance is in stopped/hibernated state,
+  billing applicable for attached EBS volume
+  billing applicable for EIP if attached to the instance
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1. Shared- Your EC2 instance which hosted on host machine, other EC2 instance owned by other AWS accounts would be hosted in same host machine 
+2. Dedicated -host machine will be dedicated and only host your EC2 instances
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+3 ways
+1. On-Demand
+2. Reserved
+3. Spot
+
+3 tenancy
+1. Shared
+2. Dedicacted instnace
+3. Dedicated Host
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Shared
+
+1. On demand
+
+> Pay per hour basis
+> you will get instance anytime
+> Generally, used for testing, learning purposes 
+> Persistent until you terminate instance
+
+> Well suited for
+  - testing/non prod
+  - no long term commitmnet
+  - applications with short term or unpredictable work load
+ 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Reserved
+
+> Reserve instance for longer/specific time duration
+> Cheaper 30-70% than on demand
+> Recommended to  use reserved instance in prod environment
+> payment not refundable
+> cannot be moved from one region to another
+> Auto scaling can be done
+
+> Well suited for
+  - applications with predictable usage
+  - applications that requires reserved capacity 
+
+> Persistent
+
+  1. Fully Upfront: reserve instance; full payment in the beginning regardless of usage
+  2. Partially Upfront: reserve instance; some portion of payment in the beginning; remianing: as per hourly basis on discount rate, regardless of its usage
+  3. No Upfront: no payment in the beginning; charge: as per hourly basis on discount rate, regardless of its usage
+                 1 year reservation
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Spot
+> Not persistent; no commitment 
+> available as per bid
+> If someone else bids higher than yours, your instance will be terminated immediately(with grace time: 2 min)
+  warning 2 min before terminating instance
+> Very very cheaper
+> mainly used for data processing/analysing for shorter time; batch processing
+> Use cases: non-consistent heavy compute at cheaper rate 
+  In such cases, where large amount of CPU/memory is needed for short duration and no important data to be stored on instance
+  Where instance would be needed as secondary 
+  E.g., data processing,data mining, big data
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scheduled Instance
+
+> instance is reserved for predefined time duration
+> 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note:
+> Say, you have subscribed for reserved instance(RI). RI is going to be expired after 15 days. 
+  If you do not renew subscription, then RI will get automatically converted from reserved to on demand instance.  
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------

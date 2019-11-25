@@ -1,0 +1,73 @@
+Route53- DNS service
+
+> Route53 - DNS service 
+	 - domain purchasing
+
+> Global service
+
+DNS : name to IP and IP to name 
+
+Top level domain
+> managed by IANA(Internet Assigned Number Authority)
+> e.g., .com, .net, .org
+
+Second level domain
+> maintain and managed by domain registrar
+   the organization which controls domian registrar: InterNIC; it maintains domain uniqueness
+  e.g, we can purchase domain from GoDaddy, GoDaddy is domain registrar and managed/controlled by InterNIC
+>e.g., google, facebook 
+
+> Name Server : record of DNS servers
+   Client/user----Name Server------DNS server
+
+> A Record : IP to name resolution details
+  A record: Address Record
+
+> SOA Record : details of Name Server, details of other information
+  SOA: Start Of Authority
+
+> CName/Alias : alias of URL
+  CName: Canonical Names
+  CName cannot be for naked domain; like, not for www.example.com
+
+> TTL: Time To Live
+             Time after which changes will be reflected if any change is done
+	     Time taken to reach entire hop..from your request to desitnation in internet
+> two types zones: public zone
+		   private zone
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+DNS workflow
+
+> Say, user hits url www.google.com
+  User----->IANA(dentermine registered top level domain)----->NS records(DNS servers)----->SOA(Details of A record)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+ELB: Regional serivce, manages load at regional level
+Route53: Global service, DNS name resolution, Domain purchasing, Diff routing policy
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Upon creation of zone, following will be created automatically 
+ - NS(Name Server)
+ - SOA Record 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Why name is set to Route53
+
+DNS works on port 53
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+> ELBs do not have pre defined IPv4. It is resolved by DNS.
+> domain names that you can manage using Route 53, by default 50 domain(soft limit), can be increased 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+> AWS DNS(route53) does not respond to reuests originating from outside of VPC
+  Route53 has security feature that prevents internal DNS from being read by external sources.
+
+  Workaround:
+  create EC2 hosted DNS instance that does zone transfers from internal DNS and allows itself to be queried by external servers
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+   

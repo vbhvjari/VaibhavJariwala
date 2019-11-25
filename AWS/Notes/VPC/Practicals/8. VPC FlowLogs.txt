@@ -1,0 +1,16 @@
+> Logs can be stored either through CLoudWatch or S3 bucket
+
+> Create log group
+  CloudWatch > Logs > Actions > Create log group
+  e.g., vpc_linux_flowlog
+
+> Create Flow Log
+    VPC > Select vpc > Actions > Create flow log
+    Set Up Permissions > Allow
+
+    Now, go back to create flow log window
+    Destination log group: same group name created in cloudwatch; e.g., vpc_linux_flowlog
+
+
+> Once logs are generated, logs will be visible under 
+  CloudWatch > Logs > log group

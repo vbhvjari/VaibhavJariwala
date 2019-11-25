@@ -1,0 +1,37 @@
+1. Storage : amount of data you store
+2. Requests/Retrievals : no of reuests you make to GET data from S3
+3. Storage Management Pricing: metadata
+4. Data transfer: transfer data from one region to another(CRR-cross region Replication)
+5. Transfer Acceleration: Edge location
+
+> Pricing per GB per day
+  e.g., 1 GB	Charge: cost of 1 GB
+        1.2 GB  Charge: cost of 2 GB
+
+> Retrievals/requests- request to access data(uploaded data in S3)
+  per 1000 reuests
+
+> Bandwidth
+  > no charge to upload file on S3
+  > charge to download/get file from S3
+  
+> In simple terms, to download/get file, you would be charged for retrievals and for bandwidth as well.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Free tier(every month)
+
+> 5 GB standard storage
+> 20,000 GET reuests
+> 2000 PUT reuests
+> 15GB of Data Transfer(in and out to/from S3)
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chargable
+> GBs per month
+> trasfer out of region
+> PUT/GET/COPY/LIST/POST requests
+
+Free
+> trasfer in to S3
+> transfer out from S3 to CDN in same region
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

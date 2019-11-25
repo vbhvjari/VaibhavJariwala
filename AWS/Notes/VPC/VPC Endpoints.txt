@@ -1,0 +1,69 @@
+Endpoints
+
+> Communication between EC2 instance and S3 would be done through AWS private channel/network using EC2 private IP address
+> Communication is done through private IP; no need of public IP 
+> EC2 instance and VPC must be in same region
+> However, private ec2 instance cannot connect to internet
+
+> two types:
+  1. interface endpoint
+  2. Gateway endpoint
+
+---------------------------------------------------------------------------------------------------------------------
+Without VPC Endpoints
+
+EC2 in private subnet > NAT Gateway(public subnet) > Internet > S3
+
+---------------------------------------------------------------------------------------------------------------------
+With VPC Endpoints
+
+EC2 in private subnet > S3
+> direct connection to S3 using AWS private links
+
+---------------------------------------------------------------------------------------------------------------------
+Endpoints > Create Endpoints
+VPC: linux_vpc1
+Route table: private route table of linux_vpc1
+
+
+Verify from private ec2 instance
+> wget <s3 object url>		It should work
+> ping google.com		It shouldn't work	
+
+---------------------------------------------------------------------------------------------------------------------
+Limitations:
+
+> Endpoint must be in same region as of S3
+  Endpoint cannot be created between a VPC and an AWS service in a different region
+
+> Endpoint cannot be tagged
+> Endpoint cannot be transferred from one VPC to another, or from one service to another
+
+> Endpoint connections cannot be extended out of a VPC 
+  i.e. resources across the VPN connection, VPC peering connection, AWS Direct Connect connection cannot use the endpoint
+
+> Access can be controlled using endpoint policies
+
+> Security groups needs to be modified to allow Outbound traffic from the VPC to the service thats specified in the endpoint. 
+  Use the service prefix list ID for e.g. com.amazonaws.us-east-1.s3  as the destination in the outbound rule
+ 
+---------------------------------------------------------------------------------------------------------------------
+> VPC endpoints always takes precedence over NAT Gateway or Internet Gateway
+> VPC endpoints are supported within same region only
+> VPC endpoints do not support cross-region S3 requests
+
+> VPC endpoints are not supported outside VPC 
+  Endpoints cannot be extended out of a VPC
+  Resources on the other side of VPN connection, VPC peering connection, AWS Direct Connect Connection or CLassicLink connectioncannot use VPC endpoint 
+  to communicate with resources in endpoint service
+
+> Workaround:
+  we can setup S3 proxy server in EC2 
+  workflow:
+  S3 request <---> corporate DNS <---> ELB <---> proxy farm <---> VPC Endpoint <---> S3 bucket
+
+---------------------------------------------------------------------------------------------------------------------
+Reference:
+
+https://www.youtube.com/watch?v=m8OZRZGfrFg&list=PLTyrc6mz8dg_O_F2pdL1jGvGjkiRE-dgq&index=11
+---------------------------------------------------------------------------------------------------------------------

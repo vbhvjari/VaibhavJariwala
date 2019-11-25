@@ -1,0 +1,37 @@
+On premise infra to AWS infra Network Connectivity: Direct Connect, VPC, VPN
+On premise infra to AWS infra Storage Connectivity: storage gateway
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DirectConnect - leased line service
+
+> Direct connectivity between on premise infra and AWs infra
+> Point to point connectiviy
+> VPN(site to site connectivity) can be used as additional security level
+
+> To provide redundancy in DirectConnect
+    - Use VPN/IPSec
+    - build setup using 2 diff DirectConnect - 2 diff site to site connectivity
+
+> Data flow
+    On premise Infra <--------> ISP <--------> AWS Infra
+    
+   AWS has tied up with ISP(Internet Service Provider)
+   ISP,e.g., TATA, Vodaphone, Reliance,etc..
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DirectConnect
+
+> During data transmission between On-premise/Corporate Office and AWS infra,
+  there is no no encryption
+> for encryption, IPSec can be used addtionally
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPN
+
+> site to site connectivity
+
+> During data transmission between On-premise/Corporate Office and AWS infra,
+  there is encryption; data transmitted in encrypted form
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    

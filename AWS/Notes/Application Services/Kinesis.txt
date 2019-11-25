@@ -1,0 +1,65 @@
+Kinesis
+
+> streaming data
+  data that is generated continously
+  data in small size(in KB)
+
+> e.g, stock market data, FB feed, system logs, purchase from online store(flipkart,amazon),
+       geospatical data: google map, book cab(ETA: data)
+       game data(leaderboard)
+
+> kinesis allows to analyze, visulize and store real time data
+
+> PaaS
+> Durability: replicate data across 3 AZs
+> decoupled system
+> Scaling: zero downtime scaling
+> Payment: Pay as you go model  
+> Data retention: by default- 24 hours
+		  max - 7 days
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+> unit: shard
+  streaming data stored in shards
+
+  producer > data in shards > consumer
+
+> Throughput
+  1 shard : 1 mbps input	1000 PUT calls
+ 	    2 mbps output	2000 GET calls
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+> 3 types: 
+  1. Streams
+  2. Firehose 
+  3. Analytics 	    
+  	    
+
+1. Stream
+> only store data
+> no data in/out (GET/PUT) by AWS; user has to build logic for data in/out to/from kinesis
+> data retention period: 24 hours(default); can be extended
+> no real time data analytics
+> ideal for buffer
+> shards 
+
+2. Firehose
+> able to store data
+> data in/out (GET/PUT) is done by AWS
+> no real time data analytics
+> shards do not come in picture as because data in/out done automatically by AWS
+
+
+3. Analytics
+> for real time data analytics
+  analize real time data stored in streams/firehose 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Ways to send/retrieve data to/from kinesis
+
+> kinesis agent : to be installed at sender/receiver
+> custom plugins/libraries
+ 			  		    
+---------------------------------------------------------------------------------------------------------------------------------------------------- 		     
+> like kinesis, open source tool : Kafka
+
+---------------------------------------------------------------------------------------------------------------------------------------------------- 		     

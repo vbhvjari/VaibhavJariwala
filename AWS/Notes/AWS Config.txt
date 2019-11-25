@@ -1,0 +1,8 @@
+AWS Config
+
+> cloud auditing tool that provides an inventory of existing resources, 
+  allowing admins to accurately track AWS assets to analyze compilance levels and security
+
+> admins can troubleshoot why a resource may have stopped working properly
+
+> It records previous resource configuration details in S3 and use SNS to notify admins of configuration changes

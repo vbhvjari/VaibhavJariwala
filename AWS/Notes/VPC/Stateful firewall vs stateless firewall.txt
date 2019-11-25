@@ -1,0 +1,16 @@
+Stateful firewall
+
+> maintains session state
+> any change applies to an incoming rule will be automatically applied to outgoing rule
+> e.g., if you allow 80 as inbound rule, port 80 will get opened automatically as outbound rule.
+
+-----------------------------------------------------------------------------------------------------------------
+Stateless firewall  
+
+> does not maintain session state
+> any change applies to an incoming rule will not be applied to outgoing rule 
+> e.g., if you allow 80 as inbound rule, port 80 wil get not opened automatically as outbound rule.
+        you need to apply outbound rule manually.
+
+-----------------------------------------------------------------------------------------------------------------
+                                                                         

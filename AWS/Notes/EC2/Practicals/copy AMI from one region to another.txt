@@ -1,0 +1,4 @@
+Copy AMI from one region to another
+
+EC2 > AMI > Actions > Copy AMI
+Select Destination region

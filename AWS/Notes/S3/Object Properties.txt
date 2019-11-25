@@ -1,0 +1,5 @@
+1. Storage Class
+2. Encryption
+3. Metadata
+4. Tags
+5. Object lock

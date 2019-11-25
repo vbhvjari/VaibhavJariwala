@@ -1,0 +1,36 @@
+DAS: Directly Attached Storage--------------------------Instance Store
+SAN: Storage Area Network-------------------------------EBS
+NAS: Network Atttached Storage--------------------------EFS/FSx/Luster
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Instance Store
+
+> Block level storage
+> Not persistent
+> 
+> rebooting instance: same storage
+
+> ephemeral(lasting for a very short time) storage
+> can only be assigned at the time of launching instance
+> cannot assign instance store volume once instance is launched
+> if underlying host fails, you will lose data
+> instance stop/start- no
+           reboot/terminate-yes
+
+> slower launch time
+
+-----------------------------------------------------------------------------------
+EBS
+
+> Block level storage
+> jusk like SAN
+> persistent
+> Instance: stop/start/reboot: same storage
+
+-----------------------------------------------------------------------------------
+root volume
+
+> EBS: root volume launched from AMI in EBS valume created from Amazon EBS snapshot
+> Instance store:  root volume launched from AMI in instance store volume created from Amazon S3
+
+-----------------------------------------------------------------------------------

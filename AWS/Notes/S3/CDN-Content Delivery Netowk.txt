@@ -1,0 +1,89 @@
+Say, S3 is in N.Virginia and user is in Mumbai
+
+Now, if user wants to upload files in S3, 
+By using CDN,
+user will not directly upload file in S3 resinding in N.Virginia 
+But, will upload first in nearest edge location
+and then AWS will transfer uploaded files from edge locations to original location using its private link
+
+Edge Location
+> location where cotents will be cached
+> separate to AWS regions/AZs
+> Read and write both
+> for how much time objects are cached on edge location- based on TTL(Time To Live) of objects
+> cached object can be cleared from edge location; extra charge
+
+
+
+> Distribution- name given to CDN which consists of collection of edge locations
+  Web distribution - for webites
+  RTMP - media streaming
+
+How CDN works
+> Say, web server is in UK
+> there are users across the world(say, india,USA,canada)
+> CDN is configured
+> Say, first time, user-1 from india tries to access resource present in webserver in UK
+> user-1 will 1st connect to CDN
+  check if requested data is present
+  IF not, then will connect from CDN to web server(UK); so if same user or diff user requests to access same data; will be available directly from CDN
+  if yes then directly read data from CDN
+> first time access time: more 
+  
+CDN optimized with AWS services
+> S3, EC2, ELB, Route 53
+
+> origin of CDN 
+  1. S3
+  2. ELB
+  3. EC2
+  4. HTTP servers
+
+> Improve security
+  - WAF
+  - Shied standard and advanced 
+
+> CDN even works with non-AWS origin server
+
+
+
+
+multiple origins in same distribution
+description(origin ID) must be unique for each origin
+
+Pricing
+
+> AWS free tier(every month)
+  50 GB data transfer out; 50 GB data from edge locations to outside
+  20,00,000 HTTP/HTTPs requests
+
+> CDN to be configured based on query string parameters if multi-language website is being used
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Practical
+
+> Create S3 bucket and upload some files
+
+> Create Distribution 
+Cloud Front > Web
+
+Origin Domain Name: name bucket created 
+Origin path: if objects residing any folder in bucket
+Origin ID: must be unique for each origin
+Restrict Bucket Access: if yes- S3 not accessible through bucket URL
+TTL: time To Live: time in seconds for which objects will remain cached at edge location 
+     Default TTL: 86400 seconds(24 hours)
+
+Say, bucket name : vaibhav-cdn, object name: OS.jpg
+Say, CDN is configured, CDN domain name: d3fi9q08y66aj1.cloudfront.net 
+ 
+without CDN	https://s3.amazonaws.com/vaibhav-cdn/OS.jpg  
+With CDN	https://d3fi9q08y66aj1.cloudfront.net/OS.jpg	   
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CloudFront: for web services
+Elastic Cache: Database services
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+> CDN signed URL
+  just like S3 pre-signed URL concept but traffic would traverse through CDN
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

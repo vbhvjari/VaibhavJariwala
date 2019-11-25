@@ -1,0 +1,12 @@
+Transer Acceleration
+bucketname.s3-accelerate.amazonaws.com
+
+Static Website
+http://bucketname.s3-website-region.amazonaws.com
+
+Static website
+
+> underline server maintainance
+> no need to manage load balacing
+> no need to manage concerned services
+> only static website: no wordpress, not that requires Database connection 

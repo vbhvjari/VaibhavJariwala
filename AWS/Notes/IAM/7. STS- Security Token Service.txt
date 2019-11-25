@@ -1,0 +1,18 @@
+STS: Security Token Service
+
+> part of IAM (IAM roles) service
+> provides temporary security credentials to trusted users
+> can be configured to last for anywhere from a few minutes to several hours
+> After the credentials expire, AWS no longer recognizes them or allows any kind of access from API requests made with them
+
+> STS is global service with singe endpoint
+  https://sts.amazonaws.com
+
+> STS uses "AssumeRoleWithSAML" to authenticate with on-premise
+
+> STS enables to request temporary, limited-privilege credentials.
+> STS enables users to assume role.
+> STS generates Federated Credentials for IAM users.
+
+> use Pre-signed URL with STS(cross over account)
+  for that IAM user must have access on S3 bucket

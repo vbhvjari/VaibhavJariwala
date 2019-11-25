@@ -1,0 +1,19 @@
+ClouFront CDN - Content Delivery Network
+
+> Creating CloudFront distribution with origin pointing to S3 bucket, 
+  "caching at edge locations" will be enabled
+
+> Consequences requests to the same objects will be served through the Edge location(cache) 
+  which is faster for the end user and also reduces the load on your origin(S3 bucket)
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+Transfer Acceleration
+
+> Enabling Transfer Acceleration for S3 bucket, data trasfers(GET/PUT from/to S3) are performed via same edge locations
+  but no caching would be on Edge locations.
+
+> Here, Network path is optimized for long-distance large-object uploads. Hence, higher throughput can be achieved
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+If it is mentioned to choose cost effective way then go with CDN
+----------------------------------------------------------------------------------------------------------------------------------------------

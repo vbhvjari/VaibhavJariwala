@@ -1,0 +1,75 @@
+Why Database, not traditional file/file system?
+
+> data in files can not be related to each other; in database, we can relate data within a table or between tables
+> all data in one file; file size: bigger; retrieval time : more
+> data not stored in organized way; hence difficult to read and understand
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Database
+> collection of data
+> we can relate one type of data to another
+
+Types of database
+1. Relational Database: SQL
+2. Non-relational Database: NoSQL
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Relational Database: SQL
+
+> it allows to relate data(within a table; table to table)
+
+> Data in structured format
+
+> Concept of primary key(PK) and foreign key(FK)
+  PK: unique(not null) : value/record of each row unique and not null
+  FK: primary key of one table included in another table
+ 
+  table
+  row: record	primary key
+  column: field
+  cell: tuple
+
+> uses SQL(Structure Query Language)
+
+> Data retrieval through query: SELECT,UPDATE,DELETE,..
+  E.g., SELECT column1,column2,..columnN FROM table_name;
+   
+> Not case sensitive (SELECT and select both are same)
+
+> uses RDBMS schema: rigidly define how all date inserted into database; data is in structured format
+
+> ACID compliant; A-Atomicity; C-Consistency; I-Isolation; D-Durability
+ 
+> Examples: MSSQL(Microsoft SQL Server), MySQL, Oracle, PostgreSQL, DB2
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Non-relational Database: NoSQL
+
+> Data: unstructured
+
+> Retrieval time: less; faster
+> Big data
+
+> Two types:
+  1. key-value stores
+  2. document model
+  3. Graph Stores
+  4. Wide-column stores
+
+1. Key-value non relational databases
+
+> uses simple key-value method to store data
+  Example: Emploee_ID:1092303
+  Here, Emploee_ID is key and its value is 1092303
+
+> In key-value pair, key acts as unique identifier
+
+> Example: Amazon DynamoDB, Apache Cassandra, Redis, Oracle NoSQL
+
+
+2. Document non-relational database
+
+> Document: set of key-value pairs; array of information
+
+> Example: MongoDB   
+----------------------------------------------------------------------------------------------------------------------------------------------------------

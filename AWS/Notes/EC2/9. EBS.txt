@@ -1,0 +1,121 @@
+EBS: Elastic Block Storage
+
+> Block level storage
+> zonal service
+> mainly used for OS disk
+
+> Mainly 2 types:
+  1. HDD : Throughput optimized
+  2. SSD : IOPS optimized
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+HDD
+
+> Throughput optimized
+
+1. Throughput optimized HDD(st1)
+2. Cold HDD(sc1)
+3. Magnetic(Standard)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Throughput Optimized HDD
+
+> for frequenly accessed,throughput insentive workloads
+> Use cases: big data, data warehouse,log processing
+> cannot be boot volume
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Cold HDD
+
+> lowest cost; less frequently accessed  
+> cannot be boot volume
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SSD
+
+> IOPS optimized
+ 
+  1. General Purpose SSD(gp2)
+  2. Provisioned IOPS SSD(io1)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+1. General Purpose SSD(gp2)
+ 
+> 3 IOPS per GB
+> upto 33 GB, 100 IOPS by default
+> beyond 33 GB, add 3 IOPS per GB to 100
+> E.g., 8 GB---100 IOPS
+        33 GB--100 IOPS
+        34 GB--34*3=102 IOPS
+        35 GB--105 IOPS
+
+  100/3000---------100 IOPS with 3000 burstable IOPS
+
+> Max: 10,000 IOPS + 3000 burstable
+> Use cases: system boot volumes
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Provisioned IOPS SSD(io1)
+
+> 50 IOPS per GB
+> Max: 32,000 IOPS + 3000 burstable
+> Use cases: database
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+> Once EBS is assigned, storage class and size of volume can be modified except for magnetic
+> on termination of EC2 instance, by default only root volume will get deleted; no other volume gets deleted
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Protect EBS volumes over accidential delete
+> setup DailyLifeCycle Manager policy scheduler to create EBS snapshots for your EBS volumes
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+EBS encryption
+> encrypted EBS volumes are supported on all instance types
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+EBS Performance Tips
+
+> use EBS-Optimized instances
+> Use a modern linux kernel
+> Use RAID-0 to maximize utilization of instance resources
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Copy EBS from one AZ to another AZ in same region
+
+> Say, EBS is in us-east-1a
+> Create snapshot of it
+> create volume from that snapshot and select another AZ(say,us-east-1b)
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Copy EBS from one region to another
+
+> create snapshot of EBS volume
+> Copy snapshot to another region
+> create volume from that snapshot
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Unencrypted EBS to encrypted EBS
+
+> create snapshot from unencrypted volume; here created snapshot would be unencrypted
+> Copy snapshot and select encryption; newly created snapshot would be encrypted 
+> create volume from newly created snapshotl here created volume would be encrypted
+
+unencrypted ------->    Snapshot     -------> Copy snapshot -------> create volume
+  EBS		     (unencrypted)	      (encrypted)	     (encrypted)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+> EBS is zonal service
+
+> data in EBS is automatically replicated within a AZ by AWS
+> replicated across multiple racks in same AZ
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+EBS volumes delete prevention
+> Make the attribute of DeleteOnTermination for EBS volumes to false
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Note that, snapshot from unencrypted EBS would be unencrypted one
+	   snapshot from encrypted EBS would be encrypted one
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+> When it is mentioned "cost effective" and no explicit requirement, always go with Cold HDD
+-------------------------------------------------------------------------------------------------------------------------------------------------------

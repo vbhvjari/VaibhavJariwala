@@ -1,0 +1,105 @@
+git clone <URL>
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+IAM program user: docprog
+Attach policy: AdministratorAccess
+Tages	Docker full admin access policy
+------------------------------------------------------------------------------------------------------------------------------
+Configure Programmatic user inb EC2 instance
+aws configure(provide proper region e.g., us-east-1c)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Build Image
+
+> To build nginx
+  Go to path /root/ecs-nginx-reverse-proxy/reverse-proxy/nginx
+  
+  docker build -t reverse-proxy .
+------------------------------------------------------------------------------------------------------------------------------
+
+> To App image
+  /root/ecs-nginx-reverse-proxy/reverse-proxy/app
+  docker build -t app .
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Upload image in ECR
+
+Create repository
+
+> We need IAM programmatic user with admin access
+/root/ecs-nginx-reverse-proxy/reverse-proxy
+
+aws ecr create-repository --repository-name reverse-proxy
+aws ecr create-repository --repository-name app
+------------------------------------------------------------------------------------------------------------------------------
+
+Login to docker
+> aws ecr get-login
+coopy everything just remove " -e none" and enter
+------------------------------------------------------------------------------------------------------------------------------
+
+Tag and push images to repository
+
+docker tag reverse-proxy <reverse proxy repo uri>:revision_1
+docker push <reverse proxy repo uri>:revision_1
+
+E.g.,docker tag reverse-proxy 758632675315.dkr.ecr.us-east-1.amazonaws.com/reverse-proxy:revision_1
+     docker push 758632675315.dkr.ecr.us-east-1.amazonaws.com/reverse-proxy:revision_1
+
+
+docker tag app <app repo uri>:revision_1
+docker push <app repo uri>:revision_1
+
+E.g.,docker tag app 758632675315.dkr.ecr.us-east-1.amazonaws.com/app:revision_1
+     docker push 758632675315.dkr.ecr.us-east-1.amazonaws.com/app:revision_1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Create cluster in ECS
+Cluster Name: reverse-app-cluster
+EC2 instance type: t2.micro
+Key pair
+VPC: default
+Subnet: select any 2 subnets
+Security Groups: default
+Container instance IAM role: create new role
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task Definitions
+
+Select cluster > Task Definitions
+Create new Task Definition> EC2
+
+Task Definition Name: reverse-app-task
+Configure via JSON
+Create
+
+
+Service creation
+Select cluster > services> create
+Launch type: EC2
+Service name: reverse-app-service
+Number of tasks: 3
+Next
+Cluster VPC: default [Service discovery (optional)]
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Verify
+
+Tasks > nginix > External Link 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Delete Route53 Zone Created By ECS Service Discovery
+
+Configure aws cli (programmatic user)
+
+> aws servicediscovery list-services
+> aws servicediscovery delete-service --id=<id-from-list-output>
+
+> aws servicediscovery list-namespaces
+> aws servicediscovery delete-namespace --id=<ns-id>
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Reference:
+
+https://github.com/awslabs/ecs-nginx-reverse-proxy/tree/master/reverse-proxy
+https://linuxacademy.com/community/posts/show/topic/27703-delete-route53-zone-created-by-ecs-service-discovery
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

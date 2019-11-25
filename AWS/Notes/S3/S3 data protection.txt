@@ -1,0 +1,71 @@
+Highly durable
+> AWS keeps 6 copies each object across multiple AZ
+> S3 PUT and PUT Object copy operations synchronously store the data across multiple facilities before returning SUCCESS
+
+Data Protection
+1. Data in-trasit
+2. Data at Rest
+
+1. Data in-transit
+> enabling communication via SSL or using client-side encryption
+
+2. Data at Rest 
+> both client side encryption and server side encryption
+> Server Side Encryption : S3 encrypts the object before savings it on disks in its data centers and decrypt it when objects are downloaded
+> Client Side Encryption : data can be encrypted at client side(not in AWs infra) and then uploaded encrypted data to S3 aws infra
+                           Here, client/user manages the encryption process, encryption keys
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Server Side Encryption(SSE)
+
+> Data encrytion at rest
+> only encrypts object not its metadata
+> AWS S3 handles encrytion(as it writes to disks) and decryption(when you access the objects)
+> no difference in the access mechanism for both encrypted or unencrypted objects and is handled transparently by S3
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+SSE-S3 : Server Side Encrytion with AWS S3-managed keys
+
+> Each object is encrypted with a unique data key employing strong multi-factor encryption
+> SSE-S3 encrypts the data key with a master key that is regularly rotated
+> uses 256-bit Advanced Encryption Standard (AES-256) to encrypt the data
+> SSE-S3 can’t be enforced when they are uploaded using pre-signed URLs, 
+  because the only way you can specify server-side encryption is through the AWS Management Console or through an HTTP request header
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+SSE-KMS : Server Side Encrytion with AWS KMS(Key Management Service) managed keys
+
+> uses AWS KMS which provides additional benefits along with additional charges
+> KMS is a service that combines secure, highly available hardware and software to provide a key management system scaled for the cloud
+> KMS uses customer master keys (CMKs) to encrypt the S3 objects
+> KMS enables you to centrally create encryption keys, define the policies that control how keys can be used
+> Allows audit use of key usage to prove they are being used correctly, by inspecting logs in AWS CloudTrail
+> Allows keys to temporarily disabled and re-enabled
+> Allows keys to be rotated regularly(will be taken care by AWS)
+
+> master key is region specific 
+> e.g., EBS volumes encryption at rest
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+SSE-C : Server Side Encryption with Customer provided keys
+
+> Encryption keys can be managed and provided by the Customer and S3 manages the encryption, as it writes to disks, and decryption, when you access the objects
+> When you upload an object, 
+  the encryption key is provided as a part of the request and 
+  S3 uses that encryption key to apply AES-256 encryption to the data and removes the encryption key from memory 
+
+> When you download an object, 
+  the same encryption key should be provided as a part of the request. 
+  S3 first verifies the encryption key and if matches decrypts the object before returning back to you
+
+> As each object and each object’s version can be encrypted with a different key, 
+  you are responsible for maintaining the mapping between the object and the encryption key used
+
+> SSE-C request must be done through HTTPS and S3 will reject any requests made over http when using SSE-C
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Client Side Encrytion
+
+> data can be encrypted at client side(not in AWs infra) and then uploaded encrypted data to S3 aws infra
+  Here, client/user manages the encryption process, encryption keys
+ 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,13 @@
+1. Users
+2. Groups
+3. Policies
+4. Roles
+
+
+2. Groups
+> Member of group: can only be users
+                   can not be policy,roles,other group
+
+> same user can be added in multiple groups
+  same user: max 10 groups
+

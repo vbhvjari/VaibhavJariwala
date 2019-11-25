@@ -1,0 +1,48 @@
+1. Users
+2. Groups
+3. Policies
+4. Roles
+
+
+3. Policies
+
+> Permission in simple term
+> In JSON format
+> Custom policy can be created as per requirement
+> Policy for root account: Administrator Access
+
+-------------------------------------------------
+> IAM policies:
+  
+  1. Identity based or IAM permissions
+
+  > attached to IAM users/groups/roles
+  > Specify who(user/group/role) can access resources
+  > inline or managed
+  > Version: 2012-10-17
+
+-------------------------------------------------
+  2. Resource based
+  
+  > attached to AWS resources/services/principal
+  > Specify who can access AWS resources and what action they can perform
+  > only inline
+  > Version: 2008-10-17
+-------------------------------------------------
+Managed Policies
+
+> Standalone policies that can be attached to multiple IAM users/groups/roles but not aws resources
+> policy changes are implemented as versions(max 5)
+> 2 types:
+  1. AWS managed policies: manage and maintain by AWS; cannot be modified
+  2. Customer managed policies: manage by AWS user
+
+-------------------------------------------------
+Inline Policies
+
+> created and managed by AWS user
+> Deletion of entity(IAM users/groups/roles) deletes the In-Line policy as well
+
+-------------------------------------------------
+> when editing permiision/policy, "Owner" refers to identity and email address used to create the AWS account
+-------------------------------------------------

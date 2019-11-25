@@ -1,0 +1,11 @@
+RDS
+
+> maximise disk IO (IOPS)
+  use Provisioned IOPS SSD EBS
+  to achieve better results, use 2 PIOPS and configure in RAID 0
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DynamoDB
+
+> DynamoDB is regional service
+  DynamoDB data is automatically replicated across multiple AZs

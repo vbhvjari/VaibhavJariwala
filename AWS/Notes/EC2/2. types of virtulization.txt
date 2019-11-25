@@ -1,0 +1,41 @@
+Virtulization
+
+
+> AWS hypervisor: Xen hypervisor on bare metal
+
+> Xen Hypervisor
+  It takes care of CPU scheduling and memory partitioning
+  but it is unaware of networking, external storage devices, video, or any other common I/O functions found on a computing system.
+
+> 2 types of virtulization
+  1. HVM: Hardware Virtul Machine
+  2. PV: Para Virtulization
+
+
+1. HVM
+> Fully virtulized and boot by executing the master boot record of the root block device of your image.
+> HVM VMs running on top of hypervisors are not aware that they are sharing resources with other VMs on the same hardware.
+> This virtualization type provides the ability to run an operating system directly on top of a virtual machine without any modification — 
+  as if it were run on the   bare-metal hardware.
+> The advantage of this is that HVMs can use hardware extensions which provide very fast access to underlying hardware on the host system.
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. PV
+> boot with a special boot loader called PV-GRUB, which starts the boot cycle and then chain loads the kernel specified in the menu.lst file on your image.
+> PV VMs running on top of hypervisors are aware that they are sharing resources with other VMs on the same hardware.
+> With Paravirtualization, the guest operating system requires some modification before everything can work. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> PV guests performed better with storage and network operations than HVM guests, because they could avoid the overhead of emulating network and disk hardware. 
+  This is no longer the case with HVM guests. They must translate these instructions (I/O) every time to effectively emulated hardware.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Use case of PV
+> Say , you are going to use AWS for using application just for testing(Testing/UAT)
+  and going to deploy application on premises for Production.
+  Say, application is legacy application and works only for specific type of hardware.
+  If HVM is used, then if host machine hardware gets upgraded, underlying VMs will also affect with changes in hardware.
+  In such cases, PV is useful.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------

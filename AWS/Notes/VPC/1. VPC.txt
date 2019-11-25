@@ -1,0 +1,126 @@
+VPC: Virtual Private Cloud
+
+> isolated section of AWS services in a virtual network; logical datacenter in AWS
+> complete control over IPs,subnets,security groups,route tables,NAT Gateways
+> customize setup of network 
+> can use hardware VPN between on premise DC to AWS using Virtual Private Gateway
+> Regional service
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> AWS supported CIDR: /16 to /28
+  Max: /16
+  Min: /28
+
+  10.0.0.0 to 10.255.255.255		10/8 prefix
+  172.16.0.0 to 172.31.255.255		172.16/12 prefix
+  192.168.0.0 to 192.168.255.255 	192.168/16 prefix
+
+
+> total 5 IP addresses are not available for each subnet
+  The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and cannot be assigned to an instance
+   e.g., 10.0.0.0/24
+  
+      10.0.0.0: Network address
+      10.0.0.1: Reserved by AWS for the VPC router
+      10.0.0.2: Reserved by AWS for DNS
+      10.0.0.3: Reserved by AWS for future use
+      10.0.0.255: Network broadcast address. We do not support broadcast in a VPC, therefore we reserve this address
+
+
+> you can associate secondary IPv4 CIDR blocks with your VPC
+  when secondary CIDR block is associated in VPC, route is automatically added to VPC route table to enable routing within VPC
+  But, subnet CIDR cannot be edited once created
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Security Groups: for EC2 
+> Network ACL: for subnets
+
+> Parameter firewall or boundary firewall- firewall at VPC level
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Internet Gateway(IGW)
+
+> provides internet to VPC (public connectivity)
+> only 1 IGW per VPC
+> internet gateway: allows two way traffic; one point to another and vice a versa
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Route Table
+> routes
+> Public route: 0.0.0.0/0
+> Main : Yes : subnets get automatically attached to Main routes
+ 	 NO 
+
+> for any route table, the local route cannot be edited or deleted
+  every route table contains a local route for communication within the VPC over IPv4
+  If VPC has more than one IPv4 CIDR block, route tables contains local route for each IPv4 CIDR block
+ 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Subnet
+
+> 1 subnet is similar to 1 AZ
+
+> whenever subnet is created, by default it is associated with main route table
+  we need to explicitely associate the subnet to new non-main route table if diff routes are required for main and non-main route tables
+
+> subnet CIDR cannot be edited once created
+ 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Types: 
+
+1. VPC with public subnet
+2. VPC with public and private subnet
+3. VPC with public and private subnet & Hardware VPN
+4. VPC with private subnet & Hardware VPN
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Default VPC
+
+> Every subnets have a route out to internet; internet accesible
+> Each instance has both public and private IP (unlike in private subnet, only private IP)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+with creation of VPC
+ - route table
+ - Network ACL
+ - security group  
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+from outside(internet) to AWS: inbound
+AWS to outside(internet) : outbound
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPC endpoints always takes precedence over NAT Gateway or Internet Gateway
+VPC endpoints are supported within same region only
+VPC endpoints do not support cross-region S3 requests
+VPC endpoints are not supported outside VPC 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> When a client initiates a request it chooses a random source port(ephemeral port) from a predefined range and expects a response only at that port
+
+> Ephermeral port is short lived endpoint that is created by OS when a program requests any available user port
+  port range: 1024 to 65535
+
+> port gets released after related RCP connection terminates
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> unless and until specified explicitely, all subnets within a VPC can communicate with each other using main route table
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Once VPC is set to dedicated hosting, it is not possible to change the VPC or instances to default hosting. 
+  we must re-create the new VPC
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+route table : rules to route traffic between subnets in a VPC
+Security Group : rules to control traffic between EC2 instances in each subnet
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VPN
+
+
+On-premise infra/corporate office			AWS Infra
+Customer Gateway					Virtual Private Gateway
+> Public IP						> attached to VPC 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------

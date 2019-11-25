@@ -1,0 +1,24 @@
+NAT Gateway: providing outbound internet connectivity on private EC2
+
+
+> NAT Gateways > Create NAT Gateway
+> Subnet: pub1a subnet
+> NAT Gateway needs Elastic IP
+  Either you can deassociate previously used Elastic IP and use the same for NAT Gateway or create new Elastic IP
+> Edit route tables
+  Edit private route table(mumbai_private1)
+  Routes > Edit Routes > Add Route
+  Destination: 0.0.0.0/0	Target: NAT Gateway
+
+
+> Make sure to delete NAT Gateway after use.
+> Make sure to rlease ELastic IP after use.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Workflow
+
+Internet access from priv2b
+
+Priv2b instance > private route table > NAT Gateway(configured in pub1a subnet) > interbet access
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 

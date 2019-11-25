@@ -1,0 +1,86 @@
+Lamda
+
+> serverless compute unit
+> no need to maintain underlying hardware and OS, just need to upload the code to Lamda and it will execute and give desired output
+> In backend, lamda uses sorosis file system and firecracker
+  It will spin up micro VMs and it would take miliseconds launch micro VMs
+  
+> Use cases: Business/Application logic
+
+> Lamda can be used as an event driven compute service
+  means lamda will run in response to an event
+
+  e.g., change in S3 or DynamoDB
+        run code in response to HTTP/AWS API Gateway/AWS SDKs
+
+  even lamda function can trigger another lamda function
+
+
+> things can trigger lamda
+  - API GAteway
+  - CloudFront
+  - CloudWatch - CloudWatch Events, CloudWatch Logs
+  - DynamoDB
+  - Kinesis
+  - S3
+  - SNS
+  - SQS
+  - other aws services
+
+> lamda scales out automatically
+  initally hundreds users are using lamda and then thousands people start using lamda then lamda scales out automatically 
+  means increases lamda functions automatically.
+
+> 1 event = 1 lamda function 
+  But lamda function can trigger another lamda function
+
+> Supported languages:
+  .NET
+  Go
+  Java
+  Node JS
+  Python
+  Ruby
+  C#/Powershell
+  
+> Role can be created manually
+  attached policy: Simple Microservice permissions
+
+
+> Billing
+  - per million execution; 1st 1 million requests free then chargable per milion executions/requests 
+  - every 256 MB RAM (per execution)
+  - no charge to build and store code
+
+ e.g., you hit URL that is invoked by lamda then 1 time hit url means 1 execution
+       say, per execution it uses some amount of RAM, that will be also charged
+
+> In CloudWatch, you will get lamda logs..logs about execution of lamda, not logs if any code/application logic fails
+
+> To generate application logic logs, console.log is there
+  determine debugging points in your application/code logic and pin console.log at every debugging points
+  console.log would print output 
+  console.log logs are stored in CloudWatch  
+    
+  e.g., console.log('PutData', JSON.Stringfy(params));
+
+> Runtime : time taken by lamda to execute code
+  Max: 15 min
+
+  
+
+
+> Real time example:
+  meme making website
+  if user creates meme and upload in S3(HTTP event or change in S3 event) then it will trigger lamda and lamda will add relevant text messages to meme
+  in other way, it can also trigger lamda to store same meme or updated meme in another S3 bucket
+  Each HTTP request, separate lamda
+
+  Say, user1 makes HTTP request, API Gateways triggers lamda, 1 lamda function will be triggered
+  now, 2 users make HTTP request, API Gateways triggers lamda,2 lamda function will be triggered
+  (lamda function: identical code that respond to multiple reuests)
+
+  
+
+scale up: increases CPU/RAM
+scale out: addiding instance

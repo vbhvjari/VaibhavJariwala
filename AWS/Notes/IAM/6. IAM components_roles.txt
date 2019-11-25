@@ -1,0 +1,22 @@
+1. Users
+2. Groups
+3. Policies
+4. Roles
+
+
+4. Roles
+> Assigned to IAM users/groups
+ 
+> Use Cases:
+  - cross over AWS accounts; using STS(Security Token Service)
+  - communication among AWS services/resources
+  - ADFS or OpenConnect ID(uses SAML 2.0)
+
+> STS is free but services used by STS are chargable.
+
+> Modification in role can be done anytime and changes are reflected immediately
+
+
+Cross over accounts
+1. trust policy: who can assume role
+2. Permissions policy: what they can access

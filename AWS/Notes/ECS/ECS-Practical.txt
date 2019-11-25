@@ -1,0 +1,112 @@
+git clone <URL>
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+IAM program user: docprog
+Attach policy: AdministratorAccess
+Tages	Docker full admin access policy
+------------------------------------------------------------------------------------------------------------------------------
+Configure Programmatic user inb EC2 instance
+aws configure(provide proper region e.g., us-east-1)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Make sure docker is installed, if not follow below steps:
+
+1. Update OS to latest one
+   sudo yum update
+
+2. Install docker
+   sudo yum install docker 
+
+3. Grant ec2-user to docker service
+   sudo usermod -a -G docker ec2-user
+
+4. Start docker service and ebable it at boot
+   sudo service docker start
+   sudo chkconfig docker on
+
+   Verify it
+   sudo service docker status
+   sudo chkconfig --list docker
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Build Image
+
+> List out images
+  docker images
+
+------------------------------------------------------------------------------------------------------------------------------
+> To build nginx
+  Go to path /root/ecs-nginx-reverse-proxy/reverse-proxy/nginx
+  
+  docker build -t reverse-proxy .
+------------------------------------------------------------------------------------------------------------------------------
+
+> To build App 
+  /root/ecs-nginx-reverse-proxy/reverse-proxy/app
+  docker build -t app .
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Upload image in ECR
+
+Create repository
+
+> We need IAM programmatic user with admin access
+/root/ecs-nginx-reverse-proxy/reverse-proxy
+
+aws ecr create-repository --repository-name reverse-proxy
+aws ecr create-repository --repository-name app
+------------------------------------------------------------------------------------------------------------------------------
+
+Login to docker
+> aws ecr get-login
+copy everything just remove " -e none" and enter
+------------------------------------------------------------------------------------------------------------------------------
+
+Tag and push images to repository
+
+docker tag reverse-proxy <reverse proxy repo uri>:revision_1
+docker push <reverse proxy repo uri>:revision_1
+
+E.g.,docker tag reverse-proxy 758632675315.dkr.ecr.us-east-1.amazonaws.com/reverse-proxy:revision_1
+     docker push 758632675315.dkr.ecr.us-east-1.amazonaws.com/reverse-proxy:revision_1
+
+
+docker tag app <app repo uri>:revision_1
+docker push <app repo uri>:revision_1
+
+E.g.,docker tag app 758632675315.dkr.ecr.us-east-1.amazonaws.com/app:revision_1
+     docker push 758632675315.dkr.ecr.us-east-1.amazonaws.com/app:revision_1
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Create cluster in ECS
+Cluster Name: reverse-app-cluster
+EC2 instance type: t2.micro
+Key pair
+VPC: default
+Subnet: select any 2 subnets
+Security Groups: default
+Container instance IAM role: create new role
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Task Definitions
+
+Select cluster > Task Definitions
+Create new Task Definition> EC2
+
+Task Definition Name: reverse-app-task
+Configure via JSON  [ JSON format content will be fetched from git webaite ]
+Create
+
+
+Service creation
+Select cluster > services> create
+Launch type: EC2
+Service name: reverse-app-service
+Number of tasks: 3
+Next
+Cluster VPC: default [Service discovery (optional)]
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Verify
+
+Tasks > nginix > External Link 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

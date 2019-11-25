@@ -1,0 +1,36 @@
+1. Backup and Restore
+> RPO : Recovery Point Objective
+> RTO : Recovery Time Objective
+
+RPO
+> After outage, maximum amount of data loss willing to be accepted as measured in time
+> After outage, how much time for which data get lost
+
+RTO
+> After outage, maximum length of time,customer is willing for the recovery process to finish
+> After outage, RTO : within how much time, DR will get recovered
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. Pilot Light
+
+> DC and DR both setup
+> DR in power off state
+> Diff between DC and DR stored in S3
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3. Boiler Plate
+
+> DC and DR both setup
+> DC and DR both on power on state
+> DR with less configuration
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4. Active-Active
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Data Mine
+> data from one source to one place
+
+Data Lake
+> data from diff sources to one place
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,9 @@
+> move data automatically from one storage class to another as per predefined interval time
+> can be used with versioning or without versioning(current version and previous versions)
+> also used to expire or permanently delete objects after certain time
+
+> Default limits
+
+  Standard to Standard IA : 30 days
+  Standard to Glacier  	  : 60 days
+  Standard to delete 	  : 365 days

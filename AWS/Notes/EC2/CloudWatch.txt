@@ -1,0 +1,45 @@
+> Default polling interval: 5 min ; its free
+> No of dashboards for free: 5
+> Min interval polling time: 1 sec(detailed monitoring) (paid)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Default metrics for EC2 (not for memory; can be done using custom scripts)
+  - CPU related
+  - Disk related
+  - Network related
+  - StatusCheck
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Dashboards
+> Alarm: alarm to notify when particular thresolds are hit
+> Event: helps to respond to state changes in aws resources
+> Logs: aggregate, monitor and store logs
+
+
+CloudWatch: monitoring
+CloudTrail: auditing 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Alarm: alarm to notify when particular thresolds are hit
+
+> Say, notify user when CPU Utilization is above 60% , notify user through mail
+> Alarm states:
+  ALARM : when utilization crosses thresold
+  INSUFFICIENT: data is insufficient(default when alarm is created)
+  OK: utilization is under thresold
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Events: helps to respond to state changes in aws resources
+
+> Say, whenever there is a state(start/stop) change in EC2 instance, some action to be taken,e.g., create snapshot of root EBS volume
+> To do that we need to create rules in events
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+To monitor state change of EC2 instance,
+
+> use CloudWatch logs to store stage change of instance
+> use Cloudwatch events to monitor the state change of the events
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

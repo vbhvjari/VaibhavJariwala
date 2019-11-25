@@ -1,0 +1,23 @@
+AWS Directory Services
+
+> allows users to sign in with their existing corporate credentials 
+  and reducing need for additional credentials
+
+
+1. AWS Microsoft AD
+2. Simple AD
+3. AD Connector
+
+
+1. AWS Microsoft AD
+> fully mananged service
+> can be used for both- on-premise and cloud
+> no need of data synchronization and replication 
+
+
+2. Simple AD
+> limited functionality and compatibility for small organizations
+
+
+3. AD Coonector
+> to connect on premise infra and AWS infra

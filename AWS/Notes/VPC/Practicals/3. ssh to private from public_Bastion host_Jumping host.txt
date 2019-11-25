@@ -1,0 +1,15 @@
+ssh priv2b from pub1a
+
+> Upload private key of priv2b to S3 bucket
+> Make it public
+> From pub1a, download private key present in s3 bucket
+  wget https://s3.amazonaws.com/vbhv-keys/docker_19Jan19.pem
+
+> chmod 400 docker_19Jan19.pem
+
+> Allow ssh in priv2b security group that allows ssh trafic from publ1 subnet
+
+> From pub1a instance, ssh to priv2b instance
+  
+  ssh -i <private_key of priv2b instance> ec2-user@<private IP of priv2b instance>
+  ssh -i docker_19Jan19.pem ec2-user@10.0.8.159

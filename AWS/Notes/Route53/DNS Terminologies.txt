@@ -1,0 +1,45 @@
+naked/root domain
+> An Internet domain name without the "www" or any other subdomains
+> e.g., computerlanguage.com : naked domain
+        www.computerlanguage.com : not naked domain; it contains www sub domain
+
+
+A Record: Address Record
+> value of A record: IP address
+> info about IP to name
+>e.g., map naked domain to IP (Elastic IP)
+       example.com  to  Elastic IP say 198.51.100.77      
+ 
+CNAME Record
+> maps a name to another name
+> value o CNAME: name
+> can never be an IP address
+> cannot be used for naked/root domain
+
+Alias Record
+
+> AWS Route53 specific
+> mapping AWS specific resources
+  - ELB
+  - CDN
+  - Elastic Beanstalk
+  - S3 bucket  
+> mainly used to map DNS names
+
+> e.g., ELB DNS name to naked domain
+        MyELB-123456-us-east-1.amazon.com to example.com
+
+
+> naked domain must be mapped with either an A record or Alais record
+
+
+AAAA Record
+> same as A record(for IPv4)
+> AAAA for IPv6
+
+
+MX Record : Mail Exchange Records
+
+> used to setup email servers 
+
+

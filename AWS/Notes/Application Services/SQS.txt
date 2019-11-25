@@ -1,0 +1,141 @@
+SQS: Simple Queue Service 
+
+> 1st AWS service launched
+> PaaS 
+> regional service
+> queue: temporary repository for messages awaiting for processing
+         acts as buffer between component producer and consumer
+
+> queue is identified by unique queue name within same AWS account
+
+
+> messages retention period in queue: 1 min to 14 days; default: 4 days
+
+> message size(in any format): max 256 KB
+  messages larger than 256 KB, use ECL-extended Client Library, S3/DynamoDB
+
+> queue can be created,deleted
+  messages can be deleted with queue
+
+> AWS SQS can delete queue after 30 days without notification if no action is performed
+
+> message do not get deleted while processing.
+  so even if processing fails, message will not get deleted
+
+> SQS doesn't keep track of all tasks and events in an application. 
+  user must implement your own application level tracking, especially if your application uses multiple queues
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Features:
+
+> highly scalable(horizontal scaling)
+> fault tolerant
+> asynchronous loosly coupled
+> distributed queue system  
+> PaaS: no headache of backend maintainance
+> pull based
+> supports HTTP,HTTPs(SSL) and TLS
+> PCI Compliance(online payment)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Two types:
+  1. Standard(default)
+  2. FIFO
+
+
+1. Standard
+
+> default
+> ensures delivery of each message at least once
+> stores copies of messsages on multiple server(for redundancy and high availability)
+> might deliver duplicate copy of messages
+> makes best effort to preserve order in messages but does not gaurantee first in,first out delivery
+
+
+2. FIFO: First In First Out
+> keeps order in messages
+> deliver messages in order that first in first out
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Use Cases
+
+> Work queues
+  Decouple components of a distributed application that may not all process the same amount of work simultaneously
+
+> Buffer and Batch Operations
+
+> Fan-out
+  Combine SQS with SNS to send identical copies of a message to multiple queues in parallel for simultaneous processing
+
+> Auto Scaling
+  SQS queues can be used to determine the load on an application, 
+  and combined with Auto Scaling, the EC2 instances can be scaled in or out, depending on the volume of traffic 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+How SQS works
+
+Producer > SQS > Consumer
+
+> Producer sends message in SQS and message is stored in SQS
+> When message is received from SQS to consumer, receipt handle is returned with message 
+  If message is received more than once to consumer, each time its received, different receipt handle is assigned 
+
+> when consumer receives and process message from queue, message remains in queue.
+   AWS will not automatically delete the message
+
+> SQS doesn't delete message once it is received by consumer
+  As SQS is distributed system 
+
+> As a bet practice, consumer should explicitely delete the message from queue once it is received.
+
+Visibility Timeout
+> time during which SQS prevents other consuming components from receiving and processing the message
+
+> consumer should delete the message within visibility timeout else message will be visible again for other consumer
+
+> visibiliy timeout starts ticking once SQS return the message to consumer
+> Default visibility time: 30 sec 
+> It can be extended by consumer
+  Min: 0 sec
+  Max: 12 hours
+
+> Messages those cannot to be processed, use dead letter queues to isolate messages that can't be processed for later analysis
+
+> AWS does not encrypt messages by default
+
+> To select the message to delete, use the ReceiptHandle of the message, not the message ID which you receive when you send the message
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQS Long Polling
+
+> reduces cost by eliminating number of empty responses and false empty responses
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+To reduce cost, batch functionality
+- SendMessageBatch
+- DeleteMessageBatch
+- ChangeMessageVisibilityBatch
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQS polling
+1. Short polling
+2. Long polling
+
+1. short polling
+
+> default
+> query only a subset of its servers to determine whether any messages are available for a response
+> ReceiveMessageWaitTImeSeconds = 0
+
+2. long polling/long queue
+
+> Eliminate empty responses by allowing Amazon SQS to wait until a message is available in a queue before sending a response
+> Eliminate false empty responses by querying all—rather than a subset of—Amazon SQS servers
+> ReceiveMessageWaitTImeSeconds > 0
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+http://jayendrapatil.com/aws-sqs-simple-queue-service/
+
+https://www.youtube.com/watch?v=b5DIb-ATf7k
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------

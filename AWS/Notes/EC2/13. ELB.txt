@@ -1,0 +1,78 @@
+ELB- Elastic Load Balancer
+
+> Load balancing service
+> ELB: regional 
+> 3 types: 
+  1. CLB: Classic Load Balancer
+  2. ALB: Application Load Balancer
+  3. NLB: Network Load Balancer
+
+> Say, there are 2 EC2 instances under ELB; each EC2 instance runs 3 DBs
+  internet load balancer: load balancing from ELB to EC2 instances: through public IP	internet	
+  internal load balancer: load balancing among DBs within a EC2: through private IP	within VPC
+
+> No public IP of ELB available, only DNS name of ELB available
+  whenever we launch ELB, ELB will create a node in each subnet
+
+> ELB service will not consume IP,but consume DNS
+   only ELB nodes will consume IP
+
+> instances monitored by ELB are reported as InService or OutofService
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CLB
+
+> Error: 504 Gateway timeout
+
+> X-Forwarded-For header
+  when we need to fetch info(IP address-IPv4) of end user
+  need of public IP address of end user
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Listener Configuration
+
+Protocol: 
+> HTTP/HTTPs
+> SSL
+> TCP	custom port
+
+Load Balancer Port
+> load balacing through which protocol/port
+
+Instance Port
+> depends on application running in EC2
+  e.g., apache: 80
+        tomcat: 8080
+	MySQL:  3306 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Cross-Zone Load Balancing	distributes traffic evenly across all targets 
+Connection Draining		no of seconds allow existing traffic to continue flowing 
+				no of seconds ELB waits before transffering traffic to another node in ELB
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ALB
+
+> for HTTP/HTTPs 
+>  ALB : route/distribute traffic based on path
+> for containers, route traffic based on ports
+
+> routing among paths
+  specific requests to specific paths or servers
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+NLB
+
+> extreme network performance
+> works at OSI layer-4
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+
+
+http://jayendrapatil.com/aws-elastic-load-balancing/
+http://jayendrapatil.com/aws-auto-scaling-elb/

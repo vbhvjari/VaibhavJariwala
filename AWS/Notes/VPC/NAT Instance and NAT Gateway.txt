@@ -1,0 +1,48 @@
+> provide internet connectivity to aws resources in private subnets
+> always configured in public subnet
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NAT Instance
+
+> just like EC2 instance
+> can be launched from Community AMI
+> always in public subnet
+> need to disable source/destination check
+> supported to bastion host
+
+limitations:
+> no redundancy; if NAT instance goes down
+> associated with security groups
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NAT Gateway
+
+> works on IPv4
+> needs Elastic IP
+> configured in public subnet
+> Highly available
+> zonal service; for redundancy, setup NAT gateways in multiple AZ
+> not supported to bastion host
+> not associated with security groups
+  Network ACL can be used to control the traffic to and from the subnet. NACL applies to the NAT gateway’s traffic, which uses ports 1024-65535
+
+
+Limitations:
+> cannot send traffic over
+  - VPC Endpoints
+  - VPN connections
+  - AWS Direct Connect
+  - VPC Peering
+
+  To overcome above limitation,
+  Private subnet’s route table should be modified to route the traffic directly to these devices.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Egress Only Internet Gateway
+
+> works on IPv6
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+NAT Instance: providing internet access to EC2 instances in private subnet
+Bastion/jump box: securly administer EC2(using SSH/RDP) in private subnet
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------

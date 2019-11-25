@@ -1,0 +1,26 @@
+PUT : upload file to AWS S3
+GET: retrieve/request file from AWS S3
+DELETE: delete file from AWS S3
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+1. Read After Write Consistency	PUTs
+
+> If you upload the file, it would be available and able to be accessed immediately
+> Basically, it would be newly PUTs objects
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+2. Eventual consistency
+
+> When you make some changes in existing objects or delete objects, it will take time to propagate changes
+  because AWS keeps 6 copies of each object, spanning in multiple AZs. So it will take some time(in ms or seconds) to reflect changes
+> Basically it would be overwrites PUTs and DELETEs
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Only for Information:
+
+> strong consistency
+  A successful response to a PUT reuest for new object only occurs when the object is completely saved
+
+> S3 does not provide strong consistency
+
+--------------------------------------------------------------------------------------------------------------------------------------------------

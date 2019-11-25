@@ -1,0 +1,31 @@
+> AWS service that allows to connect on premise storage with AWS cloud storage
+> virtual appliance to be installed in on premise DC
+> supports Hyper-V and VMWare ESXi
+> Types:
+  1. File Gateway(NFS) - flat files(pdf,images,word,excel files,not OS/DB files); stores directly on S3
+
+  2. Volumes Gateway(iSCSI) - OS files- block storage - EBS snapshots in AWS; incremental snapshots
+     > stored volumes -entire volume
+     > cached volumes - only frequently used volume data
+
+  3. Tape Gateway(VTL-Virtual Tape Library) - backup and archival; virtual tape  
+                                              NetBackup, Backp Exec, Veeam, etc..
+
+> Use case:
+  Say, you have existing on premise DC and want to move to cloud.
+  There aee some application running, that needs traditional on premise hardware only
+  for such legacy applications, storage gateway is useful.
+
++++++++++++++++++
+1. Stored volume gateway
+> primary data is stored locally 
+> entire dataset is available for low latency access while aysnchronously backed up to S3
+> low latency to all data :  stored volumes gateway
+
+
+2. Cached volume gateway
+> data stored in S3 and retain a copy of frequently accessed data subnets locally
+> we are not storing backups on S3 but the actual primary data itself
+> extend on-premise storage to AWS
+  easy extension of on-premise  to AWS 
+

@@ -1,0 +1,34 @@
+From Prod to Dev
+Prod: sender
+Dev: Acceptor
+
+IAM role- in prod
+
+
+IAM user- in dev
+
+---------------------------------------------------------------------------------------------------
+1. Create IAM role in Prod account
+
+Create Role > Another AWS Account > Account ID (Dev account no) > Attach permissions policies
+> Select "AmazonS3ReadOnlyAccess" > Next
+
+Role Name: prod-to-dev-S3
+
+---------------------------------------------------------------------------------------------------
+On Dev account
+
+2. Create IAM user 
+   E.g., AWS console user name: acceptor
+  
+3. Add permission "PowerUserAccess" to IAM user acceptor
+   
+4. From Dev account, login to IAM user acceptor
+   switch role > 
+   Account: account no of Prod
+   Role: prod-to-dev-S3
+
+---------------------------------------------------------------------------------------------------
+PowerUserAccess
+> Provides full access to AWS services and resources, but does not allow management of Users and group
+---------------------------------------------------------------------------------------------------

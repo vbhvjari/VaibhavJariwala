@@ -1,0 +1,33 @@
+> IP: 169.254.169.254
+> User data and Metadata can be retrieved by using curl or GET request(free)
+> both can be accessed from within instance itself
+
+
+
+Metadata	 
+
+> data about data
+> Who am I?
+> 2 types: 
+  1. Instance metadata: 
+     data about instance; instand id, ami id, hostname, ips, etc.
+     http://169.254.169.254/latest/meta-data/
+     (/ at the end is mandatory)
+
+  2. Dynamic data: 
+     real time data; instance monitoring
+     http://169.254.169.254/latest/dynamic/
+     (/ at the end is mandatory)
+
+--------------------------------------------------------------------------------------------------------------------------------------
+Userdata
+> bootstrapping
+> What should I do?
+> http://169.254.169.254/latest/user-data
+> only executed only at the launch of the instance
+> If you stop an instance, modify the user data, and start the instance, the new user data is not executed automatically.
+> size: 16 KB
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+ 

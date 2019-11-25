@@ -1,0 +1,13 @@
+object storage
+> way of organizing data
+> object has globally unique identifier: able to access object(data) without knowing its location in disk
+> metadata; very useful in identification
+
+limitations:
+> dont allow to edit one part of file(data); must be manipulated/operated as a whole unit
+
+
+block storage
+> entire data is split into predefined size of block of data
+> no metadata; blocks are identified by its SCSI address
+> must be attached to OS

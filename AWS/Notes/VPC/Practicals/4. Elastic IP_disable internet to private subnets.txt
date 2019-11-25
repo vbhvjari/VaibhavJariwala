@@ -1,0 +1,16 @@
+> Assign Elastic IP to priv2b instance
+> Now, ssh from pub1a to priv2b
+> Now, from priv2b instance, internet is accessible
+[Here, private subnet is not indeed private becasue all 4 subnets(2 public and 2 private) point to public route table only and hence all 4 subnets are publicly open.]
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+To make, private subnet not accessible to outside to world
+
+> Create Route tables for Private Subnet
+  Route Tables > Create Route Table 
+  Name: mumbai_private
+
+> Subnet Associations > Edit Subnet Associations
+  Add 2 private subnets
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Make sure to release ELastic IP after use. 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,60 @@
+> snapshot of EBS volume
+> snapshot: regional
+> snapshot stored in S3; but not visible under S3
+> can be created volume from snapshot
+  (make sure that volume is created in same AZ as in EC2)
+
+> snapshot is recovery point
+
+> snapshot: incremental
+  e.g., snapshot-1: full copy: 100 GB
+        snapshot-2: incremental: data changed of 1 GB
+  	snapshot-3: incremental: data changed of 1 GB
+	snapshot-4: incremental: data changed of 2 GB
+  
+   At this point of time, user needs to pay only for latest snapshot(snapshot-4; only for 2 GB instead of 100 GB)
+   AWS will manage and store full backup in such case
+
+> Use cases:
+  - It can be used as backup/restore
+  - Data migration between instances
+  - data replication from one AZ to another
+  - DR (snapshot can be copied from one region to another)
+
+> snapshot of encrypted volume: encrypted automatically
+> restoration from encryted snapshot: encrypted volumes
+> snapshot sharing : only possible for unencrypted snapshots
+  snapshot public or can be shared to other AWS accounts
+
+> To take consistent snapshot, it is best practice to shut down instance before taking snapshot
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+unencrypted voume to encrypted volume
+> create snapshot from unencrypted volume (here, snapshot will also be unencrypted only)
+> create volume from snapshot, here you can select encrypted and newly created volume will be encrypted
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+snapshot of RAID volumes
+
+> snapshot excludes data held in the cache by application and OS
+> To take snapshot of RAID volumes, pick any one of following options:
+  - stop application from writing to disk
+  - fluash all caches to disk
+      > frreze file system
+      > unmount RAID array
+      > shut down EC2 instance
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+EBS snapshot
+> create image from snapshot - posible
+> create EBS volume from snapshot - possible
+> share snapshot to another AWS account - possible
+> make unencrypted copy of an encrypted snapshot - not possible
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+you cannot remove/disable encryption from encrypted snapshot
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note that, snapshot from unencrypted EBS would be unencrypted one
+	   snapshot from encrypted EBS would be encrypted one
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

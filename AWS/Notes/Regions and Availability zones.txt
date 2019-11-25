@@ -1,0 +1,24 @@
+Regions
+> Each region is a separate geographic area and is completely independent
+> Communication between regions is across the public Internet
+> Data transfer between regions is charged at the Internet data transfer rate for both the sending and the receiving instance
+> Resources aren’t replicated across regions unless done explicitly
+
+----------------------------------------------------------------------------------------------------------------------------
+Availability Zones
+> Each AZ is physically isolated from each other
+> AZs in a region are connected with low-latency private links and not through public internet
+> names of AZs are randomly applied, so "us-east-1a" is not necessarily the same physical location of all three accounts
+
+----------------------------------------------------------------------------------------------------------------------------
+> If it is asked to maintain lowest latency with redundancy, do not go with cross-region
+  because, there will be some latency from one region to another
+  go with multi AZ
+
+> Whenever there is mentioned Disasters/Disaster recovery/DR-- always consider region specific 
+
+----------------------------------------------------------------------------------------------------------------------------
+Resiliet 
+> ability to recover/withstand quixkly from difficult situation
+
+----------------------------------------------------------------------------------------------------------------------------

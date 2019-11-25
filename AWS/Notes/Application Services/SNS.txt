@@ -1,0 +1,39 @@
+SNS: Simple Notification Service
+
+> Notification - email
+	       - message/SMS
+
+> push based mechanism
+> notification to 
+  - end users
+  - HTTP endpoint
+  - SQS
+
+> allows to group multiple recipients using topics
+> redundancy: SNS messages in multple AZ
+
+> pricing:
+  - per million SNS requests
+  - per 1,00,000 notifications deliveries over HTTP 
+  - per 100 notifications deliveries over SMS
+  - per 1,00,000 notifications deliveries over email
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Security analysis and operational troubleshooting purposes : AWS CloudTrail
+
+> Protocols:
+   - HTTP/HTTPs
+   - SQS
+   - Lamda
+   - SMS
+   - Email/Email-JSON
+   - Application
+
+> Supports Filter Policy for topics
+
+> Message Attributes 
+  - Name
+  - Type
+  - Value
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------

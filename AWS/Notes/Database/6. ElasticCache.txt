@@ -1,0 +1,49 @@
+ElasticCache
+
+> web service 
+> supported engines - Memcached
+	            - Redis
+
+> in-memory caching mechanism that improves performance
+> Offload the read traffic from your database in order to reduce latency caused by read-heavy workload
+> not for multiple regions
+
+
+CloudFront: for web services
+Elastic Cache: Database services
+
+Memcached		
+> multithreading
+> low maintainance
+> easy horizontal scalibility with auto discovery
+
+Redis
+> persistence
+> Read replicas/failver
+> cluster mode/shareded clusters
+
+
+> CDN : for web applications
+  ElasticCache : for database services
+
+> ElasticCache: for RDS,DynamoDB,MongoDB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://jayendrapatil.com/aws-elasticache-certification/

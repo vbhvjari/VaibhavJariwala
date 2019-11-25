@@ -1,0 +1,51 @@
+> default version ID for non versioning bucket: null
+> versioning is applicable only for new objects
+> It is property of bucket and if enabled to a bucket, versioning is applicable to all objects within a bucket
+> DELETE API call on the object does not delete the actual object; but places delte-marker on the object
+
+--------------------------------------------------------------------------------------------------------------------------
+Advantages of versioning:
+
+> keep multiple versions of an object in the same bucket
+  e.g., index.html file would be changed frequently and you want to keep track of changes done
+
+> can restore deleted file using delete-marker
+  useful in accidential delete
+   
+--------------------------------------------------------------------------------------------------------------------------
+Practical-1
+
+> do not enable versioning
+> upload one text file; make it public; view it by its URL	
+> Change content of same file; upload it again; make it public; view it by its URL
+> earlier file would be replaced with newer one
+
+--------------------------------------------------------------------------------------------------------------------------
+Practical-2
+
+> Enable versioning
+> upload one text file; make it public; view it by its URL
+> Change content of same file; upload it again; make it public; view it by its URL
+  content of file is updated one
+  To view, eariler content, select version of file from drop down menu
+  
+> Again change the content of same file and perform the same activity
+
+--------------------------------------------------------------------------------------------------------------------------
+Restore files/Delete delete-marker
+
+> In Show tab, delete delete-marker
+> file will be appered in Hide Tab 
+
+--------------------------------------------------------------------------------------------------------------------------
+Delete version of file or delete all versions of file permanently
+
+> Method-1: In Show tab, click and delete				(Recommended)
+> Method-2: Open object; select version from dop down menu and delete
+
+--------------------------------------------------------------------------------------------------------------------------
+> Once versioning is enabled, can not be deleted later, can only be suspended
+> integrated with Life Cycle Management
+> Comatible with MFA- to change version, to delete  versioned files; additional layer of security
+
+--------------------------------------------------------------------------------------------------------------------------

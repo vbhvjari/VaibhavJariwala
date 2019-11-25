@@ -1,0 +1,207 @@
+RDS: Relational Database Service
+
+> zonal
+> Relational database(SQL; data-structured;RDBMS)
+> Auto scaling: not possible (unlike in EC2)
+
+> shell (root ssh) access to DB instances is not provided
+> RDS instance connect through endpoint(DNS)
+
+> Each DB instance: storage- 5 GB to 6 TB
+> DB instance- DB instance identifier- unique in a region
+> one DB instance- multiple databases
+
+
+> Multi-AZ: redundancy/High Availability
+  Read-Replica: performance
+
+> License
+  MySQL/mariaDB:  general-public-licence
+  Oracle: Bring Your Own License(BYOL)/licence-included
+  PostgreSQL: postgresql-licence
+  MsSQL: licence-included   
+  
+ 
+> AWS
+  - automatically provisions and maintains a synchronous standby replica of the DB instance in a different AZ
+  - Primary DB instance is synchronously replicated across AZs to the standby replica
+  - Provides data redundancy, failover support, eliminate I/O freezes, and minimize latency spikes during system backups
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+RDS supported Engines:  1. MSSQL(Microsoft SQL Server)- only windows
+			2. MySQL- windows,unix, linux
+			3. MariaDB- linux
+			4. Oracle
+			5. PostgreSQL
+			6. Amazon Aurora: MySQL/PostgreSQL client; upto 64 TB; cheaper than oracle; 
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Backup: automated and manual
+
+> creates a storage volume snapshot of the DB instance, backing up the entire DB instance and not just individual databases.
+> Multi-AZ DB deployments, there is No I/O suspension since the backup is taken from the standby instance
+
+
+> enabled by default
+> backup data stored in S3
+  backup data sotrage is free
+  e.g., database 10 GB, backup data store in S3- 100 GB , storage free for backup data
+
+> data replication from primary to backup - taken care by aws; free
+
+Automated
+> Backup retention period: 0 to 35 days; default: 7 days
+> 1st full backup(just like golden image); once in a day
+  After full backup, transistion logs; stored in S3
+
+> Say, full backup is taken everyday at 5 AM
+  last transaction log backup was taken at 8:30 AM
+  
+  If DB goes down, we can restore
+  1st create RDS from full backup(5 AM) and then from latest transaction logs
+
+> Automated DB snapshots are deleted when
+  - the retention period expires
+  - the automated DB snapshots for a DB instance is disabled
+  - the DB instance is deleted
+
+> When a DB instance is deleted
+  - a final DB snapshot can be created upon deletion; which can be used to restore the deleted DB instance at a later date
+  - RDS retains the final user-created DB snapshot along with all other manually created DB snapshots
+  - all automated backups are deleted and cannot be recovered
+
+> Disabling automated backups will disable the point-in-time recovery
+> Changes to the backup window take effect immediately
+
+
+Manual Backup(DB snapshot)
+
+> RDS keeps all manual DB snapshots until explicitly deleted
+------------------------------------------------------------------------------------------------------------------------------------------------
+Multi-AZ: across AZs, not across regions 
+
+> High availability
+> not scaling solution
+> synchronous replication
+> Primary instance
+> Standby instance- replica of primary instance; in diff AZ than of primay instance
+> Automatic failover and manual failover(reboot with failover-forced failover)
+> Automatic failover
+  - Planned database maintenance
+  - Software patching
+  - Rebooting of the Primary instance
+  - Primary DB instance connectivity or host failure
+  - Availability Zone failure
+
+> replication-taken care by aws
+> can be used for Disaster Recovery(DR)
+
+> When running primary DB Instance as a Multi-AZ deployment, we can not use the standby for read or write operations
+  At a time, only one type of instance(either primary or standby) would be in work mode
+
+> Standby replica: no read or no write when primary instace is in use
+
+> Multi-AZ : primary instance is synchronously replicated across Availability Zones to a standby replica to provide
+  - data redundancy
+  - eliminate I/O freezes during snapshots and backups
+  - minimize latency spikes during system backups
+
+> Multi-AZ uses snapshot for primary to standy and vice a versa replication
+
+> Failover mechanism automatically changes the DNS record (CNAME) of the DB instance to point to the standby DB instance
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Read-Replica: across AZ, ,across regions
+
+> Performance enhancement by providing read query from replica instance; only read queries, not write queries
+> used for scaling/performance improvement
+> not for DR
+> for very heavy database
+
+> Asynchronous replication
+> Load on the source DB instance can be reduced by routing read queries from the applications to the Read Replica 
+> Max read replica of source DB instance: 5
+> Prerequisites: Automated backup with retention period above 0 days
+
+> RDS sets up a secure communications channel between the source DB instance and the Read Replica, 
+  if that Read Replica is in a different AWS region from the DB instance.
+
+> If the source DB instance is deleted without deleting the replicas, each replica is promoted to a stand-alone, single-AZ DB instance.
+
+> If the source instance of a Multi-AZ deployment fails over to the standby, 
+  any associated Read Replicas are switched to use the secondary as their replication source
+
+> MyDBInstance replicates to ReadReplica1, ReadReplica1 can’t be configured to replicate back to MyDBInstance.  
+  From ReadReplica1, only a new Read Replica can be created, such as ReadRep2
+
+> Read Replicas require a transactional storage engine and are only supported for the InnoDB storage engine
+
+> endpoint of read-replica is different than of primary instance 
+------------------------------------------------------------------------------------------------------------------------------------------------
+Comparison
+
+Multi-AZ							Read Replicas
+
+> Synchronous replication – highly durable			> Asynchronous replication – highly scalable
+> Only database engine on primary instance is active		> All read replicas are accessible and can be used for read scaling
+> Automated backups are taken from standby			> No backups configured by default
+> Always span two Availability Zones within a single Region	> Can be within an Availability Zone, Cross-AZ, or Cross-Region
+> Database engine version upgrades happen on primary		> Database engine version upgrade is independent from source instance
+> Automatic failover to standby when a problem is detected	> Can be manually promoted to a standalone database instance
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Storage
+
+> DB: EBS storage- SSD general purpose; SSD provisioned, magnetic
+> Storage can be increased; but can not be decreased
+> provisioned IOPS will be preferred for batch oriented workload.
+> by default, max RDS size: 16 TB
+
+> In general, for database: provisoned IOPS EBS
+> If mentioned, infrequent read/write with small perks : general purpose IOPS EBS
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Encryption- KMS
+Enable encryption for Non encrepted DB instance
+> take manual backup(DB snapshot)
+> Copy snapshot; enable encryption
+
+> All instnace may not support DB encryption
+------------------------------------------------------------------------------------------------------------------------------------------------
+Amazon Aurora
+
+> Fully managed relational database
+
+> MySQL/PostgreSQL compatible
+  Aurora MySQL:      5x performance of MySQL without requiring any changes to most MySQL applications
+  Aurora PostgreSQL: 3x performance of PostgreSQL
+
+> start with 10 GB
+  scale up in increment of 10 GB
+  Database size upto 64 TB
+
+> Cheaper than oracle
+
+> Replicate database in 6 copies in 3 AZs in single region(2 copies in each AZ)
+> Divides database in chunks 10 GB; each 10 GB chunk is replicated in 6 copies in 3 AZs in a region
+
+> Aurora is designed to transparently handle 
+  - the loss of up to two copies of data without affecting database write availability 
+  - up to three copies without affecting read availability
+
+> joins/queries to be performed easily
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Encryption of RDS database at rest
+
+>  Use the Encryption feature for RDS at database creation time
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Free tier- 
+
+> single-AZ only
+> 750 hours per month
+> 20 GB of General Purpose (SSD) database storage
+> 20 GB of backup storage
+
+------------------------------------------------------------------------------------------------------------------------------------------------

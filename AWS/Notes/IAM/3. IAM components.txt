@@ -1,0 +1,55 @@
+1. Users
+2. Groups
+3. Policies
+4. Roles
+
+
+AWS account sign in link(contains aws account number)
+
+IAM> Dashboard
+IAM users sign-in link:
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. Users
+> By default, user: No permissions
+> User name: alphanumeric characters, special characters(7): _-+=,.@
+
+
+Power User Access allows access to all aws services except for management of groups and users within IAM
+
+Access Key IDs & Secret Access Keys: for only programmatic user(CLI user)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. Groups
+> Member of group: can only be users
+                   can not be policy,roles,other group
+> same user can be added in multiple groups
+  same user: max 10 groups
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. Policies
+
+root account: Administrator Access
+
+
+> Permission in simple term
+> In JSON format
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Roles
+> Assigned to IAM users/groups
+ 
+> Use Cases:
+  - cross over AWS accounts- cross account access or IAM role delegation
+  - communication among AWS services/resources
+  - ADFS or OpenConnect ID
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Note:
+
+Tag
+> tags to define which instances are production and which ones are development instances
+> These tags can then be used while controlling access via an IAM Policy
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

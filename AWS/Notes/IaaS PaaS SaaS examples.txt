@@ -1,0 +1,4 @@
+IaaS		PaaS		SaaS
+
+> EC2
+> EBS

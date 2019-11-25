@@ -1,0 +1,58 @@
+Routing Policies:
+
+1. Simple Routing Policy
+2. Weighted Routing Policy
+3. Latency Routing Policy
+4. Failover Routing Policy
+5. Geolocation Routing Policy
+6. Multivalue Answer Routing
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+1. Simple
+
+> default routing mechanism
+> only 1 record and can have multiple values(IPs)
+  In such case, routing is done in random order across IPs
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+2. Weighted
+ 
+> Say, we have servers in 2 regions. some are in N.Verginia and some are in Mumbai
+  We want to route 70 % traffic to N.Verginia servers and rest 30% traffic to Mumbai servers.
+> used for Blue-Green deployment
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+3. Latency
+
+> route traffic to lowest region 
+> Say, user from mumbai and servers are in N.Virginia and singapore
+  Mumbai to N.Virginia latency: 55 ms 
+  Mumbai to Singapore latency: 300 ms
+  In this case, route53 will route traffic to lowest latency region,N.Virginia
+  
+> For testing purpose, use VPN and try from diff locations
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+4. Failover
+
+> Active-Passive setup
+> DC-DR setup
+> monitor health of primary site using health check; needs to set up endpoints
+
+> Say, we have infra setup in N Vergina and Mumbai location.
+  If any of infra goes down then this routing policy will automatically failover from defected to other one
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+5. Geolocation
+
+> allows to route traffic based on geographic location of end users (location from which DNS queries originate)
+> for that, you must have server/aws infra in diff locations
+> e.g., website in multiple language 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+6. Multivalue Answer
+
+> allows to route traffic randomly to multiple resources
+> two routing policy together
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 

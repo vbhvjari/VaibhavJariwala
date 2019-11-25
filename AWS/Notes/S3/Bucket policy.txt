@@ -1,0 +1,40 @@
+Bucket Policy
+
+> bucket policy is used to allow permission to all object in the bucket or set of object inside bucket,
+  instead of allowing same permission to objects individually(object ACL). 
+
+> Examples:
+  Granting Read-Only Permission to an Anonymous User
+  Granting Permissions to Multiple Accounts with Added Conditions
+  Restricting Access to Specific IP Addresses
+  Restricting Access to a Specific HTTP Referrer
+  Granting Permission to an Amazon CloudFront Origin Identity
+  Adding a Bucket Policy to Require MFA
+  Granting Cross-Account Permissions to Upload Objects While Ensuring the Bucket Owner Has Full Control
+  Granting Permissions for Amazon S3 Inventory and Amazon S3 Analytics
+  VPC Endpoints for Amazon S3  
+
+> not for existing objects
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+S3 > Click on bucket > Permissions > Bucket Policy
+
+Bucket Policy
+ARN	arn of bucket
+Policy Generator
+
+
+Policy Generator
+
+Select Type of Policy	S3
+Effect			Allow
+Principal		*	all objects
+AWS Service		Amazon S3
+Actions			GetObject
+Amazon Resource Name (ARN)	arn of s3 buccket
+Add Statement
+Generate Policy
+
+
+Copy policy and paste it to Bucket Policy
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------

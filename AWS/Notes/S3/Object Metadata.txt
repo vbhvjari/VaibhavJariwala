@@ -1,0 +1,28 @@
+Object metadata
+
+1. system metadata
+2. user-defined metadata
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. System metadata
+
+> controlled by AWS
+  e.g., object creation date 
+ 	last modified data
+
+> controlled by user
+  e.g., storage class of object
+  	whether object has server-side encryption enabled
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. user-defined metadata
+
+> when uploading an object, user can assign metadata to object
+> user provides optional information as name-value(key-value) pair when user send PUT/POST request to create object
+> When user upload object using REST API, 
+  optinal user-defined metadata names must begin with "x-amz-meta-" to distinguish them from other HTTP headers
+  otherwise S3 will not set the key value pair as you define it
+
+> can be assigned during uploading the object or after the object has been uploaded.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------

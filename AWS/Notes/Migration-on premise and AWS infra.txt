@@ -1,0 +1,5 @@
+1. VM Import/Export
+
+2. SMS: Server Migration Service 
+> agentless
+> makes it easier and faster to migrate thousands of on-premise workloads to AWS

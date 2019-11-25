@@ -1,0 +1,36 @@
+RDBMS:     RDS: Relational database; SQL
+NoSQL:     DynamoDB - supports both type: key-value database and document database 
+Columnar:  RedShift - compatible with MySQL; indexing: column; data warehouse
+Graphical: Neptune
+Time Series 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Amazon relational Database: RDS(Relational Database Service)
+
+
+RDS supported Engines:  1. MSSQL(Microsoft SQL Server)- only windows
+			2. MySQL- windows,unix, linux
+			3. MariaDB- linux
+			4. Oracle
+			5. PostgreSQL
+			6. Amazon Aurora
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Amazon non-relational Database: DynamoDB
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Amazon RedShift: Data Warehouse
+> Data in large size; in PB
+> data analytics
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+OLTP	Online Transaction Processing
+OLAP	Online Analytics Processing
+
+OLTP 
+> pulls single entire record(all fields)
+> e.g., RDS/DynamoDB; online shopping
+
+OLAP
+> pulls large number of records
+> e.g, RedShift
+----------------------------------------------------------------------------------------------------------------------------------------------------------

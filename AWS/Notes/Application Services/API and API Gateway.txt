@@ -1,0 +1,79 @@
+API: Application Programming Interface
+
+> piece of code used for communication among applications
+  application-1 <----> API <----> application-2
+
+> API: piece of code exposed by developer and made it available to public to achieve expected results 
+
+> With the help of API, we can automate tasks and avoid manual tasks
+
+> Say, while creating EC2 instance, end user only provides instance specifications and in backend, no human will be going to create instace for you.
+  Instead, API will automatically create instace as per specfications given by user.
+  
+  Here, API will need to communicate with many application in order to create EC2
+  Say, API will take input from user, communicates amonth diff apps..say,storage,networking,DB,etc.. 
+
+> Say ,you have website. For authentication, instead of making your own authentication mechanism, you ask users to authenticate using google authentication.
+  Here, you are using google authentication API
+
+> Say, Facebook: games/applications/pages
+  Facebook has a public API that allows third-party applications to integrate Facebook.
+  So anyone can make pages,application,games using FB API
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+AWS API Gateway
+
+> PaaS
+> API Gateway manages APIs.
+  API Gateway provides following functionalities in terms of API
+  - creating API
+  - publishing API
+  - securing API
+  - maintaining API
+  - monitor API
+
+> AWS API Gateway allows to create HTTP/REST APIs and WebSocket APIs
+
+> Say, API is only restricted to group of people. To prevent access from unauthorized users, API Gateway comes in picture
+
+> Similar open source software: Bluesoft, REST API
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10,000	requests per second
+5,000	burstable requests
+
+Error: 429 Too Many Requests error responses
+
+10,000 reuests per second
+> evenly spread means 10 requests per millisecond
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+API Gateway Integration 
+> Lamda
+> HTTP
+> AWS Service
+> VPC Link : integrate on premise DC to AWS
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Improve API Gateway performance
+
+> Enable throttling
+> Enable API caching
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Access controlling mechanism
+
+By default, protect backend systems from DDoS(Distributed Denial of Service) attacks
+ 
+> Resource Policies
+> IAM roles/policies
+> CORS
+> Lamda
+> Client side SSL certificate
+> Usage Plan
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Auditing API Gateway
+Access Logging
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

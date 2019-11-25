@@ -1,0 +1,45 @@
+EFS : Elastic File System
+
+> Just like NFS in Linux
+> File level storage; not block/object level storage
+> Only applicable for Linux OS
+> Zonal service
+> mount targets: possible on multiple AZ in a region 
+> only mount EFS on instances in only one VPC at a time; VPC peering is possible
+> both the EFS and VPC must be in same region
+> can be connected to diff region through VPC peering
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Advantages:
+
+> No need to manage NFS server; managed and maintained by AWS
+> scalable upto petabyte size storage 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+> Security group
+  In bound: 22(SSH)	EC2 security group
+ 	    2049(NFS)	EFS Security group
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Encryption
+
+1. EFS encryption at rest  
+> only possible during EFS creation
+> Enable encryption at rest for existing EFS
+  create new encryption-at-rest EFS
+  copy data from old EFS to new EFS
+  delete old EFS
+
+2. encryption at transit
+> enable encryption at transit during mounting on ECS using Amazon EFS mount helper
+> unmount unencrypted mount
+> remount using mount helper encryption during transit option
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Performance mode
+
+latency as low as possible: General purpose, provides low-latency access to EFS
+BIg data: Max I/O, slightly higher latency
+Throughput mode: provisioned, you can configure specific throughput irrespective of EFS data size
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------- 

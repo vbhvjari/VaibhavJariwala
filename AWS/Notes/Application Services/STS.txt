@@ -1,0 +1,11 @@
+STS: Security Token Service
+
+> part of IAM (IAM roles) service
+> provides temporary security credentials to trusted users
+
+> STS is global service with singe endpoint
+  https://sts.amazonaws.com
+
+> Temporary credentials
+  - can last from few minutes to several hours
+  - 

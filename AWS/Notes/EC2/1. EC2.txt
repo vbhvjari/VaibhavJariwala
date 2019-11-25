@@ -1,0 +1,55 @@
+EC2-Elastic Compute Cloud
+
+> Elastic: scalable 
+> only provides compute: CPU and Memory; not storage or network
+> EC2: zonal service
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Advantages:
+
+> Total cost of ownership: very very less compare to traditional DC 
+  > hardware maintainance : taken care by AWS
+  > hardware firmaware/patching: taken care by AWS
+  > Pay as you use model: pay only for resources you use and even only for usable time duration only
+   
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Note:
+(for shared instance and dedicated instance)
+> Stop instance, start instance: - instance may get launched in different host/hardware
+				 - public IP and public DNS get changed
+ 				 - private IP and private DNS remians same
+
+> Rebooting instance: - same host/hardware
+		      - public IP and public DNS remains same
+		      - private IP and private DNS remians same
+
+> Instance state
+  1. Stop: shutdown the instance
+  2. Terminate: delete the instance
+
+
+> Instance launch status
+  1. System Status Checks-------host machine status
+  2. Instance Status Checks-----VM(EC2 instance) status
+
+
+> Access key pair
+  private key---- .pem
+  putty file----- .ppk putty private key
+
+
+> EC2 instance and EBS must have in same AZ (in order to keep latency as low as possible)
+> once EBS volume is created, size can be increased but cannot be descreased
+
+> Key pair: regional
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Vertical Scaling : Scale up/down : CPU/Memory  
+Horizonal Scaling: Scale out/in  : Instances
+
+scale up   : increase CPU/Memory
+scale down : decrease CPU/Memory
+
+scale out : increase instances
+scale in  : decrease instances
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------

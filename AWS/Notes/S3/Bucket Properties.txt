@@ -1,0 +1,14 @@
+1. Versioning
+2. Server access logging
+3. Static website hosting
+4. Object-level logging
+5. Default encryption
+-----------------------------------------
+Advanced
+
+1. Object lock
+2. Tags
+3. Transfer acceleration
+4. Events
+5. Requestor pays
+-----------------------------------------

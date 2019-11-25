@@ -1,0 +1,56 @@
+Placement Groups
+
+> Placement groups determine how instances are placed on underlying hardware
+  way of organizing/placing instances 
+
+> Advantages: low network latency
+              high network throughput
+
+> Placement group name: unique for a region
+> placement groups cannot be merged together
+> same instance cannot be part of more than one placement group
+> Tenancy of host: can not be part of placement group
+
+> Three types:
+  1. Partitioned  
+  2. Cluster 
+  2. Spread
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  1. Partitioned 
+  > each instance does not share same underlying hardware across different partitions
+    instances are evenly distributed across number of partitions specified during launched
+  > all partitons in same AZ
+  > EC2 divides each group into logical segment-partition
+  > AWS ensure that each partition within a placement group has its own set of racks;each rack has its own network and power source
+  > No two partitions within a placement group share the same racks
+  > mainly used to deploy large distributed workloads; large amount of EC2 isntances
+
+  
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  2. Cluster
+  > instnaces are placed in single AZ, either in single VPC and peered VPC; cannot span across multiple AZs
+  > Advantages: low network latency
+  > Disadvantages: as all instnaces placed in single AZ, no redundancy and high availability
+  > network speed among instances: upto 10 Gbps
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  3. Spread
+  > instances are placed on distinct/different hardware
+  > each instance placed on distrinct racks; each rack having its own network and power source
+  > can span across multiple AZs in same region 
+  > Max instances per AZ per placement group: 7
+    e.g., say, 3 AZs in a region, max instances in placement group: 7*3 =21
+  > Advantages: redundancy and high availability as instances are placed across multiple AZs
+  > Disadvantages: lower network latency than of cluster
+  > not supported for dedicated instances and dedicated hosts
+  > network speed among instances: upto 5 Gbps
+  > recommended for applications that have small number of critical instaces
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Moving existing instances into placement group
+
+> create AMI of running instance
+> launch a new instance from that AMI to placement group
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------                                                                                                                                                                                               

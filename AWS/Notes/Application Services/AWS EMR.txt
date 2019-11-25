@@ -1,0 +1,12 @@
+EMR :Elastic Map Reduce
+
+> managed hadoop/Big data framework
+> Use cases:
+  - Big Data
+  - log analysis
+  - financial analysis
+  - web indexing
+  - data transformation(ETL)
+  - machine learning
+  - scientific simulation
+  - bioinformatics

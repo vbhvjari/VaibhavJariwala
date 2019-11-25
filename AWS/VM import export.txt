@@ -1,0 +1,22 @@
+Import	YOur DC to AWS
+Export	AWS to Your DC
+
+
+> AWS CLI
+> Upload VM image to S3 using aws cli or aws import service
+> import image from S3 to EC2 using ec2 import-image
+> Monitor process using ec2 describe-import-image-tasks
+> Create EC2 using ec2 run-instances
+
+
+
+
+Prerequisites
+> S3 bucket
+> IAM role: vmimport
+
+
+https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
+
+
+https://www.cloudten.com.au/importing-an-existing-windows-2012-server-to-aws/

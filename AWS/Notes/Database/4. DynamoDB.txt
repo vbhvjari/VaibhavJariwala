@@ -1,0 +1,68 @@
+DynamoDB
+
+> fully managed NoSQL database service
+> regional service
+> Stores metadata
+> retrieval time: faster than SQL database
+> No fix schemas; table consists of items and each item may have a different number of attributes
+> asynchronous Replication in 3 AZs/regions/AWS accounts
+
+> DynamoDB allows for the storage of large text and binary objects, but there is limit of 400KB
+  combined value and name combined must not exceed 400 KB
+
+> supports global tables
+
+> VPC endpoints support S3 and DynamoDB
+
+> Two primary keys:
+  1. Partition key/Hash key
+  2. Partition Key and Sort Key/Hash and Range key
+
+> ElastiCache can be used in front of DynamoDB in order to offload high amount of reads for non frequently changed data 
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+> DAX: DynamoDB Accelerator 
+  delivers up to a 10x performance improvement, from milliseconds to microseconds – even at millions of requests per second
+Storage
+> SSD EBS
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Security
+> FGAC: Fine Grained Access Control
+  control over data in table
+  who (caller) can access which items or attributes of the table and perform what actions (read/write capability)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Use Cases
+> storing metadata for S3 objects
+> storing JSON documents
+> managing web sessions
+> For transactional data, mainly used DynamoDB
+> Mobile application,IoT device,gaming
+> user preferences
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DynamoDB Stream
+
+> ordered flow of information about changes to items in DynamoDB table
+> Say, item in table is modified in dynamoDB table. TO monitor changes in table, use DynamoDB stream
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Serverless Architecture
+> Lamda
+> S3
+> DynamoDB
+> API Gateway
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+optimal stratergy for high read/write on DynamoDB table
+
+> use partition keys with a large number of distinct values for the underlying table
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Autoscaling for DynamoDB table
+
+> DynamoDB auto scaling uses AWS ALB to dynamically adjust provisioned throughput capacity on your behalf
+  in response to actual traffic patterns
+  It enables a table or global secondary index to increase its provisioned read/write capapcity to handle sudden increase in traffic without throttling
+  When the workload decreases, ALB descreses the throughput so that you don't pay for unused provisioned capacity
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

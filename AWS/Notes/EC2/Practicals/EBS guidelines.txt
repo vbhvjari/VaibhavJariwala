@@ -1,0 +1,2 @@
+> you must unmount volume before detaching volume 
+> to unmount root volume, stop the instance and then detach volume

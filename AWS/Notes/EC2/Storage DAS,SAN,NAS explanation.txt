@@ -1,0 +1,36 @@
+DAS: Direct Attached Storage
+SAN: Storage Area Network
+NAS: Network Attached Storage
+
+DAS
+> Say, three persons A,B,C. each one owns laptop and HDD size is 100 GB.
+> A can use hard disk attached to his laptp only. A cannot use disk attached to laptop of B or C.
+> In a same way, B and C can use disks attached to their respective laptops only.
+> This is DAS
+> In short, DAS is local and cannot be shared among people/system.
+------------------------------------------------------------------------------------------------------------
+SAN
+> Now we make some arrangement that disks owned by each user can be logically treated as one storage pool
+> Now, as per user requirement, we can share storage from storage pool to users.
+  Say, A needs 50 GB, B needs 10 GB, C needs 30 GB.
+  We can allocate requested storage to concern users
+> Say, same storage 10 GB is shared among users A,B,C.
+  Now, all 3 users have access of same storage 10 GB.
+  Here, shared storage is mounted and visible to other users. 
+  But only one user/system can access shared storage at a time.
+> Here, 10 GB shared storage is assigned to 3 users.
+  say we setup NFS server in node A and created NFS share on node A. 
+  now, we share NFS share to node B and C.
+  If node A is down or NFS share is not accessible, node B and C are not able to use shared storage.
+
+------------------------------------------------------------------------------------------------------------
+NAS
+> NAS provides shared storage and that shared storage can be accessed simultaneously by multiple users at a time.
+> It means that say, 10 GB shared storage is assigned to 3 users A,B,C. 
+  This shared storage is mounted and visible to all 3 users.
+  Also multiple users/systems can access shared storage at a time simultaneously.
+> NAS overcomes limitation of SAN that is
+  even if any node is down, we can still access shared storage.
+  Becase, storage is shared from NAS.
+------------------------------------------------------------------------------------------------------------
+  

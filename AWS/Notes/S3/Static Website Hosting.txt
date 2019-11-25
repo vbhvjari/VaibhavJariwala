@@ -1,0 +1,19 @@
+> Host static website; no need to manage web server 
+
+> Download sample website files bundle
+> Create bucket
+> allow only read access to all objects through bucket policy
+> upload all files including folders directly to bucket
+
+> S3 > bucket > Properties > Static website hosting > Enable 
+  index.html
+  error.html
+
+> Access website through endpoint URL
+  http://vaibhav-bucket-policy.s3-website-us-east-1.amazonaws.com
+  
+
+  http://bucketname.s3-website-region.amazonaws.com
+  http://bucketname-bucket-policy.s3-website-region.amazonaws.com
+
+> We can host website in a secure way (ssl; https) by using Route53 and CDN   

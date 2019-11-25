@@ -1,0 +1,32 @@
+> Replicate objects from one bucket to another
+> buckets should be in diff regions
+  source bucket in one region in a AWS account; destination bucket in diff region in same AWS account or can be in a region of diff AWS account
+
+> Versioning must be enabled in source bucket and destination bucket both
+
+> Replication doesn't work for existing objects
+
+> To replicate existing objects, make changes in metadata of objects
+ 
+
+> Create two buckets ; each in diff region
+> S3 > source bucket > Management > Replication > Add rule
+  Create new role
+
+
+
+> To replicate existing objects manually,
+  Must be manually copied from source bucket to destination bucket through CLI
+  
+  > Create AWS programmatic user
+  > configure it
+  > Command: aws s3 cp --recursive s3://<source_bucket_name> s3://<destination_bucket_name>
+    Example: aws s3 cp --recursive s3://source-bucket-march s3://destination-bucket-replication
+
+> Now check destination bucket. objects of source buckets are copied to destination bucket
+
+> When you upload new files(objects) or make any changes in existing objects, same will be reflected in destination bucket automatically
+> But if you delete object or for delete-marker, same will not be reflected in destination bucket for better security provision
+----------------------------------------------------------------------------------------------------------------------------------
+> For DR, enable CRR: Cross Region Replication
+----------------------------------------------------------------------------------------------------------------------------------

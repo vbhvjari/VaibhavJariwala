@@ -1,0 +1,9 @@
+Query/Search in S3 
+1. AWS ElasticSearch
+2. AWS Anthena
+
+2. AWS Anthena
+
+> interactive query service that make it easy to analyze data in S3 using standard SQL
+> It is serverless; only charge : pay only for queries you run
+ 

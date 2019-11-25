@@ -1,0 +1,27 @@
+Import/Export Disk
+
+> allows to move large amount of data into AWS or out of AWS using portable storage device
+> You copy large amount of data to disk , hand over it to AWS, AWS will copy data from disk to its storage using AWS internal network
+> no internet is used
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+snowballs
+> data import to S3 or export from S3
+> status track
+
+1. snowball
+> only onboard storage
+> petabyte scale data ; move data into AWS or out of AWS
+> snowball is AWS propritery appliance
+> data upto 80 TB  
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+2. snowball edge
+> onboard storage and compute
+> data upto 100 TB
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+3. snowmobile
+> upto PB/EB data
+> shipping container; semi-trailer truck
+------------------------------------------------------------------------------------------------------------------------------------------------------

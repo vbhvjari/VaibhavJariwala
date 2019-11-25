@@ -1,0 +1,23 @@
+AD-FS: Active Directory Federation
+
+> Say, you have existing AD in on premise DC and you have AD users
+> To allow same on premise AD users to login to AWS account, ADFS is used
+> With ADFS, on premise AD users are allowed to login to AWS account directly instead of creating IAM users in AWS. 
+> For that, we need to create roles in IAM.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Move entire AD to AWS
+
+> Say, we have AD setup in on premise DC
+> we want to migrate entire AD to AWS then there are 2 ways:
+
+   1. Configure Domain Controller on EC2
+   > Here, on premise DC to AWS replication to be taken care by customer, not by AWS
+
+   2. AWS services:  Directory Service
+     -  AWS managed Microsoft AD
+     - Simple AD
+     - AD Connector
+     - Amazon cognito User pools  
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

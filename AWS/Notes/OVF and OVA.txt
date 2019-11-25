@@ -1,0 +1,19 @@
+OVA: Open Virtual Appliance: single file
+OVF: Open VIrtual FOrmat: multiple files
+VMDK: Virtual Machine DisK
+VHD: Virtual Hard Disk
+
+> OVA/OVF is used to import/export vm from one platform a=ro another including existing application setup.
+> OVF/OVA are compressed files and so easily can be moved from one place to others.
+
+
+> OVA: It results in single file.
+> OVF: It results in multiple files [manifest(.mf), vmdk file(.vmdk), ovf file(.ovf) ]
+
+
+
+> In VMware or VirtualBox, we need to install ovf tool in order to use OVA/OVF feature.
+
+> OVF tool download:
+  https://my.vmware.com/group/vmware/details?downloadGroup=OVFTOOL430U1&productId=742
+  

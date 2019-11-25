@@ -1,0 +1,33 @@
+Features
+
+1. Centralised control of AWS account
+   all aws users/groups are controlled/managed from single dashborad/platform 
+
+2. Shared Access to AWS account
+   we can share set of services of one aws account to another using IAM roles
+   without sharing credentials of your AWS account
+
+3. Granular Permissions
+   Allowing user to use specific set of service access and restricting rest access
+
+4. Identity Federation
+   > AD: active directory: aws account user can be synced/imported from existing AD
+   > Open Connect ID: instead of creating user on aws account; 
+     users can directly login to aws using other service platforms like facebook,linkedin,google sign in,etc.
+
+5.MultiFactor Authentication(MFA)
+  > Vitual MFA- no physical hardware; Mobile App Google Authenticator on play store  
+  > Hardware MFA- physical hardware, like RSA token
+  > Yubi Key(U2F Security Key)- pen drive liked hardware device; to be attached to system
+
+> If the MFA device stops working or is lost, you won’t be able to login into the AWS console and would need to reach out to AWS support to deactivate MFA
+>  Max MFA for root account: 1
+   Max MFA for non root (IAM) account: 2
+
+6. Supports PCI DSS Compilance
+   used in payment gateway   
+
+7. Allows to set up own password rotation policy
+   like password get expired after x days, password should meet x conditions,etc.
+
+8. Provides temporary access to users/group

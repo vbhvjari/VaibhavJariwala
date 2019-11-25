@@ -1,0 +1,32 @@
+> virtual firewall
+> can only allow; cannot deny	(deny can be done through ACL)
+
+> One instance can have multiple firewall rules means can have multiple security groups
+
+> 1. Inbound rules: From outside to AWS network 
+  2. Outbound rules: From AWS network to outside 
+
+> Making changes in security groups, reflect immediately
+
+> security group: stateful
+  even if we delete outbound rule, if we allow http in inbound, it gets automatically allow outbound rule 
+  
+  ACL: stateless
+  
+1. Inbound rules
+
+> From outside to AWS network 
+  e.g., from internet to aws ec2
+
+> Allows all inbound traffic from other instances associated with the default security group 
+  (the security group specifies itself as a source security group in its inbound rules)
+  By default, only allow traffic from instances in same subnet/security group
+
+2. Outbound rules:
+
+> From AWS network to outside
+> By default, allows everything
+  Allows all outbound traffic from the instance.
+
+> can add or remove inbound and outbound rules for any default security group. 
+> can't delete a default security group

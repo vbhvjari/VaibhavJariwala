@@ -1,0 +1,20 @@
+Endpoints
+> Communication between EC2 instance and S3 would be done through AWS private channel/network 
+> Communication is done through private IP 
+> EC2 instance and VPC must be in same region
+> However, private ec2 instance cannot connect to internet
+
+---------------------------------------------------------------------------------------------------------------------
+Endpoints > Create Endpoints
+VPC: linux_vpc1
+Route table: private route table of linux_vpc1
+
+
+Verify from private ec2 instance
+> wget <s3 object url>		It should work
+> ping google.com		It shouldn't work	
+
+---------------------------------------------------------------------------------------------------------------------
+Reference:
+https://www.youtube.com/watch?v=m8OZRZGfrFg&list=PLTyrc6mz8dg_O_F2pdL1jGvGjkiRE-dgq&index=11
+---------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,52 @@
+Create VPC
+
+VPC Name		mumbai_vpc1
+IPv4 CIDR block		10.0.0.0/16
+Tenancy			Default
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Create Internet Gateway
+
+IGW Name		mumbai_igw1
+-----------------------------------------------------------------------------------------------------------------------------------
+Attach VPC to IGW from Internet Gateway
+-----------------------------------------------------------------------------------------------------------------------------------
+Route table
+
+> Automatically created
+> Rename it to mumbai_public1
+> Add route that allow anything for internet (public : mumbai_public1)
+  Route Tables > Routes > Edit Routes
+  Destination: 0.0.0.0/0	
+  Target: IGW(mumbai_igw1)
+-----------------------------------------------------------------------------------------------------------------------------------
+Create subnets
+
+> 2 public subnets and 2 private subnets
+
+  Public-1	mumbai_pub1a	us-east-1a	10.0.1.0/24
+  Public-2	mumbai_pub2b	us-east-1b	10.0.2.0/24
+
+  Private-1	mumbai_priv1a	us-east-1a	10.0.7.0/24
+  Private-2	mumbai_priv2b	us-east-1b	10.0.8.0/24
+-----------------------------------------------------------------------------------------------------------------------------------
+Create security group for each subnet
+
+Public-1	mumbai_pub1a		mumbai_pub1a_SG
+Public-2	mumbai_pub2b		mumbai_pub2b_SG
+
+Private-1	mumbai_priv1a		mumbai_priv1a_SG	
+Private-2	mumbai_priv2b		mumbai_priv2b_SG
+
+> Above names would be assigned as Group Name. Assign the same to Name column. 
+> Default Security group would be created automatically for each VPC. Name it to mumbai_default_SG
+-----------------------------------------------------------------------------------------------------------------------------------
+Enable DNS hostname in VPC
+
+VPC>Actions>Edit DNS Hostnames
+Mark DNS Hostnames(enable)
+-----------------------------------------------------------------------------------------------------------------------------------
+Enable auto assign IP addresses in Public subnets
+
+> Subnets > Select subnet > Actions > Modify auto-assign IP settings > Auto-assign IPv4: Enable auto-assign public IPv4 address
+-----------------------------------------------------------------------------------------------------------------------------------

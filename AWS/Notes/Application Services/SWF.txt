@@ -1,0 +1,23 @@
+SWF: Simple Workflow Service
+
+workflow: automation of a business process
+          set of activities that carry out some objective, together with logic that coordinates the activities
+
+> web service that coordinates work across distributed components
+> task is never duplicated
+
+
+> workers and deciders can run on EC2
+
+workers- get tasks, process tasks, return results
+Decider- coordination of tasks,; ordering,concurrency,scheduling 
+
+Domain- collection of related workflows
+
+SQS : message oriented
+SWF: task oriented
+
+SQS: messages might be duplicated
+SWF: task is never duplicated
+
+

@@ -1,0 +1,34 @@
+Object size: 0 B to 5 TB
+
+> Upto 100 MB data, AWS gui console
+> Above 100 MB, use multipath approach
+> Max 2000 files/second can be uploaded; to overcome, use Hexa prefix method
+> success code: 200 code
+> With single PUT operation, you can upload objects up to 5 GB in size. Use multipath upload for larger file uploads
+> If the request rate is high, you can use hash keys or random strings to prefix the object name
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ > solution to issues faced while uploading larger files
+
+  1. multipath approach
+
+  > above 100 MB data
+  > larger data will be divided in small chunks and data uploaded in chunks
+  > just like IDM(Internet Download Manager)
+  > not through AWS console; only possible through AWS CLI,AWS API,SDKs
+  > free service
+  > multipath approach: object size: 5 MB to 5 TB 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+  2. Transfer Acceleration
+
+  > Use of Edge locations
+  > Paid service
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+  3. Hash decimal name prefixing
+  
+  > Max 2000 files/second can be uploaded; to overcome, use Hexa prefix method 
+  > randomize name by making change in prefix for files having almost same name 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------

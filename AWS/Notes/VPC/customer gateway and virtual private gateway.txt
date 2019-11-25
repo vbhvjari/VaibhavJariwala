@@ -1,0 +1,9 @@
+Connectivity between on-premise infra and AWS infra
+
+> Amazon VPC VPN connection links your data center (or network) to your Amazon VPC virtual private cloud (VPC)
+
+> anchor on "on-premise infra" side of the connection : customer gateway
+  anchor on the AWS side of the VPN connection : virtual private gateway
+ 
+> workflow
+  on premise infra <---> customer gateway <---> Internet <---> VPN <---> AWS infra

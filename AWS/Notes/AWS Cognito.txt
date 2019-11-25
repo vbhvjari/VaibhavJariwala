@@ -1,0 +1,18 @@
+AWS Cognito
+
+> authentication mechanism
+> controls user authentication and access for mobile application/web application
+> saves and synchronizes end user data
+
+> User pools- AWS cognito collects a user's profile attreibutes in a directory called user pools
+> Identity pools - consolidates end user information
+  		   e.g., which client access platforms/devices/OS 
+
+> Cognito identity pools can support unauthorized identities by providing unique identifiers and 
+  AWS credentials for guest users who do not authenticate with an identity providers
+  Unauthenticated users can be associated with a role that has limited access to resources compared to a role for authenticated users
+
+> Amazon Cognito accepts Amazon, Facebook, Twitter, Digits and Google as public identity providers
+
+
+> AWS cognito and AD open connect ID both are independent authentication mechanisms

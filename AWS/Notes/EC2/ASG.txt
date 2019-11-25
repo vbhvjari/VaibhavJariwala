@@ -1,0 +1,74 @@
+ASG: Auto Scaling Group
+
+> tool used to create fault-tolerant and cost-effective architectures
+
+> ASG will not act until the health check grace period expires
+
+> say, to update Launch Configuration,
+  say, updates are made to main instance and would want the updated instance configuration to be launched when new instance is launched
+  
+  Create AMI of main instance
+  create new LC with new AMI 
+  update ASG with new LC
+
+> Proactive Cyclic scaling or dynamic scaling allows to scale during desired time window
+
+> ASG : horizontal scaling for EC2 instances
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+default metrics of ASG policy
+
+> average CPU Utilization
+> Network In
+> Network Out
+> Memory utilization is not default metrics
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Default termination policy
+
+> default termination policy used by an Auto Scaling group when a scale-in event occurs
+> This helps to ensure that your instances span Availability Zones evenly for high availability.
+
+1. Determine which Availability Zone(s) have the most instances and at least one instance that is not protected from scale in.
+2. Determine which unprotected instances use the oldest launch configuration. If there is one such instance, terminate it
+3. If multiple instances that use the oldest launch configuration, determine which instances are closest to the next billing hour
+   (This helps you maximize the use of your instances that have an hourly charge.) If there is one such instance, terminate it.
+4. If there is more than one unprotected instances closest to the next billing hour, choose one of these instances at random.
+
+
+> e.g., instance in AZ that has oldest launch configuration will terminate first
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Monitor ALB
+- Cloudwatch metrics
+- Access logs
+- request tracing
+- cloudtrail logs
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Register target in ELB target group
+- instance ID
+- IP address
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Lifecycle hooks : 
+> ASG puts instances in wait state before termination.
+> During wait state, custom activities can be performed to retrieve data from stateful instances
+> default wait period: 1 hour
+
+Cooldown period:
+> cooling down period is a configurable setting for your ASG which ensures that 
+  it doesn't launch or terminate additional instances before the previous scaling activity takes effect
+> cannnot copy data from instance before termination
+
+customized termination policy
+> used to determine which instances to terminate first during scale-in
+> cannnot copy data from instance before termination
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Dynamic Scaling Policy
+> ASG waits for cooldown period to complete before resuming scaling activities
+
+Scheduled Scaling Policy
+> ASG is scheduled to scale in/out at specified time duration
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------

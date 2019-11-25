@@ -1,0 +1,54 @@
+S3:Simple Storage Service
+
+> web service interface; storage can be accessed through web interface from anywhere 
+> regional
+> PaaS
+> object level storage; key value store
+> Object size: 0 byte to 5 TB
+> no limit of no of objects in a bucket
+> unlimited storage
+> successful upload code HTTP: 200
+
+
+> However, S3 name is unique because S3 storage(buckets/objects) is accessed by web URL.
+
+> S3 storage: only to store data
+              no execution of any files
+ 	      not for OS installation(boot storage/boot disk)
+
+> S3 storage:PaaS; serverless
+             no need to manage, maintain storage; maintainance is done by AWS
+
+> For EBS, EBS block storage needs to attach to OS to use EBS
+  For S3, no need to attach object storage to any OS; can be directly accessed using URL
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Features/Advantages:
+
+1. Serverless; S3 storage node manage and maintained by AWS
+
+2. Storage is cheaper than traditional storage
+
+3. Durability: 99.999999999	(9 times 9s, total 11 9s)
+   Data loss is very very negligible; 1 in 10,000 file can be lost in a year
+   Every file/data: aws keeps 6 copies of it; 2/3 copies in each AZ   
+
+4. Availability: 99.99%
+   Either same S3 resource is accessed by 1 user or 10 users,S3 is accessed by all users without any latency.
+   load balancing is taken care by AWS
+
+5. Highly scalable
+   object size can be from 0 bytes to 5 TB
+   No limitations of no of objects in a bucket
+
+6. Backup & Restore
+
+7. Pay only you use model
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Serverless Architecture
+> S3
+> Lamda
+> API Gateway
+> DynamoDB
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  

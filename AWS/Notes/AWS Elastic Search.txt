@@ -1,0 +1,1 @@
+AWS Elasticsearch provides full search capabilities and can be used for log files stored in the S3 bucket.

@@ -1,0 +1,38 @@
+AWS Organizations
+> account management service that enables to consolidate multiple AWS accounts into an organization
+
+
+> centrally management of all AWS accounts in an organization
+> consolidate Billing across multiple AWS accounts
+> control access to AWS services
+> automate AWS account creation and management
+
+
+1. Consolidated Billing
+2. All Features
+
+Paying account:
+
+
+Linked Accounts
+> soft limit: 20
+
+
+
+
+> Policy  can be applied to root account or OU(Organizational Unit)
+> unused Reserved Instances for EC2 are applied across the group
+> CLoudTrail is on per account and per region
+  can be aggregated into a single bucket in paying account
+
+
+Resource Groups
+> all resources at one place using Tags
+> e.g., create resource group containing each set of resources and view all environments(Prod/Dev/UAT) from a single group dashboard
+
+> global service
+
+
+1. Classic Resource Group : globaly or per region
+2. System Manager : per region
+

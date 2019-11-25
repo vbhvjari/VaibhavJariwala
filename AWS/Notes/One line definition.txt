@@ -1,0 +1,59 @@
+IAM: Identity and Access Management; User and Group Management, Encryption
+-------------------------------------------------------------------------------------------------------------------------------------------------
+EC2: Elastic Compute Cloud; VMs in AWS 
+EFS: Elastic File Storage; just like NFS in Linux
+ECS: Elastic Container Service; container platform
+AMI: Amazon Machine Image; standard iso image or 3rd party software image
+Elastic IP: public reserved IP
+Cluster Placement Groups:
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Auto Scaling:
+
+ELB: Elastic Load Balancer
+CLB: Classic Load Balancer
+ALB: Application Load Balancer
+NLB: Network Load Balancer
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+EBS: Elastic Bloack Storage: block level storage; just like file system storage
+S3: Simple Storage Service; object level storage
+Storage Gateway
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Snapshot:
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+VPC: Vitual Private Cloud; virtual network; isolated network/resources
+Security Groups: like firewall; for EC2 instance
+Subnet: sub network
+ACL: firewall at subnet level
+VPC Endpoints: 
+VPC Peering:
+-------------------------------------------------------------------------------------------------------------------------------------------------
+RDS:
+Dynamo DB:
+RedShift:
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+Route53: scalable DNS and domain name registration
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+CloudFront: Global Content Delivery Network; edge locations
+CloudFormation: automatic resource creation; infrastructure as a code
+CloudWatch:
+CloudTrail:
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+SQS: Simple Queue Service; pull based
+SNS: Dimple Notification Service; Push based
+SES: Simple Email Service; sending/receiving emails
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Elastic Cache:
+------------------------------------------------------------------------------------------------------------------------------------------------- 

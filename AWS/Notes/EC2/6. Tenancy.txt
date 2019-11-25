@@ -1,0 +1,52 @@
+Tenancy
+
+> it determines that underlying hardware is shared or dedicated
+> 3 types:
+  1. Shared
+  2. Dedicated Instance
+  3. Dedicated Host
+
+> For both dedicated instance and dedicated host, host(physical server) is entirely dedicated to you(single AWS account)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+1. Shared
+> underlying hardware is shared among instances owned by multiple AWS accounts
+> e.g., instance x,y,z owned by AWS accounts A,B,C
+  In shared, it might be possible that instances x,y,z are hosted on same hardware
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+2. Dedicated Instance
+> when you launch dedicated instance, AWS will automatically select host for you.
+  You do not have control to choose host.
+> Once instance is launched, after starting/stopping that instance, there is no surity that instance will be launched in same host.
+  AWS may launch instance on different host but that host will be again dedicated to you until you stop/start instance again.
+> However, Dedicated instances may share hardware with other instances from the same AWS account that are not Dedicated instances. 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+3. Dedicated Host
+
+> Amazon EC2 dedicated host is physical server
+> you will get entire host(physical server)
+> you have complete visibility of physical server. i.e., sockets,cores,memory
+> When you launch instance in dedicated host, even after stopping/starting instance, instance will be launched in same host only.
+> We can launch instances having different instance type
+  Say, one instance is of m4 and other is of d2
+
+> Benifits:
+  - save money on Licensing Costs
+    allow you to use your existing per-socket, per-core, or per-VM software licenses
+    helpful when software licenses that are bound to VMs, sockets, or physical cores, subject to your license terms. 
+
+   - Help Meet Compliance and Regulatory Requirements
+     instnace running on dedicated host ; hardware entirely owned by you
+   
+   - total visibility of total sockets/cores/memory
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Notes:
+
+> Even in case with dedicated instance or host, EBS storage is shared 
+  Because EC2(compute) and EBS(storage) are totally different service
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+    

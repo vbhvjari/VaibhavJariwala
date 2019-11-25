@@ -1,0 +1,12 @@
+EBS Optimized Instance
+
+> provides dedicated network throughput between EC2 instances and EBS volumes
+  additional and dedicated capacity for I/O
+  dedicated bandwidth
+
+> EBS-optimized instances enable EC2 instances to fully use the IOPS provisioned on an EBS volume
+  For data transfer it will not use  the same network card that it uses for Network conmmunication 
+
+> not all instances types are EBS optimized
+
+> You can not modify for running instance. Need to stop and upgrade the instance type which support EBS optimized

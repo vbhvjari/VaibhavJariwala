@@ -1,0 +1,83 @@
+Global
+
+> IAM
+> Route53
+> CloudFront
+> SNS
+> WAF
+
+---------------------------------------------
+Regional
+
+> Key-Pairs(EC2)
+> S3
+> VPC
+> Security Group(VPC,EC2)
+> VPC Endpoints
+> VPC Peering
+> EBS Snapshot
+> AMI
+> Auto Scaling
+> ELB
+> Dynamo DB
+> Storage Gateway
+> Elastic IP
+
+---------------------------------------------
+Zonal/AZ
+
+> EC2
+> EFS
+> EBS
+> RDS
+> Subnets(VPC)
+> Cluster Placement Groups
+> Elastic Cache
+
+---------------------------------------------
+
+EC2
+
+> No of instaces : 20 (soft limit)
+> Placement Group: 5 instances
+---------------------------------------------
+EFS
+
+> Only for Linux 
+> Free: upto 5 GB
+---------------------------------------------
+
+CloudWatch
+> Interval polling: 5 min (default,free)
+> No of free dashboards: 5
+---------------------------------------------
+Elastic IP
+
+> Only 5 EIP per region
+> don't support IPv6
+---------------------------------------------
+VPC
+
+> Max VPCs per region: 5
+> Max subnets per VPC: 200
+> IPv4 CIDR blocks per VPC: 5
+> IPv6 CIDR blocks per VPC: 1
+---------------------------------------------
+S3
+
+> Max buckets per aws account: 100
+> Object size: 1 byte to 5 TB
+> Above 100 MB, use multipath approach to upload data
+> Single PUT: 5 GB
+> Max 2000 files/second can be uploaded; to overcome use hexa prefix method
+---------------------------------------------
+Cloud Front
+> Max requests per second: 1,00,000
+---------------------------------------------
+RDS
+> DB instance: 5 GB to 6 TB
+> Backups: store in S3; upto 500 Gb free; above 500 GB , charge as per S3 pricing
+> Read Replica: max 5 read replica per DB instance
+
+---------------------------------------------
+  

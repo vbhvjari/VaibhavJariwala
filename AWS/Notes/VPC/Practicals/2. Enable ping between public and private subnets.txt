@@ -1,0 +1,10 @@
+> Create 1 instance in pub1a and 1 instance in priv2b and assign security groups accordingly(not default one)
+
+> In pub1a security group(mumbai_pub1a_SG), alow ssh in inbound rules
+  SSH	Source:My IP
+
+> Allow ICMP as inbound rules in Priv2b security group(mumbai_priv2b_SG)
+  Type:All ICMP - IPv4
+  Source: Custom	Security group of Pub1a(mumbai_pub1a_SG)
+
+> ping from pub1a instance to Private IP of priv2b instance

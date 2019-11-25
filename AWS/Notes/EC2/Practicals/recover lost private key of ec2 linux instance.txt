@@ -1,0 +1,32 @@
+Recover lost private key of EC2 linux instance
+Say, Name of instance: Amazon6 and its private key is lost
+
+> Create new instance in same AZ as of Amazon6
+  New instance name: recovery
+  create new key pair
+
+> Stop original instance Amazon6
+> Detach root volume of original instance Amazon6 and attach the same to new instance recovery
+
+
+> On new instance recovery, mount recently attached volume under /mnt; 
+  	> lsblk
+	> mount /dev/xvdf1 /mnt/
+	> df -h
+	> cd /mnt
+  Now update the pubic key
+  > we will overwrite public key of new instance to public key of old instance
+    cp -p /home/ec2-user/.ssh/authorized_keys /mnt/home/ec2-user/.ssh/
+  
+   > unmount 
+     umount /mnt
+   > df -h
+
+
+> Detach root volume of original instance 
+> Stop new isntance recovery
+> Attach it to original instance and keep device name is : /dev/xvda
+> Start original instnace
+> Use private key of new instance recovery
+   
+ 

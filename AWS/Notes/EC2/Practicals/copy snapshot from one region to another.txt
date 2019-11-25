@@ -1,0 +1,4 @@
+Copy snapshot from one region to another region
+
+EC2 > Snapshot > Actions > Copy
+  Select destination region

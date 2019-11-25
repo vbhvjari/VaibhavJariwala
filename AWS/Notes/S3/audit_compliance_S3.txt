@@ -1,0 +1,7 @@
+1. server access logging
+   > provides detailed records for the requests that are made to a bucket
+   > public access is not required  to be enabled for writing logs into S3 bucket
+     Only PutObject access is required for Log Delivery Gruop
+   > By default, permission is disabled for Log Delivery Group; permission will be granted when bucket is selected as target for logging 
+
+2. CloudTrail logging using OPTIONS object
