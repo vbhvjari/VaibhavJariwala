@@ -1,0 +1,6 @@
+Master and Slave Node Configuration
+
+SSH Username with private key
+
+username: root
+Private Key: 

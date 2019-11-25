@@ -1,0 +1,6 @@
+Do this before:
+
+:set paste
+Then after:
+
+:set nopaste

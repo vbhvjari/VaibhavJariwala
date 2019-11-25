@@ -1,0 +1,76 @@
+Task modifiers:
+1. when-----instruct the task to run only if certain conditions are met
+
+e.g., 
+-------------------------------------------------------------------------------------------------------------------------
+adhoc command help
+Command: ansible-doc <module-name>
+-------------------------------------------------------------------------------------------------------------------------
+Under play section
+
+become: yes 		enable priviledge escalation(sudo)
+become <user_name>	run as 	
+-------------------------------------------------------------------------------------------------------------------------
+Inventory
+> 2 types:  
+  1. Static: for less amount of nodes---simple file
+  2. dynamic: for larger amount of nodes----script/json
+
+-------------------------------------------------------------------------------------------------------------------------
+handlers:
+> tasks that are executed when a state changes of specific task
+> used with "notify"
+-------------------------------------------------------------------------------------------------------------------------
+module: setup
+
+> gather facts of nodes
+> e.g., ansible <node-name> -m setup
+
+-------------------------------------------------------------------------------------------------------------------------
+Ansible playbook
+> module : setup runs automatically 
+> to turn off execution of setup modules, use "gathered_facts: false" under play section
+
+Options:
+-i : inventory
+-k : prompt for password
+--syntax-check: check syntax
+
+-------------------------------------------------------------------------------------------------------------------------
+Playbook: consist of plays
+
+Instead of writing everything(plays,templates.handlers) in one playbook(one file),
+say we want to reuse those components(plays,templates.handlers)
+
+roles--deconstruct playbook into parts and put all parts in directory structure
+
+
+Instead of manually creating directory structure for roles, we can use ansible galaxy
+
+Ansible Galaxy: open source for roles
+
+use ansible galaxy:
+
+mkdir roles
+cd roles
+ansible-galaxy init <folder-name>
+
+-------------------------------------------------------------------------------------------------------------------------
+module: unit of code
+
+Most commonly used modules:
+
+Descrition		module name
+User accounts		user
+groups			group
+Commands		comand
+copy			copy
+get url			get_url
+ping			ping
+script			script
+service			service
+shell			shell
+unarchive		unarchive
+yum			yum
+
+-------------------------------------------------------------------------------------------------------------------------

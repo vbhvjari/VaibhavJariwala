@@ -1,0 +1,17 @@
+1. Update OS to latest one
+   sudo yum update
+
+2. Install docker
+   sudo yum install docker 
+
+3. Grant ec2-user to docker service
+   sudo usermod -a -G docker ec2-user
+
+4. Start docker service and ebable it at boot
+   sudo service docker start
+   sudo chkconfig docker on
+
+   Verify it
+   sudo service docker status
+   sudo chkconfig --list docker
+

@@ -1,0 +1,10 @@
+Buils Status color code
+Blue: success
+Red : Fail
+Yellow: Unstable
+Grey : not started/Pending/Disable/Aborted
+
+
+Weather icon : build stability
+
+ 

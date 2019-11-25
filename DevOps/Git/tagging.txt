@@ -1,0 +1,9 @@
+Tag : label to branch
+e.g., release branch
+      version 1.0, version 1.1, version 1.2
+
+tagging = labeling
+
+tagging : permanent
+> each tag associated with commit ID
+    

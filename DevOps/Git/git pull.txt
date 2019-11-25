@@ -1,0 +1,34 @@
+git pull
+do both things
+> git fetch
+> git merge
+
+
+
+git fetch : fetch latest data from server
+
+git merge : merge changes to branches
+
+
+
+
+
+git pull	by default master
+git pull origin <branch>
+e.g., git pull origin uat
+
+
+
+
+git tag <tag_name>
+
+
+List all tages of a branch
+git tag
+
+List all branches
+git branch
+(* : current branch)
+
+List all remote
+git remote

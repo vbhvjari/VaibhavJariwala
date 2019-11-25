@@ -1,0 +1,66 @@
+git reset : discard changes from staging area (only for local repository;not for remote repository)
+
+> Reset current HEAD to the specified state
+> with git reset, we can unstage specfic file, changes are kept in working directory 
+> with git reset, can discard recent n commits but cannot discard specific commit
+> remove commit/commits from git log history
+
+> 3 types: mixed--default
+ 
+  1. soft : do not reset staging area,do not reset working diretory; keep changes in staging area
+  2. hard : reset both staging area and working cdirectory; do not keep changes anywhere
+  3. mixed : reset staging area but not working tree;keep changes in working directory;default
+
+
+
+3. mixed: 
+> discard changes from staging area and keep the changes in working directory
+> Command: git reset HEAD <filename>
+> Example: say, there is one file test1.txt and make soe changes
+  vi test1.txt		make some changes
+  git status
+  git add test1.txt	add in staging area
+  git status
+  
+
+  git reset HEAD~1	OR
+  git reset --mixed HEAD~1
+
+---------------------------------------------------------------------------------------------------------
+1. soft reset:
+> Do not rest staging area, do not reset working directory
+> Keeps changes in staging area
+> Example: say, some changes made in a file, added to staging area(git add) and committed to local repository(git commit)   
+  To reset last n commits(keeps changes in staging area)
+  git reset --soft HEAD~n
+
+---------------------------------------------------------------------------------------------------------
+2. hard reset:
+> reset both staging area and working cdirectory
+> do not keep changes anywhere
+> Example: say, some changes made in a file, added to staging area(git add) and committed to local repository(git commit)   
+  To reset last n commits(keeps changes nowhere)
+  git reset --hard HEAD~n
+
+---------------------------------------------------------------------------------------------------------
+Remove/discard recent n commits (for loca repository only)
+
+> Command : git reset HEAD~n
+
+> Example: remove recent 3 commits(discard changes made in recent 3 commits)
+           git reset HEAD~3
+
+---------------------------------------------------------------------------------------------------------
+git reset <hash>
+
+IT will move HEAD to mentioned hash and discard all previous hash from mentioned hash..
+Say..git log is like
+C
+B
+A
+started
+
+
+git reset A
+Now, HEAD is at A and changes from B and C would be discarded and also commit history will be changed
+---------------------------------------------------------------------------------------------------------

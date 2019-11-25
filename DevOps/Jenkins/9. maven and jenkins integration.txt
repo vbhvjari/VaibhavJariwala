@@ -1,0 +1,56 @@
+2 methods:
+
+1. Through plugin
+
+Manage Jenkins > manage Plugins > Available
+Plugin : Maven Integration plugin
+-------------------------------------------------------------------------------------------------------------------------
+> Manage Jenkins > Global Tool Configuration
+  Maven > Add Maven
+  from terminal echo $M2_HOME
+  copy same path to maven path
+
+> Create new project
+  Here, Maven project option wil be available along with freestyle project
+
+> Select maven project
+
+> Source Code Management: 
+  Repository URL : https url
+  Credentails : username and password
+
+> Build Triggers:
+  Build whenever a SNAPSHOT dependency is built
+  Build when a change is pushed to BitBucket
+  Poll SCM
+
+> Build Environment
+  Delete workspace before build starts
+
+> Pre Steps
+  Execute shell : echo "Beginning of maven execution"
+
+> Build:
+  Root POM : pom.xml	[make sure. pom.xml in root directory of repository]
+  Goals and options : package
+
+> Post Steps
+  Run only if build succeeds
+  Execute Shell : echo "Successful build"
+
+-------------------------------------------------------------------------------------------------------------------------
+Reference:
+https://www.youtube.com/watch?v=oPv0rMIOd1A
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Method-2: Through Build option
+
+> Make sure Maven version is set up in Global Tool Configuration
+> Set up SCM steps
+> Build
+  select Invoke top-level Maven targets
+
+> Mven version : select which was set in global tool configuration
+  Goals: clean install
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

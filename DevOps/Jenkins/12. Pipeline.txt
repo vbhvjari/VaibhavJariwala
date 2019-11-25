@@ -1,0 +1,55 @@
+Instead of freestyle, select (New Item> Pipeline)
+
+Pipeline:
+
+Definition: Pipeline Script
+Here, we cannot store script in BB
+
+TO store script(JenkinsFile) in BB and make version control, trigger build if any change in JenkinsFile,
+select: Pipeline script from SCM
+  SCM: git
+  ScriptPath: Jenkinsfile	make sure this jenkinsfile would be at root folder of repository
+
+
+
+Pipeline script:
+Sample script
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+node {
+    
+    
+    stage('Sorce Code Download') {
+    git credentialsId: 'f49ab8f3-caac-4009-bd0a-827e75195494', url: 'https://vbhvjari@bitbucket.org/vbhvjari/hello-world-maven.git'
+    }
+    
+    
+    stage('Package') {
+    
+    def mvn_version = 'Maven'
+    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+    sh "mvn package"
+    }
+    
+    }
+    
+    
+    
+    stage('Archive') {
+    archiveArtifacts 'target/helloworld-0.0.4-SNAPSHOT.jar'
+    }
+    
+}    
+//    stage('Copy Artifact') {
+//      def job = build job: 'copyjar-parameterized-build', parameters: [[$class: 'StringParameterValue', name: 'src', value: '/var/lib/jenkins/workspace/maven-artifact-postbuild/pom.xml',name: 'dst', value: '/var/lib/jenkins/workspace/maven-artifact-postbuild/test4.xml']]
+//    }
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+> For stage view, use stage label
+> put code under node{..}

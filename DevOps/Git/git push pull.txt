@@ -1,0 +1,9 @@
+git push	push changes to a remote directory
+git pull	sync changes from remote respository into local repository
+
+> By default, push/pull performed into master branch
+
+
+> 2 parameters:
+  1. name of remote repository
+  2. branch name

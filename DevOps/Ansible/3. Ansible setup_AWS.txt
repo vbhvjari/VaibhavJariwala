@@ -1,0 +1,52 @@
+Nodes		OS		Hostname		Private IP
+----------------------------------------------------------------------------
+Control MAchine	RHEL7.3		control			10.0.1.216
+----------------------------------------------------------------------------
+node1		RHEL7.3		node1			10.0.1.193	
+node2		RHEL7.3		node2			10.0.1.217
+----------------------------------------------------------------------------
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+Ansible user
+
+username:ansadm
+groupname:ansadm
+
+> This user must be created on ansible control machine and all client nodes.
+> Set "no password expire" policy for this user on ansilbe control machine and all nodes.
+> Setup passwordless login from ansible control machine to all client nodes through ansible user.
+
+
+> Create ansible user
+  useradd -c "Ansible_User" ansadm
+  passwd ansadm
+
+> Verify,
+  id ansadm	OR	getent passwd ansadm
+
+> Set "no password expire policy" 
+  chage -m 0 -M 99999 -E -1 -I -1 ansadm
+  chage -l ansadm
+
+> On ansible control machine, make entry of tower itself and all client nodes in /etc/hosts file.
+  Also on all client nodes, make entry of ansible tower in their /etc/hosts file. 	
+
+> Setup passwordless login through ansible user
+
+> On all client nodes(not on ansible control machine),Make necessary changes in sudoers file so that ansible user can run all commands.
+  Add following entry; command: visudo
+   ####Ansible User####
+   ansadm ALL= NOPASSWD:ALL
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= 
+Enable ssh from control to nodes in AWS
+> on node1 and node2
+  vi /etc/ssh/sshd_config
+
+ - Enable PasswordAuthentication
+   PasswordAuthentication yes
+
+ - restart sshd service
+   service sshd restart
+   systemctl restart sshd
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= 

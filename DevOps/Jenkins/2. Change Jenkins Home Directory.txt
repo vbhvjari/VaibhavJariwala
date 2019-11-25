@@ -1,0 +1,22 @@
+Default Jenkins Home Directory: C:\Users\vbhvjari\.jenkins
+(can be verified, open Jenkins in browser: Manage Jenkins > COnfigure Systems)
+
+> Jenkins Home directory consists all Jenkins configurations details
+
+Reason to change:
+> Space constraints
+> Project Requirement
+
+
+Steps:
+
+1. Create new directory(which will be treated as new home directory)
+   e.g., D:\DevOps_Practice\Jenkins\jenkins_new
+
+2. Copy all data from old directory to new directory
+   e.g., C:\Users\vbhvjari\.jenkins\* to D:\DevOps_Practice\Jenkins\jenkins_new
+ 
+3. Open Jenkins in Browser(http://localhost:8080)
+
+4.Verify 
+  Manage Jenkins > Configure System 

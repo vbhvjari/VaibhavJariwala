@@ -1,0 +1,5 @@
+> Run single/multiple OS commands,
+  ansible <node_name/group_name> -m shell -a '<command1;command_2>'
+E.g., ansible appserver_rhel7 -m shell -a 'uname -r'
+      ansible appserver_rhel7 -m shell -a 'uname -r;df -h'
+      ansible Redhat_Nodes -m shell -a 'uname -r;df -h'

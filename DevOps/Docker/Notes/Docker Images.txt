@@ -1,0 +1,15 @@
+> List out images
+  docker images
+
+> Download/Pull  images from docker Hub
+  docker pull <image_name>
+	
+  Now it will be shown in command: docker images
+
+> Delete docker images
+  docker rmi <image_ID>
+  
+	delete forcefully
+	docker rmi -f <image_ID>
+
+   

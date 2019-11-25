@@ -1,0 +1,12 @@
+> compare changes in the working directory against a previously committed version
+> By default the command compares the working directory and the HEAD commit
+
+
+> compare against an older version then provide the commit hash as a parameter
+  git diff <commit>
+
+> By default, git diff will only compare the working directory and not the staging area
+
+> To compare the changes in the staging area against the previous commit you provide the staged parameter 
+  git diff --staged
+

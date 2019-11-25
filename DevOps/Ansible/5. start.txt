@@ -1,0 +1,30 @@
+Inventory file
+/etc/ansible/hosts
+
+
+2 types:
+1. static file
+
+2. dynamtic file
+> huge amount of hosts
+> diffcult to write down all hosts details manually
+> written in python/shell/json and can be imported
+
+[group_name]
+node1
+node2
+
+-m 	module
+-i	inventory file other than default one
+-a 	execute shell commands
+-o	output i one line
+
+ansible -m <module> <nodes/group/all>
+
+ansible -m ping all
+ansible -m ping node1		(node1: individual host)
+ansible -m ping webservers	(webservers: group name)
+
+ansible -m copy -a "src=/tmp/test dest=/tmp/testdst" all
+
+ansible -m shell -a "date;pwd" all

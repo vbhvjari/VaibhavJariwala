@@ -1,0 +1,101 @@
+Git Configuration
+
+> Installation
+Command: yum install git
+
+> Tell git who you are
+Command: git config --global user.name "user_name"
+Command: git config --global user.email "user_email_address"
+
+-------------------------------------------------------------------------------------------------------------------
+Initalize current working directory as git repository
+
+  Say , current path is /home/ec2-user/vaibhavgit
+  cd /home/ec2-user/vaibhavgit
+Command: git init
+
+> Here, .git directory would be created under /home/ec2-user/vaibhavgit
+-------------------------------------------------------------------------------------------------------------------
+> Say ,create two empty directories under /home/ec2-user/vaibhavgit
+  say, doc and src
+
+> check git status
+  git status
+
+Here, git doesn't keep track of changes for empty directorties
+
+> say, create files in each folder
+  e.g., doc1 under doc and src1 under src directory
+
+> check git status
+  git status
+
+Here, git recognizes changes as directory isn't empty
+-------------------------------------------------------------------------------------------------------------------
+Add changes in staging area
+
+> Command: git add -A	OR	git add .	(. stanfs current directory)
+  Recommend to use git add -A 
+
+> git status
+
+Here, changes are marked with green colour
+
+-------------------------------------------------------------------------------------------------------------------
+Commit to local repository
+
+> Command: git commit -m "message"
+
+-------------------------------------------------------------------------------------------------------------------
+push to remote/central repository      
+> create repositroy in GitHub
+  Say, repository name on GitHub is vaibhavgitfirst
+
+> Below commands only for 1 time 
+  git remote add origin https://github.com/vbhvjari/vaibhavgitfirst.git
+  git push -u origin master
+
+-------------------------------------------------------------------------------------------------------------------
+Make changes
+
+> say, you create another file doc2 in doc directory
+  touch /home/ec2-user/vaibhavgit/doc2
+
+> git status
+
+> Add to staging area 
+  git add- A 
+  git status
+ 
+> Commit file
+  git commit -m "doc2 addred under doc directory"
+  git status
+
+> push file to GitHub
+  git push
+
+-------------------------------------------------------------------------------------------------------------------
+Notes:
+
+> Git does not keep track of empty directory
+  Git does keep track of directories having files
+
+> Red : changes made and changes to be added in staging area
+  Green : changes in staging area and to be commited to local repositroy
+
+-------------------------------------------------------------------------------------------------------------------
+Local repository
+
+git init	Initialize git repository	
+git status	status of master branch
+git add		Add files to staging area
+git commit	commit files to local repository
+----------------------------------------------------------------------------------
+Remote/Centralized Repository; GitHub
+
+git remote	push existing repository to remote repository ; used for existing repository ; add referneces to existing remote repository for traking changes
+git push	push local repository to remote repository
+git pull	pull remote repository to local repository ; pull down from remote and merge it to the branch
+git fetch	same as push but don't merge  
+git clone	create new repository from centralized repository
+----------------------------------------------------------------------------------

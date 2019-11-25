@@ -1,0 +1,62 @@
+> Ansible configuration file resides in /etc/ansible.
+> Since ansible user ansadm will be used for ansible configuration, change ownership of /etc/ansible to ansadm user.[on ansible tower]
+  chown -R ansadm:ansadm /etc/ansible
+
+> Ansible configuration file
+  /etc/ansible/ansible.cfg
+
+> Ansible inventory file/host file: file in which all client nodes details will be saved
+  /etc/ansible/hosts
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+Run all commands through ansible user only.
+
+Example: /etc/ansible/hosts
+
+[Redhat_Nodes]
+appserver_rhel7
+dbserver_rhel7
+
+[CentOS_Nodes]
+node1_centos7
+node2_centos6
+node3_centos6
+
+> Here, Redhat_Nodes is the name of group and appserver_rhel7,dbserver_rhel7 are members of the group.
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+> List of modules name
+  ansible-doc -l | more
+
+> Check available options for particular module,
+  ansible-doc -s <module_name>
+E.g., ansible-doc -s yum
+
+> Run single command/task,(only for available modules)
+  ansible <node_name/group_name> -m <moudule_name>
+  ansible <node_name/group_name> -m <moudule_name> -o		#output in one line
+E.g., ansible node1_centos7 -m ping
+      ansible CentOS_Nodes -m ping
+
+
+> Run single/multiple OS commands,
+  ansible <node_name/group_name> -m shell -a '<command1;command_2>'
+E.g., ansible appserver_rhel7 -m shell -a 'uname -r'
+      ansible appserver_rhel7 -m shell -a 'uname -r;df -h'
+      ansible Redhat_Nodes -m shell -a 'uname -r;df -h'
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+

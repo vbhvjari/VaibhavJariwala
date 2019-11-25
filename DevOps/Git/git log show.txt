@@ -1,0 +1,23 @@
+git log		who made changes
+git show	what changes made
+
+
+
+git log
+> who made changes
+> Command: git log
+> view logs in oneline
+  Command: git log --oneline
+
+> filter logs
+  git log --grep="<>word>"
+
+
+git show
+> view the changes made 
+> command: git show
+
+> By default, show the result of latest commit(HEAD)
+> To view the result of oder commits,
+  git show <commit-hash>
+ 

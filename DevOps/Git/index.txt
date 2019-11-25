@@ -1,0 +1,7 @@
+Index is same as :
+
+> Staging area
+> Staging files
+> Cache
+> Directory cache
+> Current directory cache

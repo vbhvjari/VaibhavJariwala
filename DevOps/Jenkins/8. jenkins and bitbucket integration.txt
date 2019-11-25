@@ -1,0 +1,59 @@
+Make sure that BItbucket plugin is installed
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+through https
+
+1. Create Freestyle Project
+
+2. Source Code Management > Git
+   Repository URL : https url
+   Credentials: username and password
+
+3. Build triggers
+   Build when a change is pushed to BitBucket
+   Poll SCM
+
+4. Build
+   for unix : Execute shell : echo "Vaibhav Jariwala"
+   for windows: Execute Windows batch command: echo "Vaibhav Jariwala"
+
+5. Make soem changes in BB repository
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+through ssh
+
+> for ssh, ssh key must be generated and configured between jenkins node and bitbucket
+
+1. Configure ssh key
+
+> Generate key-pair
+  ssh-keygen -t rsa -b 4096 -C vaibhavjariwala19@gmail.com
+
+> copy content of public key id_rsa.pub to bitbucket settings > SSh Keys > Add Key
+ 
+
+2. Create Freestyle Project
+
+3. Create Credentials
+   Credentails > System > Global Credentails > Add Credentails > Kind: SSH Username with private key
+
+4. Source Code Management > Git
+   Repository URL : ssh url
+   Credentials: ssh credentails(created in step-3)
+
+3. Build triggers
+   Build when a change is pushed to BitBucket
+   Poll SCM
+
+4. Build
+   for unix : Execute shell : echo "Vaibhav Jariwala"
+   for windows: Execute Windows batch command: echo "Vaibhav Jariwala"
+
+5. Make soem changes in BB repository
+
+
+Reference:
+https://janitha000.wordpress.com/2016/07/27/connecting-bitbucket-and-jenkins-through-ssh/
+https://www.youtube.com/watch?v=HTlAssPBKBs
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,15 @@
+> Install jdk 1.8
+  yum install java-1.8*
+
+> Configure java and select java 1.8
+  alternatives --config java
+ 
+  Say ,here for 1.8, /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
+
+> set java PATH variable: JAVA_HOME
+  export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
+  export PATH=$PATH:$JAVA_HOME/bin
+
+> Include above 2 lines in /etc/environment
+  vi /etc/environment
+  source /etc/environment

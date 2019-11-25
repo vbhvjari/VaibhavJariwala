@@ -1,0 +1,22 @@
+1. Start Jenkins(navigate to path where jenkins.war resides)
+   java -jar jenkins.war
+  
+   [default port:8080]
+   Custom port: java -jar jenkins.war --httpPort=port_no
+
+2. Manage Jenkins > Configure Global Security
+   Make sure "Enable Security" checked
+
+3. Go to http://localhost:8080/cli/
+
+4. Download jenkins-cli.jar and place it the location (execute cli commands from the same location)
+
+5. Navigate to location where cli commands
+   e.g., D:\DevOps_Practice\Jenkins\cli
+
+   [set ssh passprase: User right corner > click on drop down menu > Configure > SSH Public Key]
+
+6. From bowoser, click on safe-restart..copy full command and paste it in cmd
+   e.g., java -jar jenkins-cli.jar -s http://localhost:8080/ safe-restart
+  
+

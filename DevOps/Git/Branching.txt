@@ -1,0 +1,144 @@
+branching
+> e.g., webex
+every coustomer- separate branch customer branch
+release branch	acturate release sent to customer 1.0,1.1,1.2 releases
+  
+> Nested branch possible
+
+
+
+> Default branch : master
+  Created automatically
+  remote : origin (by default)
+
+Create new branch
+Command: git branch <branch_name>
+Example: git branch uat
+
+Switch to another branch
+Command: git checkout <branch_name>
+Example: git checkout uat
+Example: git checkout master
+
+Combined: create new branch and switch to newly created branch
+Command: git checkout -b <brnach_name>
+Example: git checkout -b uat
+
+List all branches
+Command: git branch
+
+> say, current branch: master
+  directory : src and doc
+  Files : src1 under src and doc1 under doc
+
+   From this point, you create branch,say,uat
+   At this point, existing directory file strutcture would be same for uat branch as well.. 
+
+> For branching, no change in directory structure in repository
+> When new branch is created, at that point new local copy with changes
+  After that, whatever changes committed to master branch will not reflect in newly created branch
+  Whatever changes done in newly created branch will not reflect in master branch unless specific operations are executed
+
+
+Default configuration
+git remote add origin https://github.com/vbhvjari/vaibhavgitfirst.git		specify origin(centralized repository : GitHub)
+git push -u origin master							push to master branch
+
+
+
+origin : location of centralized repository : GitHub URL : https://github.com/vbhvjari/vaibhavgitfirst.git
+
+
+git push	push changes to master branch only (by default)
+
+push changes for newly chreated branch
+Command: git push origin <new_branch>
+Example: git push origin uat
+ 
+
+
+
+
+git merge
+
+be at destination path
+e.g, merge from int to uat
+current branch should be uat
+
+
+git merge <source_branch>
+
+
+
+
+Fast-Forwarding
+> Say, you have created branch uat from master branch
+       you have created branch int from uat branch
+
+Flow: master>>>>uat
+      master>>>>uat>>>>int
+
+Say, there is no change in uat and int
+> so while merging from int to uat, no merging as nothing new in int
+so instead of merging, git gives same reference int and uat
+its called fast forwarding
+
+
+revert changes forcefully
+git reset --hard
+
+
+
+say, you create file but do not add in staging area and do not commit
+this file would not be belong to/associated with any branch 
+available for all branches
+
+
+
+
+git log
+git log --oneline
+git log --oneline --graph
+
+
+
+Need of branching
+> multiple developers working on same prject ot build different unctionality 
+  at the end of day, all functionalities would be combined and final product would be released
+  so with help of branching, one can work independently without disturbing others
+
+
+Release branch
+
+
+
+Branching stratergy 
+
+> set release branch
+  say, 1.0,1.1,1.2
+       2.0,2.1,2.2
+
+anything goes wrong with 1.1 release then revert back to 1.0 not 2.0
+
+
+> Feature branch
+
+
+HEAD
+> current branch
+> reference to the last commit in the currently checkout branch
+
+
+
+Merge conflict
+> same file modified by differnet people
+> say, file1 present in both branch, uat and int
+> make some changes in file1 on uat
+  make some other changes in file1 on int
+> now try to merge int to uat
+  merge conflict will occur
+
+> git detects merge conflict (<<<>>>>) and allows user to select correct modification to be allowd while merging
+> after trhat, add in staging area and commit  
+
+

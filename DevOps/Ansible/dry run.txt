@@ -1,0 +1,17 @@
+Dry run
+
+--check
+
+will not execute taskson remote nodes but will tell tht those tasks would be executed successfully or not
+
+e.g., ansible-playbook sample.yml --check
+------------------------------------------------------------------------------------------
+Force a task to run in check mode even when playbook is called without --check
+
+check-mode: yes
+
+------------------------------------------------------------------------------------------
+Force a task to run in normal mode even when playbook is called without --check
+
+check-mode: no
+------------------------------------------------------------------------------------------

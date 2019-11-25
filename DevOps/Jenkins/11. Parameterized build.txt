@@ -1,0 +1,40 @@
+Parameterized Build:
+> input given by user at time of build
+
+
+Create freestyle project(copyjar-parameterized-build)
+
+
+General:
+> select : This project is parameterized
+> Add parameters: string parameters
+  add 2 string parameters: src and dst	(no default value to be mentioned)
+ 
+Build: Execute shell
+cp $src $dst
+
+--------------------------------------------------------------------------------------
+Build with parameters:
+src: /var/lib/jenkins/workspace/maven-artifact-postbuild/pom.xml
+dst: /var/lib/jenkins/workspace/maven-artifact-postbuild/test.xml
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+build this prject through another project
+
+Plugin : Parameterized Trigger Plugin
+
+Open existing project: maven-artifact-postbuild
+Configure
+
+Post-build-Actions
+
+Trigger parameterized build on other projects
+
+Project to build: copyjar-parameterized-build
+Trigger when build is: Stable
+
+Add Parameter: Predefined parameters
+
+src: /var/lib/jenkins/workspace/maven-artifact-postbuild/pom.xml
+dst: /var/lib/jenkins/workspace/maven-artifact-postbuild/test2.xml
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,75 @@
+YAML: Yet Another Markup Language/YAML Ain't Markup Language
+
+> human readable serialization format
+> easy to use/understand
+
+> starts with 3 hypens(---)
+> list of items then each item starts with single hypen(-)and space
+
+Example:
+
+---
+- DevOps
+- AWS
+- Linux
+
+-----------------------------------------------------------------------------
+Key-value example:
+
+---
+Name: xxx
+Address: yyy
+Phone: xxxxxxxx
+
+-----------------------------------------------------------------------------
+--- 
+- 
+  address: surat
+  name: vaibhav
+- 
+  address: mumbai
+  name: vbhv
+
+-----------------------------------------------------------------------------
+--- 
+- 
+  address: surat
+  name: vaibhav
+  vehicles: 
+    - honda
+    - bajaj
+- 
+  address: mumbai
+  name: vbhv
+  vehicles: 
+    - hero
+    - suzuki
+-----------------------------------------------------------------------------
+--- 
+- 
+  address: surat
+  courses: 
+    - 
+      date: xx/yy/zz
+      name: devops
+  name: vaibhav
+  vehicles: 
+    - honda
+    - bajaj
+- 
+  address: mumbai
+  courses: 
+    - 
+      date: zz/yy/aa
+      name: aws
+    - 
+      date: xx/yy/zz
+      name: devops
+  name: vbhv
+  vehicles: 
+    - hero
+    - suzuki
+-----------------------------------------------------------------------------
+
+YAML validator
+http://www.yamllint.com/

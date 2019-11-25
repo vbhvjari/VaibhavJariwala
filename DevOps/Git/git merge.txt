@@ -1,0 +1,31 @@
+git merge
+
+
+> git fetch will download changes into separate branch 
+  those changes can be merged with "git merge"
+
+> no conflict; merge will be fast forwarded
+
+
+> git merge will create commit hash in log history
+
+
+merge conflicts
+
+local changes	<<<<<<< HEAD
+remote changes 	>>>>>>> remotes/origin/master	
+Separation 	=======
+
+git mergetool
+
+
+Resolving conflicts
+
+> The simplest way to fix a conflict is to pick either the local or remote version using git checkout --ours staging.txt
+
+
+> To merge, be at destination..
+  Say, to merge from feature to master
+  navigate to master
+  git merge <source branch>
+e.g., git merge feature

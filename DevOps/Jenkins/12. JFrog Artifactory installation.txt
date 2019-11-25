@@ -1,0 +1,91 @@
+Prerequisites:
+1. JDK 1.8
+
+> Install jdk 1.8
+  yum install java-1.8*
+
+> Configure java and select java 1.8
+  alternatives --config java
+ 
+  Say ,here for 1.8, /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/bin/java
+
+> set java PATH variable: JAVA_HOME
+  export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
+  export PATH=$PATH:$JAVA_HOME/bin
+
+> Include above 2 lines in /etc/environment
+  vi /etc/environment
+  source /etc/environment
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+tomcat: Installation steps:
+
+> Download tomcat
+  wget <URL>
+
+> copy tar.gz file under /opt/
+
+> Extract
+  cd /opt
+  tar -xvzf apache-tomcat-9.0.27.tar.gz
+
+> Make sure to have execute permission of startup ans shutdown service for all users
+  chmod 700 /opt/apache-tomcat-9.0.27/bin/*.sh
+
+> Make shortcut for start and stop
+  ln -s /opt/apache-tomcat-9.0.27/bin/startup.sh /usr/bin/tomcatup
+  ln -s /opt/apache-tomcat-9.0.27/bin/shutdown.sh /usr/bin/tomcatdown
+
+> Default tomcat port: 8080
+  Change it to 8090
+  cd /opt/apache-tomcat-9.0.27/conf
+  vi server.xml			 <Connector port="8090" protocol="HTTP/1.1"
+
+> Allow 8090 in security group
+
+> Start tomcat service
+  tomcatup
+
+> Stop tomcat service
+  tomcatdown
+
+> Verify in browser
+  <public IP>: 8090  
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Artifactory: Installation steps:
+
+> Download rpm
+  cd /etc/yum.repos.d/
+  wget https://bintray.com/jfrog/artifactory-rpms/rpm -O bintray-jfrog-artifactory-rpms.repo
+  yum repolist
+
+> Install JFrog artifactory
+  yum install jfrog-artifactory-oss
+
+> Artifactory installation under /opt
+  Default installation path : /etc/opt/jfrog/artifactory/
+  Custom path to be created : /opt/app/	(mkdir -p /opt/app)
+ 
+  ln -s /etc/opt/jfrog/artifactory/ /opt/app/artifactory
+ 
+  Verify: cd /opt/app/artifactory
+
+> Start artifactory service
+  service artifactory start  
+
+> Make sure to open port 8081 in security groups
+
+> Open browser
+  <public IP>:8081
+
+> Default credentials:
+  user name: admin
+  password: passowrd
+
+
+Reference:
+https://nallarameshreddy.wordpress.com/2017/05/30/steps-to-download-and-install-artifactory-in-linux/
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+

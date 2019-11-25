@@ -1,0 +1,56 @@
+Maven:
+
+> Build tool for java 
+> Project management tool-report/form generation
+
+code > compiled and packaged to a bundle
+> Build: converting code to executable file/package
+
+-----------------------------------------------------------------------------------------------------------------------------
+Maven : Build + Package(compress)
+
+java file code   : .java
+Compiled         : .class
+Package/Compress : .jar, .war
+ 
+Packaging : 		original packages + their dependencies
+dependency management:	resolve dependencies
+-----------------------------------------------------------------------------------------------------------------------------
+Issues before Maven:
+
+> Multiple jars
+  (multiple components)
+
+> Dependencies and versions
+
+> Project Structure
+
+> Build,Publish,Deploy
+
+-----------------------------------------------------------------------------------------------------------------------------
+> Maven : developed by Apache and written in java
+-----------------------------------------------------------------------------------------------------------------------------
+M2_HOME : home directory for maven; local repositroy
+-----------------------------------------------------------------------------------------------------------------------------
+archtype-- model of project structure--blueprint of project strtucture
+
+mvn archtype:generate
+
+default: 106
+-----------------------------------------------------------------------------------------------------------------------------
+groupId : similar to package name
+artifactId: similar to class name
+version: for versioning; default: 1.0-SNAPSHOT
+packaging : type of packaging method
+-----------------------------------------------------------------------------------------------------------------------------
+execute mvn commands from location where pom.xml file resides
+
+mvn compile	compilation---maven download dependencies itself and store under .M2_HOME
+mvn package	Package--multiple files into a d=single file--package/bundle----store under target folder
+-----------------------------------------------------------------------------------------------------------------------------
+Maven Repository
+
+> Archetype information : Project/folder Structure  
+> Dependency Information : list of dependencies
+
+-----------------------------------------------------------------------------------------------------------------------------

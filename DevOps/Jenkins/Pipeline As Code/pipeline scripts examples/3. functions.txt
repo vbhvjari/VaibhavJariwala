@@ -1,0 +1,32 @@
+//define global variable "name"
+def name;
+node
+{
+    stage('Main Stage')
+    {
+        name = "vaibhav"
+        place = "surat"
+        echo "Global variable name value is ${name}"
+        echo "Local variable place value is ${place}"
+        returnwithoutparameter()
+        
+        def welcomestat = retunwithparameter(name)
+        echo "${welcomestat}"
+    }
+}
+
+//define function without any return parameter
+def returnwithoutparameter()
+{
+    def name = "vbhv";
+    def address = "gujarat"
+    echo "name variable inside function is ${name}"
+    echo "address variable inside function is ${address}"
+}
+
+//define function with retun parameter/argument
+def retunwithparameter(String name)
+{
+    def name1 = "Hello ${name}..Welcome to return function paramater"
+    return name1
+}

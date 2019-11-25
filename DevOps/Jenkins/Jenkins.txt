@@ -1,0 +1,6 @@
+> CI/CD tool
+> written in JAVA
+> open source
+> colection of plugins
+> plugins: jenkins communicate to other tools/service through jenkins
+> Default port: 8080

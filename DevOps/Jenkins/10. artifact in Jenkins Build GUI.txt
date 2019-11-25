@@ -1,0 +1,15 @@
+Source Code Management
+- git : add repository and credentials
+
+Build Triggers:
+- poll SCM
+- Build when a change is pushed to BB
+
+Build: Invoke top-level Maven targets
+Maven version: 
+Goals: clean package
+
+Post-build Actions: Archive the artifacts
+Files to archive: target/helloworld-0.0.3-SNAPSHOT.jar
+(reference from /var/lib/jenkins/workspace)
+

@@ -1,0 +1,25 @@
+Templates:
+
+
+copy module: copy static files
+
+templates: dynamic content 
+
+
+entire content static----------------------> copy module
+few content dynamic, rest content: static---> templates
+
++++++++++++++++++++++++++++++++++
+templates:
+
+src:  source of template file--relative/absolute path
+dest: destination path on remote server
+
+
+Comments in template within #..#
+
+e,g., #This is comment#
+
+
+References:
+https://www.mydailytutorials.com/ansible-template-module-examples/

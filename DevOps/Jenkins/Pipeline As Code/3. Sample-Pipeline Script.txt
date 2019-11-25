@@ -1,0 +1,44 @@
+Create New Item > Type: Pipeline
+
+4th Section: Pipeline
+
+Definition : Pipeline script
+
+Paste below code:
+
+node
+{
+    stage('SCM')
+    {
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'f49ab8f3-caac-4009-bd0a-827e75195494', url: 'https://vbhvjari@bitbucket.org/vbhvjari/hello-world-maven.git']]])
+    }
+        stage('Build')
+    {
+        echo "BUILD"
+    }
+    stage('Unit Testing')
+    {
+        echo "UNIT TESTING"
+    }
+    stage('Create Artifacct')
+    {
+        echo "CREATE ARTIFACT"
+    }
+    stage('Publish Artifact')
+    {
+        echo "PUBLISH ARTIFACT"
+    }
+    stage('Code SCan')
+    {
+        echo "CODE SCAN"
+    }
+    stage('OAD')
+    {
+        echo "OAD"
+    }
+}
+
+
+
+
+> Build Now

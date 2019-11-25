@@ -1,0 +1,24 @@
+dependencies: downloaded from maven online repository and get stored in local repository(M2_HOME)
+
+only need to mention primary dependencies in pom.xml file
+relatives dependencies would be taken care by maven
+
+mvn clean	removes target folder--removes class files,artifacts
+
+say, you have mentioned some framework and related framework jar is not present 
+mention dependency details in pom.xml in dependency section 
+so maven will connect to online repository and will download dependency automatically
+
+
+How to get dependency details(groupId, artifactId, version)
+google > maven repository or sonatype
+
+mvn compile
+> download dependency to target folder
+> then maven locally compile code
+
+
+scope
+> default scope: compile
+  <scope>compile</scope>	jar/dependency would be available at compile phase
+

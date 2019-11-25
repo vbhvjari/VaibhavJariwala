@@ -1,0 +1,6 @@
+> To copy single file,
+  Command: ansible redhatgroup -m copy -a "src=/tmp/test.txt dest=/tmp/test.txt"
+
+Here, src:source, dest:destination
+---------------------------------------------------------------------------------------
+> 

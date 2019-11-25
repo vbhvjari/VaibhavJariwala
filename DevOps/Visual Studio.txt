@@ -1,0 +1,19 @@
+Visual Studio
+
+> uses MSBuild to build project
+> MSBuild project file in XML format
+  .csproj	C# project
+  .vbproj	Visual Basic.NET
+  .dbproj 	database project
+
+> MSBuild uses project file to build the project
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+csproj file
+
+> project details and referneces to assemblies
+> XML file
+> file extension: .csproj
+> for C# project
+> e.g., VS version, project type, assembly name, etc..
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

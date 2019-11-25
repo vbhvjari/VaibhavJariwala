@@ -1,0 +1,19 @@
+Branch Permissions:
+
+> control access to repository brnaches in Bitbucket server
+> control actions of users can perform on a single branch. branch type or branch pattern in single repository or in a project
+
+> branch permissions are based on users and groups 
+
+> Hierarchy
+  Project > Repository > Branch Permissions
+
+> do not prevent branch creation
+> applies only for existing branches
+> can apply brach permission for single repository or all repositories in a project
+
+> can setup branch permissions 
+  - by branch name
+  - by branch pattern
+  - by branch type
+  

@@ -1,0 +1,30 @@
+CI : Continous Integration
+
+> Fast feedback to Developers
+> fast delivery
+> improves coe quality,minimizes defects
+
+CI : AUtomation
+
+1. Build
+2. Test
+3. Deploy
+
+
+
+> Whenever any change in repository, build the code, then unit test and deploy on test server..
+  If any error/bug, easily it get identified by commit ID
+> Every commit, testing done; quick feedback
+
+CD: Continous Delivery
+
+
+Pieline : collection of jobs executed in order
+Pipeline configuration as JenkinsFile
+
+
+JenkinsFile 
+> text file : pipeline as code
+> stored in git or any version control respository
+> written using Groovy DSL(Domain Specific Language)
+

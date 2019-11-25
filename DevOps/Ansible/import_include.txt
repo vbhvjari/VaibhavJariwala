@@ -1,0 +1,13 @@
+import:
+
+include:
+
+import/include another playbook in current playbook
+old way
+
+
+import 		before execution, check if it would work
+include		directly execute
+------------------------
+newer way: roles
+ 

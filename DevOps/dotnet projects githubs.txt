@@ -1,0 +1,2 @@
+CakeShop	https://github.com/ritwickdey/Cake-Shop
+SmartStore	https://github.com/smartstore/SmartStoreNET/commit/7f929b0def34089ec177840c3236a9068d863749

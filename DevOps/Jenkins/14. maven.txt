@@ -1,0 +1,25 @@
+Maven Repository
+
+
+Without Jenkins:
+> settings.xml under.m2 directory
+> mvn deploy
+> Disadvange: upload artifact--all successsful build-
+  evcen uplaod half successful build
+  say, one project having 5 sub projects..first 3 successful, last 2 failed
+  here, upload for first 3 successful build, not for last 2 builds
+
+
+
+With Jenkins
+> through plugin
+> Advantage: upload artifact--only for successful build
+only upload when complete build is successful
+only uplaod when all 5 sub project build are successful
+
+
+Artifactory:
+> local---your own artifacts, 3rd party artifacts
+> remote:
+> virtual: 
+> distribution: 

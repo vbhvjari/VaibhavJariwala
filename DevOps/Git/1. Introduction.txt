@@ -1,0 +1,45 @@
+Git
+> version control tool
+> version control : keep versions of all changes
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Version control system(VCS)
+
+> keeps track of changes 
+> keeps track of who made changes with timestamp
+> restore previous version if needed
+> automatic merge
+
+> 2 types:
+  1. CVCS : Centralized Version Control System
+  2. DVCS : Distributed Version Control System
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+1. CVCS : Centralized Version Control System
+
+> Client-Server Architecture
+> Centralized repository at server end
+> Client nodes - connect to centralized repository
+> data from repository to client nodes : pull	download
+  data from client nodes to repository : push	upload
+> Limitation: no HA, no redundancy
+  Complete failure if server goes down
+> e.g., SVN,ClearCase,TFS(VSS)
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+2. DVCS : Distributed Version Control System
+
+> no server/client concept
+  any node can become client or server
+
+> we can keep copy of repository at each node   
+
+> Advantages:
+  - no chance of failure as respository at every node
+  - performance enhancement
+    (say,server and client nodes location are geographically very far;latency issue)
+
+> e.g., Git
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

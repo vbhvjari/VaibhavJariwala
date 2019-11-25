@@ -1,0 +1,61 @@
+Prerequisites
+
+> JAVA	openjdk
+
+1. yum install java-1.8*
+2. alternatives --config java
+   Select 1.8 version
+
+3. Check version 
+   java -version
+
+4. vi /etc/environment
+   export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
+
+5. Verify
+   take another putty session
+   echo $JAVA_HOME
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Installation on AWS
+
+1. yum update -y
+2. reboot
+
+3. check current status of repos 
+   yum repolist 
+
+4. Download repo file
+   wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins.io/redhat/jenkins.repo
+
+   Verify
+   cd /etc/yum.repos.d/
+   ll
+
+   yum repolist
+
+
+5. Import key
+   rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+
+6. Install jenkins
+   yum install jenkins
+
+7. service jenkins status
+   service jenkins start
+
+8. First time password
+   /var/lib/jenkins/secrets/initialAdminPassword
+
+9. Unlock Jenkins
+   In browser,
+   publicIP:8080
+   [allow port 8080 in security group]
+ 
+   Install suggested plugins
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+RPM package can be downloaded for redhat
+
+http://pkg.jenkins.io/
+https://pkg.jenkins.io/
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 

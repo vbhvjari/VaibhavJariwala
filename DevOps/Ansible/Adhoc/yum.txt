@@ -1,0 +1,12 @@
+Command: ansible redhatgroup -m yum -a "name=httpd state=present" -s
+
+Here,
+redhatgroup: name of group 
+name:  name of the module
+state: state of the package after task is completed
+ > present or absent
+
+-s option: use sudo 
+
+Here, by this command, only package will get installed,service httpd will not get started automatically
+

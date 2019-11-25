@@ -1,0 +1,35 @@
+> Prerequisites : java
+
+tomcat: Installation steps:
+
+> Download tomcat
+  wget <URL>
+
+> copy tar.gz file under /opt/
+
+> Extract
+  cd /opt
+  tar -xvzf apache-tomcat-9.0.27.tar.gz
+
+> Make sure to have execute permission of startup ans shutdown service for all users
+  chmod 700 /opt/apache-tomcat-9.0.27/bin/*.sh
+
+> Make shortcut for start and stop
+  ln -s /opt/apache-tomcat-9.0.27/bin/startup.sh /usr/bin/tomcatup
+  ln -s /opt/apache-tomcat-9.0.27/bin/shutdown.sh /usr/bin/tomcatdown
+
+> Default tomcat port: 8080
+  Change it to 8090
+  cd /opt/apache-tomcat-9.0.27/conf
+  vi server.xml			 <Connector port="8090" protocol="HTTP/1.1"
+
+> Allow 8090 in security group
+
+> Start tomcat service
+  tomcatup
+
+> Stop tomcat service
+  tomcatdown
+
+> Verify in browser
+  <public IP>: 8090  

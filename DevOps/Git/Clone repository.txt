@@ -1,0 +1,22 @@
+2 methods:
+
+1. HTTPS
+
+> need to enter credentails everytime
+> use https(443 port) for communication
+> Command: git clone <https_git_url>
+ Example: git clone https://vbhvjari@bitbucket.org/vbhvjari/jaritest.git
+
+-------------------------------------------------------------------------------------------------------------
+2. SSH
+
+> need to add ssh key for only one time; no need to enter credentails every time
+> use ssh(22 port) for communication
+> Command: git clone <ssh_git_url>
+  Example: git clone git@bitbucket.org:vbhvjari/jaritest.git
+
+> We need to add username and email ID once by following commands:
+  
+  git config --global user.name "username"
+  git config --global user.email "email_address"
+-------------------------------------------------------------------------------------------------------------

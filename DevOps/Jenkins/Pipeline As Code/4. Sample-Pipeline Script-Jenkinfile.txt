@@ -1,0 +1,13 @@
+Create New Item > Type: Pipeline
+
+4th Section: Pipeline
+
+Definition : Pipeline script from SCM
+
+SCM: Git
+Add repo and credential details
+
+> make sure you create Jenkinsfile in root directory of repository
+> paste same code in Jenkinsfile
+
+> Build Now

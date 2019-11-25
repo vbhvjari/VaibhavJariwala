@@ -1,0 +1,28 @@
+1. Create User
+   Manage Jenkins > Manage Users
+   
+   create 2 users; user1,user2
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2. Create and Manage roles
+
+> Required plugin : Role-based Authorization Strategy
+
+Download: Manage Jenkins > Manage Plugins > Available section
+
+> Restart jenkins
+
+> Configure Global Security
+  Make sure "Enable Security" is checked
+
+Under Authorization section, you will see Role Based Stratergy(appeared after installing agent)..select it
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3. Manage and Assign roles
+
+Manage Jenkins > Manage and Assign Roles
+
+Manage Roles
+1. Global Roles:	authorization at global level
+2. Project Roles	based on projects
+3. Slave Roles
+   

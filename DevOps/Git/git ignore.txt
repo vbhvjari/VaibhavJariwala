@@ -1,0 +1,37 @@
+git ignore
+
+> ignore files from commit
+> say, some local configuration files/residue files which are not supposed to commit to repository
+
+
+Steps:
+Say, we want to exclude files having .tmp extension, not to be traced by git
+
+1. navigate to local respository(where .git directory resides)
+   pwd
+   /home/scrapbook/tutorial
+
+
+2. add pattern to .gitignore file
+   echo '*.tmp' > .gitignore
+ 
+   [muliple patterns can be added;echo '*.txt' >> .gitignore ]
+
+
+
+3. add changes to staging/commit
+   git add -A
+   git commit -m "added .gitignore"
+
+4. Now create some files having .tmp extensions..
+   touch test.tmp
+
+5. Check status
+   git status
+
+
+Here, test.tmp will not be traced by git
+
+Note:
+> say, laptop.txt file created before creating .gitignore and if you add .txt in .gitignore, it would also work..
+ 

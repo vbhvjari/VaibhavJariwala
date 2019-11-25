@@ -1,0 +1,8 @@
+Archetype: blueprint of project/folder structure
+
+archetype:generate
+
+versioning:
+
+SNAPSHOT: development
+RELEASE : production

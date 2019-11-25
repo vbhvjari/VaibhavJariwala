@@ -1,0 +1,24 @@
+> Check docker version
+  docker --version	OR docker -v
+
+> Docker client-server information
+  docker version
+
+> Docker information
+  docker info
+
+> Docker help
+  docker --help
+
+> Login to docker hub
+  docker login
+
+> List out images
+  docker images
+
+> List out containers
+  Running containers	docker ps
+  All containers	docker ps -a
+
+> Run image
+  docker run --name=OS -it alpine

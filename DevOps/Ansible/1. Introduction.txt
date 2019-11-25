@@ -1,0 +1,100 @@
+Ansible
+
+> configuration management tool(creating environment through automation)
+> push based [communication from server to nodes through ssh]
+
+> Ansible-------------"What to do" or "what you want"
+ ansible tool know how to convert YAML to commands that machine understnad
+eg, 
+you have efficient farmers in your farm. you just need to tell them what to do, not how to do
+here, efficinet farmers: ansible tool
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ansible over shell-scripts
+
+1. Idempotence--guarantee same state output
+2. Easy to understand/Easy to use
+3. no need of programming language
+4. ready made modules and can be integrated easily with other tools/platform
+5. Tagging
+
+
+1. Idempotence: applying an operation for once or multiple times has the same effect
+> e.g., say you want to install apache http
+by shell scripts, it doesnt guarantee to get same state output
+with ansible, it uses pre-defined syntax/modules and results in same state output
+suppose, apache package is aready installed--shell script will not chewck whether package is installed or not , it directly execute steps
+                                             ansible first verfiy whether package is installed--if yes then it will not execte steps--this way saves time/Compute
+
+
+2. Easy to understand/easy to use
+> it is very easy to setup ansible as no external agent is needed to get configured
+> playbooks are written in YAML---high level language--easy to understand
+
+3. no need of programming language
+> playbooks are written in YAML language--easy to use and easy to understand
+> ansible itself will convert YAML to python
+
+4. ready made modules and can be integrated easily with other tools/platform
+> ansible supports vast range of modules and with the help of modules, ansible can be used acorss multiple platfoms--Linux/Windows/Unix/Cloud
+
+5. Tagging
+> can tag our set of commands
+> easy to execute a subset of a provisioning script without extracting that section or commenting everything else out
+  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Features/Ansible used for:
+
+1. Change Management
+2. Provisioning
+3. Automation
+4. Orchestration
+
+
+1. Change management
+> upgrade version of package/app
+> remove/install software/package
+
+2. Provisioning
+> create infra components--n number of nodes
+  e.g, FTP,apache ,samba server setup
+
+3. Automation
+> run specific task at specific time--schedule job
+> same task--to be executed on multiple nodes--through ansible
+
+4. Orchestration
+> series of tasks to be executed in proper sequence/oder
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pre-requisites:
+
+1. Python on both--server and nodes
+2. ansible user--server and nodes
+3. ansible configuration--only on master
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ansible Architecture:
+
+> ansible is to be setup on master/control machine/server
+> push based mechaism
+  communication happens from server to nodes
+
+> communication medium: ssh
+> no need of any agent to be installed--neither on server nor on nodes
+
+> ansible--written in Python
+> playbooks to be written in YAML language
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ansible over other configuration management tools
+
+> ansible is push based (communication: from server to nodes)
+> ansibe : agentless--no need to install/setup/configure any agent
+> light weight---no need of decent amount of hardware(RAM/CPU) to process
+
+
+> Chef and puppet are pull based (communication from nodes to server)
+> agent to be installed on all nodes
+> agent: heavy weight and need certain amount of hardware
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------

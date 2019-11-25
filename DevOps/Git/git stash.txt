@@ -1,0 +1,28 @@
+https://git-scm.com/docs/git-stash
+
+stash : store (something) safely in a hidden or secret place
+
+Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory. 
+The command saves your local modifications away and reverts the working directory to match the HEAD commit.
+
+Stack data stricture
+LIFO
+multple stash; execute stash apply in order with name or ID
+
+> stash only present in local directory, not on server
+
+
+git stash save "message"	to stash content
+
+git stash list			view all stash
+
+
+git stash apply		apply stash and keep the stash
+git pop			apply stash and remove the stash
+	
+git stash drop <stash_ID>	drop specific stash 
+git stash clear		clear  allstash permanently
+
+
+Reference:
+https://www.youtube.com/watch?v=KLEDKgMmbBI 

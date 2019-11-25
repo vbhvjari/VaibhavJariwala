@@ -1,0 +1,14 @@
+fork in ansible
+
+Fork: level of parallelism
+
+Say, we execute ping module for 5 hosts,
+by default, ansible will execute for all hosts parallely, all execution at a time
+
+TO limit parallelism, fork is used
+
+e.g., ansible -f 2 -m ping all
+here, level of parallelism is 2 
+
+> Default value: 5
+> change value: /etc/ansible/ansible.cfg

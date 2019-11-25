@@ -1,0 +1,21 @@
+maven-complier-plugin
+
+this plugin does compilation job
+
+version to be mentioned
+
+source
+target
+
+for webapp scope: provided
+
+different scopes:
+
+compile
+test
+provided
+
+
+maven-compiler-plugin --source and target version
+maven-2		je 1.4
+maven-3		je 1.5

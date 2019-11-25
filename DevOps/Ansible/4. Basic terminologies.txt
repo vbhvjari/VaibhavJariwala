@@ -1,0 +1,56 @@
+1. Inventories
+2. Modules
+3. Variables
+4. Facts
+5. Playbooks and plays
+6. Configuration files
+7. Templates
+8. Roles
+9. Ansible Vault
+
+1. Inventories: list of all nodes 
+- static  :
+- dynamic :
+
+2. Modules: piece of code/command/unit of code
+> ping to other machine then needs ping
+> with help fo module, ansible performs task
+> can write your own module
+> module is idempotent whereas linux commands might be or might not be idempotent
+
+3. Variables
+> name: letters,numbers,underscores
+> name must start with a letter
+
+4. Facts
+> information about nodes
+> whenver control machine pushes changes to nodes control machine would gather information of nodes
+ like, package is installec or not, amount of hardware,network information,etc  
+  
+5. Plays and Playbook
+> Playbook: instruction manual/ series of tasks to be done in proper sequence
+> playbook: consist of plays
+> Each play--module/some task
+> playbook: written in YAML
+
+6. Configuration files
+> default configuration file: /etc/ansible/ansible.cfg
+> ansible look for details to execute jobs from ansible configuration file
+
+7. Templates
+> for file--combination of static and dynamic contents
+> to change content of such file--template
+e.g, welcome to <machine name>
+
+8. Handler and roles
+> Handler--pre-defined actions to be performed after certain tasks
+  say, whenver you make changes in ssh configuration files, needs to restart ssh service
+  here ssh service restart task can be done through handler 
+
+9. Ansible Vault
+> secure store--keep sensitive data
+> encrypted files 
+
+
+
+https://github.com/asquarezone/AnsibleZone

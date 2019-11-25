@@ -1,0 +1,7 @@
+csproj file
+
+> project details and referneces to assemblies
+> XML file
+> file extension: .csproj
+> for C# project
+> e.g., VS version, project type, assembly name, etc..

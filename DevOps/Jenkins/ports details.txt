@@ -1,0 +1,2 @@
+Jenkins			8080
+JFrog Artifactory	8081

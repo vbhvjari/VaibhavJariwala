@@ -1,0 +1,31 @@
+Git Lifecycle
+
+	       git init				     git add			git commit
+Program   ----------------->  Git initialized   -----------------> Staged files--------------> files committed-------------> GitHub -------------> Team Collaboration 
+workspace		     working directory			  (Staging area)		to local repository	        Centralized 
+		      (.git directory; traced by git)						   (commit ID)	 		Repoistory
+
+<-------------------------------------------------------Local system-------------------------------------------------------><-------------Remote system------------->
+
+Working Directory
+> place where code resides
+> could or could not be traced by git
+> can be traced by git using "git init"
+> "git init" automatically creates .git directory and that is repository
+
+
+Staging Area
+> some residues(input/output files) generated while execution of program
+> To store only main code,not residues in git file system, staging area is used
+> we select which files to be commit and traced by git
+  those files are added to staging area
+> To add files to staging area,
+  Command: git add
+
+Commit
+> any changes made to files, reflect same changes to local repository: commit
+> files in staging area to commit using "git commit"
+
+pull
+> local repository to remote repository
+

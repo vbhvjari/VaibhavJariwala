@@ -1,0 +1,15 @@
+Generate SSH key:
+
+Command: ssh-keygen -t <type> -b <bits> -C <comment>
+Example: ssh-keygen -t rsa -b 4096 -C vaibhavjariwala19@gmail.com
+-----------------------------------------------------------------------------------------------
+Path to add ssh key : 
+
+Bitbucket > Bitbucket Settings > SECURITY > SSH keys > Add key
+
+-----------------------------------------------------------------------------------------------
+Verify:
+
+git clone <ssh_url>
+
+-----------------------------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+git revert : discard changes 
+
+> after git revert, discard changes in local repository
+> It doesn't remove commit from commit history, but creates another new commit 
+> can discard changes from specific commit
+
+> If we want to undo changes, git revert is recommended as it does't change commit history unlike git reset
+
+

@@ -1,0 +1,100 @@
+Docker: container platform
+> Platform independent
+> application isolation
+
+
+Software stack: front end components, backend components, DB, Env libraries
+
+> Docker comes at deployment stage
+> Docket makes sure that all software components works at all platform and make them platform independent
+> Container package up all software components in one package  
+> Docker is tool designed to make it easier to deploy and run applications by using containers
+Issues:
+> Code works on dev environment but not in production
+  Docker allows to run same code on different platform and hence m
+
+
+
+Docker file
+> Contains all applications and its dependencies,requirements
+> it is used to create docker images
+
+
+Docker images
+> can be stored in docker hub
+> Can be stored in private server as well
+
+Docker Hub
+> Centralized location to store all docker images
+
+
+Docker Container
+> run time instance of docker images
+
+
+Docker File---->Docker Image--->Docker Container
+
+
+
+> Containers are light weight alternative to VMs
+> client-server architecture
+> Docker engine: similar to hypervisor in virtulization
+
+
+
+Advantages
+> Only one time build application and using docker, deploy on different environment
+  No need to build same app more than once in diff environment
+
+> environment independent; same app with same configuration works in dev/test/prod environment in same way
+
+> Portability/platform independent
+  public clouds,private infra
+  (build once,make container, deploy on diff clous,private infra)
+
+> Version Control
+  
+> Application isolation
+  App-1 would run in its container and do not interfere with other applications running in other container
+
+
+
+
+Docker File
+> Text file to build images, software/application and its dependencies, app requirement
+> Automation of docker images
+
+Dokcerfile
+FROM	get/pull images from docker hub/locally
+
+MAINTAINER	who is maintainer of image
+
+RUN		commands get executed during building of image
+
+CMD		Commands get executed when you create container from the image
+
+docker build <location of docker file>
+
+
+
+
+Docker Compose
+> Applications: using more than one images; e.g, micro services
+> defining and running multi container applications
+> scale up/down services
+> File: dokcer-compose.yml
+
+
+
+Docker Volume
+> location of container data
+> By default, data stored in container; deleting container will result in deleting data
+> Data : to shared among more than one container 
+
+
+
+Docker Swarm: container orchestration
+> swarm is group of machines that are running docker and joined in a cluster
+> swarm manager: single point to control and manage all machines running containers
+
+

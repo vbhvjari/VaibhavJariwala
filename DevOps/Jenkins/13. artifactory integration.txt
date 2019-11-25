@@ -1,0 +1,24 @@
+JFrog Repository create
+
+local repository
+Generic
+Repository Key: projectjenkins
+
+
+
+
+
+
+1. Delivery Pipeline Plugin
+
+2. Artifactory Plugin
+
+3. Configure system
+
+  Artifactory
+
+Add artifactory server
+Test Connection
+
+4. Apply > Save
+ New Item > Freestyle 

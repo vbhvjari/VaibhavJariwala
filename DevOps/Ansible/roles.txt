@@ -1,0 +1,44 @@
+roles
+
+each level of resuability: role
+
+Importance of roles:
+
+> Instead of writing everything in single playbook, write each entity separately
+  Easy to use. easy to undersatand
+
+> In traditional playbook, everything is written in same playbook
+  what if we want to reuse specific portion of playbook in another playbook
+  That is possible in roles
+--------------------------------------------------------------------------------
+Standard project structure
+
+site.yml
+webservers.yml
+fooservers.yml
+roles/
+   common/			role name: common
+     tasks/			main list of tasks
+     handlers/			handlers--inside role or even outiside of role
+     files/			files to be used/deployed via this role
+     templates/			templates		
+     vars/			other variables
+     defaults/			default variables
+     meta/			defines metadata for this role
+   webservers/			role name: webservers
+     tasks/
+     defaults/
+     meta/
+
+
+
+> Here, 2 roles: common and webservers
+> each directory must contain main.yml(except files)
+
+--------------------------------------------------------------------------------
+Instead of creating folder structure manually, create folder structure automatically, use ansible galaxy
+
+Command: ansible-galaxy init <role-name>
+
+e.g., ansible-galaxy init common
+      ansible-galaxy init webservers

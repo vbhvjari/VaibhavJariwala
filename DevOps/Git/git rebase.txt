@@ -1,0 +1,4 @@
+git rebase
+
+> will replay the changes instead of merging
+> ach commit will have a new hash id

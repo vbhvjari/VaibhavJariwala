@@ -1,0 +1,9 @@
+git fetch
+
+> git pull : combination of git fetch and fit merge
+
+> git fetch downloads the changes from remote directory into separate branch (remotes/<remote-name>/<remote-branch-name>)
+> review changes without affecting current branch
+
+> changes downloaded from "git fetch" can be merged to master with "git merge"
+  git merge remotes/<remote-name>/<remote-branch-name> master

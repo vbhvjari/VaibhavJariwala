@@ -1,0 +1,39 @@
+Prerequisites: JDK 1.8
+> Download JDK
+
+Start > Edit Environment variables for your account
+
+New 
+Variable Name  : JAVA_HOME
+Variable Value : C:\Program Files\Java\jdk1.8.0_221
+
+Path > Edit 
+New 	%JAVA_HOME%\bin
+
+Start > cmd (Not as administrator)
+java -version
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1. Download Jenkins
+> URL: https://jenkins.io/download/
+> download war file(jenkins.war)
+
+2. Place war file under location from where jenkins will run
+   e.g., D:\DevOps_Practice\Jenkins
+
+3. cmd(Run Jenkins)
+   > navogate to folder(step-2)
+   > Command: java -jar jenkins.war 
+   > Copy password appeared while executing above command or 
+     location : C:\Users\vbhvjari\.jenkins\secrets\initialAdminPassword
+
+4. Access Jenkins
+   Browser: http://localhost:8080
+
+5. Install required Plugins
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Note:
+
+> downloaded Plugins location : C:\Users\vbhvjari\.jenkins\plugins
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,39 @@
+Prerequisites
+> JAVA OpenJDK
+
+wget http://www-us.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+wget http://www-us.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+
+
+1. Make sure OpenJDK is installed
+   java -version
+
+2. Download maven file
+   cd /opt
+   wget http://www-us.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
+
+(can be downloaded manually from http://maven.apache.org/download.cgi )
+
+3. uncompress
+   mkdir /opt/maven
+   tar -xvzf /opt/apache-maven-3.6.1-bin.tar.gz
+
+4. Move to /usr/local/src
+   cd /usr/local/src
+   mv /opt/maven/apache-maven-3.6.1/ apache-maven/
+
+5. create maven.sh file
+   > cd /etc/profile.d/
+   > vi maven.sh
+   	Add following content
+   	# Apache Maven Environment Variables
+	# MAVEN_HOME for Maven 1 - M2_HOME for Maven 2
+	export M2_HOME=/usr/local/src/apache-maven
+	export PATH=${M2_HOME}/bin:${PATH}
+
+   > chmod +x maven.sh
+   > source /etc/profile.d/maven.sh
+
+
+6. Verify
+   mvn --version

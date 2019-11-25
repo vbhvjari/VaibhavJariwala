@@ -1,0 +1,19 @@
+> Create new branch
+  git branch <branch name>
+
+> Create new branch and switch to newly created branch
+  git checkout -b <branch name>
+
+> List all branches of local repository
+  git branch
+
+> List all branches of remote directory
+  git branch -r
+
+
+> list all branches with their last commit message
+  git branch -va
+
+
+> delete branch
+  git branch -d <branch name>

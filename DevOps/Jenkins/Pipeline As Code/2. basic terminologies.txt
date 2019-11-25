@@ -1,0 +1,93 @@
+Basic terminlogies in Pipeline script
+
+---------------------------------------------------------------------------------------------------------------------------------
+node	speicify where we want to run/execute job
+	default: master node
+
+Syntax:
+Default:
+
+------------
+node
+{
+    
+}
+------------
+
+
+node 	or 	node ('master')
+
+other node -------------node ('node_name')
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+stage	subset of entire pipeline
+	e.g., SCM, Build, Unit Testing, Create Artifact, Publish Artifact, Code Scan, OAD
+
+
+Syntax:
+------------
+node
+{
+	stage('stage_name')
+ 	{
+  		<statements>
+ 	}   
+}
+------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Variable
+
+> Global/Environment Variable: defined outside node;scope: in node{---} ; not in function 
+> Local variable: defined in specific stage; scope of it is in that stage only 
+
+def <variable_name>;
+or
+def <variable_name> = <value>;
+
+variable name: 	must begin with letter or underscore
+		case sensitive
+---------------------------------------------------------------------------------------------------------------------------------
+Global variable:
+
+def variable_name;
+node
+{
+ statements;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+Local variable:
+
+node
+{
+ stage('stage_name')
+ {
+  	def variable_name;
+        def variable_name = "value";
+ }
+}
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+variable defined inside node {---} bit not in any stage ----environment variable
+variable defined outside node, not defined in any stage-----function
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+---------------------------------------------------------------------------------------------------------------------------------
+Pipeline Syntax:
+
+SCM	checkout: Check out from version controlff
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+DSL: Domain Specific Language
+> irresctive of any environment(windows/linux)/language(.net/java/python), same script would be used

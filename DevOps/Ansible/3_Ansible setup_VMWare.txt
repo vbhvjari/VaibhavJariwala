@@ -1,0 +1,43 @@
+Nodes		OS		Hostname		IP
+----------------------------------------------------------------------------
+Ansible Tower	RHEL7.3		anstw			192.168.5.25
+----------------------------------------------------------------------------
+appserver	RHEL7.3		appserver_rhel7		192.168.5.101
+dbserver	RHEL7.3		dbserver_rhel7		192.168.5.102
+node1		RHEL7.3		node1			192.168.5.103	
+node2		RHEL7.3		node2			192.168.5.104
+----------------------------------------------------------------------------
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+Ansible user
+
+username:ansadm
+groupname:ansadm
+
+> This user must be created on ansible tower and all client nodes.
+> Set "no password expire" policy for this user on ansilbe tower and all nodes.
+> Setup passwordless login from ansible tower to all client nodes through ansible user.
+
+
+> Create ansible user
+  useradd -c "Ansible_User" ansadm
+  passwd ansadm
+
+> Verify,
+  id ansadm	OR	getent passwd ansadm
+
+> Set "no password expire policy" 
+  chage -m 0 -M 99999 -E -1 -I -1 ansadm
+  chage -l ansadm
+
+> On ansible tower, make entry of tower itself and all client nodes in /etc/hosts file.
+  Also on all client nodes, make entry of ansible tower in their /etc/hosts file.
+
+> Setup passwordless login through ansible user
+
+> On all client nodes(not on ansible tower),Make necessary changes in sudoers file so that ansible user can run all commands.
+  Add following entry; command: visudo
+   ####Ansible User####
+   ansadm ALL= NOPASSWD:ALL
+
++=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+= 

@@ -1,0 +1,25 @@
+Download jdk and maven
+
+jdk	https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html	Java SE Development Kit 8u221 Windows x64 215.35 MB  jdk-8u221-windows-x64.exe
+maven	https://maven.apache.org/download.cgi		apache-maven-3.6.2-bin.zip
+
+
+Start > Edit Environment variables for your account
+
+New 
+Variable Name  : JAVA_HOME
+Variable Value : C:\Program Files\Java\jdk1.8.0_221
+
+New 
+Variable Name  : M2_HOME
+Variable Value : C:\Program Files (x86)\apache-maven-3.6.2
+
+
+Path > Edit 
+New 	%JAVA_HOME%\bin
+New	%M2_HOME%\bin
+
+
+Start > cmd (Not as administrator)
+java -version
+mvn -version

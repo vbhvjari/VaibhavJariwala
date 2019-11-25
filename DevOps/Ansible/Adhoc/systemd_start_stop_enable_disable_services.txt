@@ -1,0 +1,19 @@
+> To start the service,
+  Command: ansible redhatgroup -m systemd -a "name=httpd state=started " -s
+
+----------------------------------------------------------------------------
+> To enable the service at boot,
+  Command: ansible redhatgroup -m systemd -a "name=httpd enabled=yes" -s
+
+----------------------------------------------------------------------------
+> To disable the service at boot,
+  Command: ansible redhatgroup -m systemd -a "name=httpd enabled=no" -s
+
+----------------------------------------------------------------------------
+> To restart the service,
+  Command: ansible redhatgroup -m systemd -a "name=httpd state=restarted " -s
+
+----------------------------------------------------------------------------
+
+> For more info/help,
+  Command: ansible-doc -s systemd

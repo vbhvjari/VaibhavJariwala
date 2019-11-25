@@ -1,0 +1,20 @@
+JDK(Java Development Kit)
+
+> contains tools which allow to develop and run java program
+
+> It contains 
+  - development tools- compiler(javac), archiver(jar), documentation generator(javadoc)
+  - JRE(Java Runtime Environment) - run compiled java code
+
+
+
+compiler(javac) - convert source code(.java files) into java bytecode(.class files)
+archiver(jar) - 
+documenttation generator(javadoc)
+
+
+JRE- 
+> runs compiled java code
+> uses java libraries and Java Virtual MAchine(JVM)
+
+https://downlinko.com/download-install-jdk-8-windows.html

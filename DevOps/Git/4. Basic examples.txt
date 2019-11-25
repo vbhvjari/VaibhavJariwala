@@ -1,0 +1,36 @@
+Rename existing file and push changes to remote repository
+
+> Rename file
+  git mv custom2 custom3
+  git status
+
+> Add changes to staging area
+  git add -A
+  git status
+
+> Commit changes to local repository
+  git commit -m "rename from custom2 to custom3"
+  git status
+
+> push changes to remote repository
+  git push
+
+---------------------------------------------------------------------------------------
+Delete existing files from local repository and push changes to remote repository
+
+> Delete file
+  rm -rf custom3
+  git status
+
+> Add changes to staging area
+  git add -A
+  git status
+
+> Commit changes to local repository
+  git commit -m "custom3 deleted"
+  git status
+
+> push changes to remote repository
+  git push
+
+---------------------------------------------------------------------------------------

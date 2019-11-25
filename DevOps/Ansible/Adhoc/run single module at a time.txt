@@ -1,0 +1,5 @@
+> Run single command/task,(only for available modules)
+  ansible <node_name/group_name> -m <moudule_name>
+  ansible <node_name/group_name> -m <moudule_name> -o		#output in one line
+E.g., ansible node1_centos7 -m ping
+      ansible CentOS_Nodes -m ping

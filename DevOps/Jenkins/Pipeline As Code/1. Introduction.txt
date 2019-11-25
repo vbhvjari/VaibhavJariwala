@@ -1,0 +1,23 @@
+Make sure pipeline plugin is installed
+
+Manage Jenkins > Manage Plugins
+Plugin name: Pipeline
+--------------------------------------------------------------------------------------------------------------------------
+Create new pipeline job
+
+New Item > Type: Pipeline
+
+4th section: Pipeline
+
+Pipeline script : script on same node (from where jenkins node installed)
+
+Pipeline script from SCM : 
+> can keep script(Jenkinsfile) on VCS--github/bitbucket and can version script(Jenkinsfile)
+> Jenkins will download Jenkinsfile from repository and configure job as per Jenkinsfile
+> Pipeline script: Jenkinsfile
+
+--------------------------------------------------------------------------------------------------------------------------
+Types of pipeline:
+Scripted 			Jenkinsfile	used in BOA	
+Declariative
+--------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,41 @@
+git checkout
+
+
+1. switch to other branch
+   git checkout <branch name> 
+
+------------------------------------------------------------------------------------------------------------------
+2. Create new branch and switch to newly created branch
+   git checkout -b <branch name>
+
+------------------------------------------------------------------------------------------------------------------
+3. dicard changes from working directory for existing file
+
+> Command : git checkout <filename>
+
+> Say, file is modifed//removed in working directory..not staged..not commited
+
+> To go back(discard changes/recover file in case of delete) , use git checkout
+
+> Example- file should exist
+  
+git init
+touch test1.txt
+vi test1.txt		Add some content
+git status
+git add -A
+git status
+git commit -m "added test1 file"
+git status
+
+
+Now make some changes/remove file test1.txt
+To revert changes from working directory, 
+git checkout test1.txt 
+
+
+
+> no changes in git history(git log)
+> no changes in remote repository
+
+------------------------------------------------------------------------------------------------------------------

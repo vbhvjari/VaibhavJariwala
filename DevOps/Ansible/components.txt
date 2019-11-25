@@ -1,0 +1,47 @@
+Components of Ansible
+
+1. Inventories
+> list of all nodes
+  /etc/ansible/hosts
+> 1. static/local
+  2. dynamic
+
+2. Modules
+> module/library - command in simple terms
+> e.g., yum
+> custom modules can be created
+> modules: idempotant
+  linux command : not idempotant
+
+
+3. Variable
+
++++++++++++++++++++++++++++++++++++++++++++++++
+4. Anisble facts
+> while pushing commands to nodes, ansible gathers info of nodes like free memory,cpu utilization,IP,hostname,etc
+> can be disabled in playbook
+
+
+5. Playbook
+> instructions manual
+> Playbook : collections of plays
+> Play : task
+> every play uses module
+> Playbook is YAML file
+
+
+6. Configuration files
+> file : /etc/ansible/ansible.cfg
+> When playbook is run, it fetches info from config file
+> enable/disable options in config file
+
+
+7. Templates
+> combination of static and dynamic contents
+> lots of static content and some dynamic data
+
+8. Handlers
+
+9. Roles
+
+ 

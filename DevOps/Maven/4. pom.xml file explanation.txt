@@ -1,0 +1,50 @@
+POM : Project Object Model--XML file--information about project and configuration details used to build project
+
+
+Default repo : maven repository
+Default PAckage type: jar
+Default source code location : src/main/java
+Default test code location : src/main/test
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Minimal POM COnfiguration
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.howtodoinjava</groupId>
+  <artifactId>MavenExample</artifactId>
+  <version>1.0.0</version>
+</project>
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Important file for maven: pom.xml
+
+<groupId>	project group ID				similar to package name	
+<artifactId>	name of product					similar to class name
+<version>	version of project--version of artifact		default: 1.0-SNAPSHOT
+<modelVersion>	maven version
+<packaging>	types of packaging; e.g., jar,war
+
+
+versioning:
+SNAPSHOT: development
+RELEASE : production
+
+<name> : name of application; can be diff from artifactID
+
+dependency
+> need to mention primary dependecies only; relative dependencies will be taken by Maven itself
+e.g., say app has junit dependency so we need to mention junit dependency in pom file.. say, junit dependency might have other dependencies..these dependencies will be taken care by Maven
+
+project strtucture:
+
+Default Project Structure:
+
+<name>/pom.xml
+<name>/src/main/java
+<name>/src/main/test
+
+modelVersion : version of project descriptor POM conforms
+modelVersion : 4.0 : compatible with maven 3
+
+
+dependency resolution :first local repository then online repository

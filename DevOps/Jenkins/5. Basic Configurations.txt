@@ -1,0 +1,19 @@
+System Message
+
+Manage Jenkins > Configure System > System Message
+
+(Manage Jenkins > Configure Global Security > Markup Formatter > Safe HTML)
+
+--------------------------------------------------------------------------------------------------------------------
+# of executers : max no of parellel jobs jenkins node can run at a time
+--------------------------------------------------------------------------------------------------------------------
+distributes build: 
+master: all configurations
+nodes: build get executed ; reducing load on master node
+
+Distributes load among nodes based on labels
+
+--------------------------------------------------------------------------------------------------------------------
+Quiet period : no of seconds jenkins node would take before triggering job
+
+--------------------------------------------------------------------------------------------------------------------

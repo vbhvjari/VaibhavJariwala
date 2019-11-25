@@ -1,0 +1,25 @@
+def name;
+node
+{
+    stage('use of global variable')
+    {
+        name = "vaibhav"
+        echo "my name is ${name}"
+    }
+    stage('use of local variable')
+    {
+        def address = "Mumbai";
+        echo "my address is ${address}"
+    }
+    stage('use of both global and local variables')
+    {
+        def place = "Surat";
+        echo "my name is ${name} and my native is in ${place}"
+    }
+}
+
+
+
+
+Here, name is global variable
+      address and place are local variables

@@ -1,0 +1,38 @@
+Install ansible on AWS EC2
+
+> Enable epel repository
+  yum-config-manager --enable epel
+
+> Verify
+  yum repolist
+
+> install ansible
+  yum install ansible
+
+> Verify
+  ansible --version
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Install ansible on RedHat OS
+
+> download and install epel repo
+
+  wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  rpm -ivh epel-release-latest-7.noarch.rpm
+
+> Verify
+  yum repolist
+  
+  If not appeared, enable epel repo: yum-config-manager --enable epel
+
+> install ansible
+  yum install ansible
+
+> Verify
+  ansible --version
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Reference:
+https://medium.com/@khandelwal12nidhi/ansible-setup-on-aws-ec2-instance-d83fac41fcc8
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

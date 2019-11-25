@@ -1,0 +1,17 @@
+> List running containers
+  docker ps
+
+> List all containers
+  docker ps -a
+
+> To run a container
+  docker run <image_name>
+ 
+  docker run -it <image_name>
+
+> Start container
+  docker start <container_ID>
+
+> Stop container
+  docker stop <container_ID>
+

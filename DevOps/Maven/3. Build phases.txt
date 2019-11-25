@@ -1,0 +1,25 @@
+Build Lifecycle:
+
+1. compile	mvn compile
+2. testing	mvn test
+3. packaging	mvn package
+4. deploy	mvn deploy
+
+default behaviour :
+say you execute, mvn package then mvn compile and mvn test would be done first automatically(;revious phases run automatically)--everytime
+
+
+phases:
+
+validate :	check everything in place; say pom.xml exists										mvn validate
+compile : 	compilation: source  code(java files) to class files-target directory will be created--class files stored under target	mvn compile
+test : 		testing--fech from src/main/test											mvn test
+package: 	mltiple files into single file---stored in target folder								mvn package
+install:	copy artifact to local maven repository--publish artifact to local repository(M2_HOME)					mvn install
+deploy:		publish artifact to remote repository											mvn deploy
+
+clean: 		clean workspace created by previous build; removes target folder							mvn clean
+
+
+
+dependencies: downloaded from maven online repository and get stored in local repository(M2_HOME)
